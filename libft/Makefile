@@ -1,7 +1,7 @@
 CC=cc
 CFLAGS=-Wall -Wextra -Werror
 NAME=libft.a
-SRC= ft_isalpha.c \
+SRC=ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
@@ -21,27 +21,25 @@ SRC= ft_isalpha.c \
 	ft_memchr.c \
 	ft_memcmp.c
 
-OBJ= $(SRC:%.c=%.o)
+OBJ= $(SRC:.c=.o)
 ARFLAGS= rcs
 
-all: create_obj compress
+all: $(NAME)
 
-create_obj:
-	$(CC) -c $(SRC)
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
 
-compress: $(OBJ)
+$(NAME): $(OBJ)
 	ar $(ARFLAGS) $(NAME) $(OBJ)
 
 clean:
 	rm $(OBJ)
 oa:
 	rm $(NAME)
-out:
-	rm *.out
 fclean: clean
 	rm $(NAME)
-bonus:
+# bonus:
 
 re: fclean all
 
-.PHONY: all create_obj compress clean oa out fclean re
+.PHONY: all clean oa fclean re
