@@ -17,6 +17,8 @@
 
 int	main(void)
 {
+	char *c = ft_strtrim("Hola que tal estas", "e");
+	printf ("%s", c);
 	return (0);
 }
 /*

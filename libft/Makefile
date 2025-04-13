@@ -19,7 +19,14 @@ SRC=ft_isalpha.c \
 	ft_strrchr.c \
 	ft_strncmp.c \
 	ft_memchr.c \
-	ft_memcmp.c
+	ft_memcmp.c \
+	temporal_ft_strdup.c \
+	temporal_calloc.c \
+	temporal_ft_atoi.c \
+	temporal_ft_strnstr.c \
+	temporal_ft_substr.c \
+	temporal_ft_strjoin.c \
+	temporal_ft_strtrim.c
 
 OBJ= $(SRC:.c=.o)
 ARFLAGS= rcs

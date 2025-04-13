@@ -13,7 +13,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 			return (NULL);
 		i = 0;
 		while (i < nmemb * size)
+		{
 			((char *)pointer)[i] = '\0';
+			i++;
+		}
 		return (pointer);
 	}
 	return (NULL);
