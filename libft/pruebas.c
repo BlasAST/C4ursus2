@@ -17,10 +17,10 @@
 
 int	main(void)
 {
-	// printf("%s", ft_strtrim("  Hola como estas si yo estoy bien estas todavia estando estas  ", " "));
+	
 	return (0);
 }
-
+// printf("%s", ft_strtrim("  Hola como estas si yo estoy bien estas todavia estando estas  ", " "));
 // printf("%s hola", ft_strnstr("Hola como estas yo bien", "yo",23));
 
 /*
