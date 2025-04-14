@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:07:24 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:34:42 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/14 12:06:06 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/14 15:32:15 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-	size_t			i;
-	unsigned char	*dest_t;
-	unsigned char	*src_t;
+	size_t i;
+	size_t j;
 
-	dest_t = (unsigned char *)dest;
-	src_t = (unsigned char *)src;
 	i = 0;
-	if ((i == n) || (dest_t == src_t))
-		return (dest_t);
-	if (dest_t < src_t)
+	if (*s2 == '\0')
+		return ((char *)s1);
+	while (i < len && s1[i])
 	{
-		while (i < n)
+		j = 0;
+		if (s1[i] == s2[j])
 		{
-			dest_t[i] = src_t[i];
-			i++;
+			while (s1[i + j] == s2[j] && (i + j) < len)
+				j++;
+			if (s2[j] == '\0')
+				return ((char *)s1 + i);
+				
 		}
+		i++;
 	}
-	else
-	{
-		while (n--)
-		{
-			dest_t[n] = src_t[n];
-		}
-	}
-	return (dest_t);
+	return (NULL);
 }
+/*
+int main(void)
+{
+	char *a = "Hola no buenas noches";
+	char *b = "no";
+	char *c = ft_strnstr(a,b,21);
+	printf("%s", c);
+}
+*/

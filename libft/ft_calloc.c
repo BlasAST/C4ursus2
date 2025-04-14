@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:07:24 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:34:42 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/14 12:03:57 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/14 12:04:02 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			i;
-	unsigned char	*dest_t;
-	unsigned char	*src_t;
+	size_t i;
+	void *pointer;
 
-	dest_t = (unsigned char *)dest;
-	src_t = (unsigned char *)src;
-	i = 0;
-	if ((i == n) || (dest_t == src_t))
-		return (dest_t);
-	if (dest_t < src_t)
+	if (nmemb > 0 && size > 0)
 	{
-		while (i < n)
+		pointer = malloc (nmemb * size);
+		if (!pointer)
+			return (NULL);
+		i = 0;
+		while (i < nmemb * size)
 		{
-			dest_t[i] = src_t[i];
+			((char *)pointer)[i] = '\0';
 			i++;
 		}
+		return (pointer);
 	}
-	else
-	{
-		while (n--)
-		{
-			dest_t[n] = src_t[n];
-		}
-	}
-	return (dest_t);
+	return (NULL);
 }

@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:07:24 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:34:42 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/14 12:04:51 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/14 12:05:10 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t			i;
-	unsigned char	*dest_t;
-	unsigned char	*src_t;
+	char *reply;
+	size_t len;
+	size_t i;
 
-	dest_t = (unsigned char *)dest;
-	src_t = (unsigned char *)src;
+	len = ft_strlen(s);
 	i = 0;
-	if ((i == n) || (dest_t == src_t))
-		return (dest_t);
-	if (dest_t < src_t)
+	reply =(char *) ft_calloc(len + 1, sizeof(char));
+	if (!reply)
+		return (NULL);
+
+	while (s[i] != '\0')
 	{
-		while (i < n)
-		{
-			dest_t[i] = src_t[i];
-			i++;
-		}
+		reply[i] = s[i];
+		i++;
 	}
-	else
-	{
-		while (n--)
-		{
-			dest_t[n] = src_t[n];
-		}
-	}
-	return (dest_t);
+	return (reply);
 }
+
+/*
+int main(void)
+{
+	char *a = "hola buenas tardes";
+	char *b = ft_strdup((const char *)a);
+	printf ("%p ---- %p \n %s", a, b, b);
+	free(b);
+	return (0);
+}
+*/

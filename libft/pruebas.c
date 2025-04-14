@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:00:45 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/10 14:35:02 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:16:42 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@
 
 int	main(void)
 {
-	char *c = ft_strtrim("Hola que tal estas", "e");
-	printf ("%s", c);
+	// printf("%s", ft_strtrim("  Hola como estas si yo estoy bien estas todavia estando estas  ", " "));
 	return (0);
 }
+
+// printf("%s hola", ft_strnstr("Hola como estas yo bien", "yo",23));
+
 /*
+	// char *h = "HOla";
+	// char *n;
+	// ft_memcpy()
+	
 	// printf("%d", ft_isalpha('4'));
 	// printf("%d", ft_isdigit('7'));
 	// printf("%d", ft_isalnum('a'));
@@ -52,7 +58,14 @@ int	main(void)
 		// char *h = (char *) memmove(b + 4, b, 3);
 		// printf("%s\n\n", n);
 		// printf("%s", h);
-		
+	// Prueba memmove
+		// char a[20] = "HOla si como estas";
+		// char b[20] = "HOla si como estas";
+		// // const char *b = "Adios no";
+		// char *n = (char *) ft_memmove(a + 4, a + 3, 3);
+		// char *h = (char *) memmove(b + 4, b + 3, 3);
+		// printf("%s\n\n hola", n);
+		// printf("%s", h);
 	// Prueba toupper
 		// char a = '1';
 		// printf("%c", ft_toupper(a));

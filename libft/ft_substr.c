@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:07:24 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:34:42 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/14 14:44:00 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/14 15:34:47 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char	*dest_t;
-	unsigned char	*src_t;
-
-	dest_t = (unsigned char *)dest;
-	src_t = (unsigned char *)src;
+	char *substr;
+	size_t i;
+	
+	if (!s && len > ft_strlen(s))
+		return (NULL);
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
 	i = 0;
-	if ((i == n) || (dest_t == src_t))
-		return (dest_t);
-	if (dest_t < src_t)
+	while (i < len && s[start + i])
 	{
-		while (i < n)
-		{
-			dest_t[i] = src_t[i];
-			i++;
-		}
+		substr[i] = s[start + i];
+		i++;
 	}
-	else
-	{
-		while (n--)
-		{
-			dest_t[n] = src_t[n];
-		}
-	}
-	return (dest_t);
+	substr[i] = '\0';
+	return (substr);
 }
+
+/*
+	char * a = "Como tu te iama yo no se";
+	char *c = ft_substr(a,8,6);
+	printf ("%s \n \n %p  ----- %p", c, a, c);
+*/

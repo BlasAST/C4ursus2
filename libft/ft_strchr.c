@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 10:54:20 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/10 11:29:00 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/11 15:46:39 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c)
+	char	*a;
+	char	c_t;
+
+	c_t = (char)c;
+	a = (char *)s;
+	while (*a != c_t)
 	{
-		if (*s == '\0')
+		if (*a == '\0')
 			return (0);
-		s++;
+		a++;
 	}
-	return ((char *)s);
+	return (a);
 }
