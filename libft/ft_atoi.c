@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:04:15 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 12:04:26 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:38:41 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	ft_atoi(const char *nptr)
 {
 	int	number;
-	int neg;
+	int	neg;
 
 	number = 0;
 	neg = 0;
 	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-			nptr++;
+		nptr ++;
 	if (*nptr == '+' || *nptr == '-')
 	{
 		if (*nptr == '-')
@@ -33,7 +33,7 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	if (neg)
-		number*= -1;
+		number *= -1;
 	return (number);
 }
 

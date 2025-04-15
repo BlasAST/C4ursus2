@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 12:03:57 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:33:57 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/15 15:42:50 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/15 15:44:43 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-	void	*pointer;
-
-	pointer = malloc (nmemb * size);
-	if (!pointer)
-		return (NULL);
-	i = 0;
-	while (i < nmemb * size)
+	while (*s != '\0')
 	{
-		((char *)pointer)[i] = '\0';
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
-	return (pointer);
+	write(fd, "\n", 1);
 }
+
+/* Envia la string s al fd pero añade un salto de linea al final */

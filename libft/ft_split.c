@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 00:49:12 by blas              #+#    #+#             */
-/*   Updated: 2025/04/15 01:53:41 by blas             ###   ########.fr       */
+/*   Created: 2025/04/15 11:56:58 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/15 15:01:25 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 static	int	ft_delimits(char const *s, char c)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (*s)
@@ -55,67 +55,55 @@ static	int	ft_delimits(char const *s, char c)
 	return (i);
 }
 
-static	int	ft_len_delimit(char const *s, char c)
+static int	ft_free_strs(char **strs, size_t j)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (i);
-}
-
-static void ft_free_strs(char **strs)
-{
-	size_t i;
-
-	i = 0;
-	while (strs[i])
+	while (j > 0)
 	{
-		free(strs[i]);
-		i++;
+		j--;
+		free(strs[j]);
 	}
 	free(strs);
+	return (0);
 }
 
-static	void ft_add_str(char const *s, char c)
-{}
-
-char	**ft_split(char const *s, char c)
+static	int	ft_do_split(char **strs, char const *s, char c)
 {
-	size_t i;
-	size_t j;
-	size_t len;
-	char **strs;
-	
-	i = 0;
-	strs = (char **)malloc(sizeof(char *) * (ft_delimits(s,c) + 1));
-	if (!strs || !s)
-		return (NULL);
+	size_t	i;
+	size_t	j;
+	size_t	h;
+
+	j = 0;
 	while (*s)
 	{
 		while (*s == c)
 			s++;
-		if (*s)
-		{
-			len = ft_len_delimit(s,c);	
-			strs[i] = (char *)malloc(sizeof(char) * (len + 1));
-			if (!strs[i])
-			{
-				ft_free_strs(strs);
-				return (NULL);
-			}
-			j = 0;
-			while (s[j] && s[j] != c)
-			{
-					strs[i][j] = s[j];
-					j++;
-			}
-			strs[i][j] = '\0';
-			s+= len;
+		if (!*s)
+			break ;
+		i = 0;
+		while (s[i] && s[i] != c)
 			i++;
-		}
+		strs[j] = (char *)malloc(sizeof(char) * (i + 1));
+		if (!strs[j])
+			return (ft_free_strs(strs, j));
+		h = 0;
+		while (h < i)
+			strs[j][h++] = *s++;
+		strs[j++][h] = '\0';
 	}
-	strs[i] = NULL;
+	strs[j] = NULL;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
+
+	if (!s)
+		return (NULL);
+	strs = (char **)malloc(sizeof(char *) * (ft_delimits(s, c) + 1));
+	if (!strs)
+		return (NULL);
+	if (!ft_do_split(strs, s, c))
+		return (NULL);
 	return (strs);
 }

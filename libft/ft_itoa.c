@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:35:21 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 16:22:36 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:42:51 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	count_digits(int n)
 {
-	int size;
-	int neg;
+	int	size;
+	int	neg;
 
 	size = 0;
 	neg = 0;
@@ -23,7 +23,7 @@ static int	count_digits(int n)
 		return (1);
 	if (n < 0)
 		neg = 1;
-	while (n !=  0)
+	while (n != 0)
 	{
 		n /= 10;
 		size++;
@@ -33,9 +33,9 @@ static int	count_digits(int n)
 
 char	*ft_itoa(int n)
 {
-	long nb;
-	size_t size;
-	char *s;
+	long	nb;
+	size_t	size;
+	char	*s;
 
 	nb = n;
 	size = count_digits(n);

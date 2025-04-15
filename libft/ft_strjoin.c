@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:05:27 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 12:05:38 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:34:32 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *uni;
-	size_t len_s1;
-	size_t len_s2;
-	size_t i;
+	char	*uni;
+	size_t	len_s1;
+	size_t	len_s2;
+	size_t	i;
 
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);

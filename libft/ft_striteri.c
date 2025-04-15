@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 12:03:57 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:33:57 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/15 15:26:16 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/15 16:32:05 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
-	void	*pointer;
 
-	pointer = malloc (nmemb * size);
-	if (!pointer)
-		return (NULL);
 	i = 0;
-	while (i < nmemb * size)
+	while (s[i] != '\0')
 	{
-		((char *)pointer)[i] = '\0';
+		f(i, &s[i]);
 		i++;
 	}
-	return (pointer);
 }
+
+/* 
+	A cada caracter de "s" aplica la funcion "f" indicando 
+	el indice del caracter de "s"
+	y la dirección del caracter.
+	? Podra modificarse si es necesario ?
+	!No retorna nada
+	
+		*Recorrer la string s
+		*Pasar a f la dirección de s == &s
+		*no retornar nada ?
+ */

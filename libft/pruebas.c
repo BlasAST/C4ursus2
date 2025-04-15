@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:00:45 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/14 16:16:42 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:33:03 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 int	main(void)
 {
-	
 	return (0);
 }
-// printf("%s", ft_strtrim("  Hola como estas si yo estoy bien estas todavia estando estas  ", " "));
-// printf("%s hola", ft_strnstr("Hola como estas yo bien", "yo",23));
 
+// printf("%s", ft_strtrim("  Hola como estas si yo 
+//estoy bien estas todavia estando estas  ", " "));
+// printf("%s hola", ft_strnstr("Hola como estas yo bien", "yo",23));
 /*
 	// char *h = "HOla";
 	// char *n;
