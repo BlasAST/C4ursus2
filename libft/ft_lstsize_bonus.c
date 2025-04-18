@@ -6,11 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:06:57 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 18:12:33 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:04:26 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "libft.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

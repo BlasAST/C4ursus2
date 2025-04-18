@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:16:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 19:29:58 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:03:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	if (!new)
-		new = ft_lstnew(NULL);
-	new->next = NULL;
+	if (!new || !lst)
+		return ;
+	if (!new->next)
+		new->next = NULL;
 	if (*lst == NULL)
 		*lst = new;
 	else

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:44:41 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 19:07:45 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:41:19 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	
+	t_list	*temp;
+
+	if (!lst || !del || !*lst)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = temp;
+	}
 }
 
 /* 

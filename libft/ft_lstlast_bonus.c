@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:12:46 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 18:34:39 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:04:45 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*temp;
+
 	if (!lst)
 		return (lst);
 	temp = lst;
