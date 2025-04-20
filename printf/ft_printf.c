@@ -6,24 +6,24 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 22:15:55 by aisber            #+#    #+#             */
-/*   Updated: 2025/04/20 18:24:26 by aisber           ###   ########.fr       */
+/*   Updated: 2025/04/20 21:52:46 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
-
+/* 
 int	ft_print_str(char *str)
 {
 	printf("%s", str);
 	return (0);
-}
+} */
 
 int	ft_params(char *menu, va_list args)
 {
 	if (*menu == 's')
-		ft_print_str(va_arg(args, char *));
+		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (*menu == 'c')
-		ft_putchar(va_arg(args, int));
+		ft_putchar_fd(va_arg(args, int), 1);
 	return (1);
 }
 
