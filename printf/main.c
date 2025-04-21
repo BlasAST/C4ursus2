@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 11:40:58 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/11 15:47:00 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/21 16:12:31 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/21 18:08:58 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int main(void)
 {
-	if (n <= 0)
-		return (0);
-	while (n - 1 != 0 && *s1 == *s2 && (*s1 != '\0' || *s2 != '\0'))
-	{
-		n--;
-		s1++;
-		s2++;
-	}
-	if (*s1 != *s2)
-		return (*(unsigned char *)s1 - *(unsigned char *)s2);
-	return (0);
+	char *str = "Las, como estas?";
+	double db = 12.1;
+	ft_printf("como tu%s %c te ll %d ama %%h yo no\n\n", "Hola que tal estas" ,"aaa", 12345);
+	printf ("HOla, si %s %%d %c %p %% %c %h %d %i %u %x %X",
+	"soy yo", 'B', str, 'C', db , 30, 123, 123 , 1234);
 }

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:04:15 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:38:41 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:58:43 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,3 @@ int	ft_atoi(const char *nptr)
 		number *= -1;
 	return (number);
 }
-
-/*
-int main(void)
-{
-	char *a = "\n   -l12341a611";
-	printf("%d\n\n", atoi(a));
-	printf("%d", ft_atoi(a));
-} */

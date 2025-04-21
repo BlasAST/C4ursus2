@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:37:35 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 15:42:23 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:00:07 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,3 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
-
-/*
-	Lo mismo que fd_putchar_fd
-	Si no que con una string.
-*/

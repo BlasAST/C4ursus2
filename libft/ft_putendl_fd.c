@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:42:50 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 15:44:43 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:00:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-
-/* Envia la string s al fd pero añade un salto de linea al final */

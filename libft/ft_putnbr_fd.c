@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:46:08 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:37:39 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:00:04 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,3 @@ void	ft_putnbr_fd(int n, int fd)
 	c = n % 10 + '0';
 	write(fd, &c, 1);
 }
-
-/* 
-	Enviar el numero al fd por ello hay que convertirlo a string
-	Recorrer el numero dividiendolo entre 10
-	Ir uniendo el modulo que formemos y añadir \0
-
-		*Recorrer el numero
-		*Calcular el tamaño
-		*Introducirlo invertido
-		*Usar write
-		*maneja negativos
- */

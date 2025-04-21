@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:35:21 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:42:51 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:59:06 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,3 @@ char	*ft_itoa(int n)
 	}
 	return (s);
 }
-/* 
-int main(void)
-{
-	printf("%s" ,ft_itoa(-1234));
-} */

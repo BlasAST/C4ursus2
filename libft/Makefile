@@ -59,13 +59,10 @@ $(NAME): $(OBJ)
 	ar $(ARFLAGS) $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
-
-clean_bonus:
-	rm -f $(OBJ_BONUS)
 
 fclean_bonus: clean_bonus
 	rm -f $(NAME)
@@ -75,4 +72,4 @@ bonus: $(OBJ_BONUS) $(OBJ)
 
 re: fclean all
 
-.PHONY: all clean oa bonus fclean re
+.PHONY: all clean bonus fclean re

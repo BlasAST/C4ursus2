@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:23:33 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/16 21:33:52 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:59:39 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (ini);
 }
-
-/* 
-	Recorre lst y aplica f
-	Crea una lista resultante del resultado de f
-	la funcion del se usa para eliminar el contenido de un nodo
-	si es que hace falta
-
-	while
-		1.Temp es igual al siguiente
-		el contenido del nuevo es el contenido del lst
-		eliminto el  el contenid de lst
-		libero lst
-		la nueva lista es igual a next
-		el actual es igual al temp que guardamos al principio
- */

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 15:42:50 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 15:44:43 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/21 16:45:45 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/21 16:47:06 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_printchar(char c)
 {
-	while (*s != '\0')
+	if (c)
 	{
-		write(fd, s, 1);
-		s++;
+		write(1, &c, 1);
+		return (1);
 	}
-	write(fd, "\n", 1);
+	return (0);
 }
-
-/* Envia la string s al fd pero añade un salto de linea al final */

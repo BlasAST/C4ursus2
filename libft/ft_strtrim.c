@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:06:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 18:57:58 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:58:08 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s_t[i] = '\0';
 	return (s_t);
 }
-
-/* 
-	OBtiene la string a recortar por delante y por detras
-	los caracteres que se deben eliminar
-	! Return null si falla asignación de memoria
-	? Elimina caracteres de la string del principio y del final de s1
-		*Recorrer la string desde el principio
-		* buscando coincidencias con los caracteres que se buscan (
-			*crear funcion para recorrer los
-			*caracteres)
-		* Mientras sean los caracteres del set avanzar y guardar el
-			* inicio de la string
-		! SI el inicio es el final porque todos los caracteres son 
-			! \0 devolver eso
-		*Calcular la longitud de la string hasta el final desde don
-			*de se quedo
-		* Recorrerlo hacia atras hasta que sea igual y detecte algu
-			*n caracter del set al final
-		* asignar memoria
-			*
-		* Recorrer desde el inicio que nos quedo hasta el final que
-			* tambien nos quedo.
-		* Añadir \0
-		!Lo que se ha hecho es restar el start a end +1 para el \0
-		!De esa forma ya se pone \0 si start - end  = 0 + 1
- */

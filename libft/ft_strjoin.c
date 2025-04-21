@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:05:27 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:34:32 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:00:27 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	uni[i + len_s1] = '\0';
 	return (uni);
 }
-
-/*
-	char *h = "Hola buenas";
-	char *j = " tardes como estas";
-	char *c = ft_strjoin(j,h);
-	printf ("%s", c);
-*/

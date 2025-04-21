@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 14:44:00 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:41:42 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:58:30 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
-
-/*
-	char * a = "Como tu te iama yo no se";
-	char *c = ft_substr(a,8,6);
-	printf ("%s \n \n %p  ----- %p", c, a, c);
-*/

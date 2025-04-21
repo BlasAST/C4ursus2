@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:18:55 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/16 15:04:08 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:59:44 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-
-/*
-	Content es el contenido que debe de guardar
-	TODO Devuelve el nodo
-	* Usa malloc
-	Crea un nuevo nodo con malloc
-		la parte de content se inicializa con content
-		y la variable next con null
- */

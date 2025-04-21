@@ -6,34 +6,10 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:56:58 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 15:01:25 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:00:14 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* 
-	#.Consiste en crear un array de strings de una string
-	1. Recibir la cadena y el delimitador
-	2.Instrucciones
-		* 2.0 Declarar len de la string, char * puntero, char **punteros;
-		* 2.1 Recorre string en busca del delimitador (fa)
-		* 2.2. Hacer un char ** con la cantidad de elementos
-		* 2.3 Recorrer la string
-		* 2.4 Calcular el size hasta obtener la longitud de la string
-		* 2.5 Asignar espacio con malloc
-		* 2.6 Guardar cadena hasta dicho limitador
-		* 2.7 Liberar memoria
-		* 2.8 Volver a empezar el bucle
-		! Mejor contar las cadenas y mientras se repita el delimitardor
-			! mover el puntero
-		! Si existe el puntero y no es igual al delimitador calcular el len
-			! hasta el siguiente limitador
-		! Manejar los errores de asignación de memoria
-		!Terminar las strings correctamente con \0
-		!Mover el puntero todas las posiciones copiadas al array de strings
-		!Finalizar el array de strings con NULL para que se reconozca
-
-	X. Null si falla la reserva de memoria use malloc y free
- */
 #include "libft.h"
 
 static	int	ft_delimits(char const *s, char c)

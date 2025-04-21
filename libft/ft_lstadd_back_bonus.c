@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:16:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/16 15:03:00 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:59:11 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		temp->next = new;
 	}
 }
-
-/*
-	lst es el puntero al primer nodo de la lista
-	new es el nodo a añadir
-	TODO no devuelve nada
-	Añade el nodo new al final de "lst"
-		1.Crear temporal dado que voy a modificar lst
-		2.Comprobar si el principio no es igual a null
-			si lo es new es el inicio
-			si no
-		3.Recorrer hasta encontrar el next null
-		4. Asignar el new donde estaba el null
-			y establecer al new next el null
-	!MANEJAR ERRORES DE SEGMENTACIÓN
-*/

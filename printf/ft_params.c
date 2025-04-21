@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_params.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 22:15:55 by aisber            #+#    #+#             */
-/*   Updated: 2025/04/20 21:52:46 by aisber           ###   ########.fr       */
+/*   Created: 2025/04/21 16:12:47 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/21 18:58:05 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
-/* 
-int	ft_print_str(char *str)
-{
-	printf("%s", str);
-	return (0);
-} */
+#include "ft_printf.h"
 
 int	ft_params(char *menu, va_list args)
 {
@@ -24,6 +18,23 @@ int	ft_params(char *menu, va_list args)
 		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (*menu == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
+	else if (*menu == 'd')
+		ft_printdec(va_arg(args, int));
+	else if (*menu == 'i')
+		return (1);
+	else if (*menu == 'u')
+		return (1);
+	else if (*menu == 'x')
+		return (1);
+	else if (*menu == 'X')
+		return (1);
+	else if (*menu == '%')
+		write(1, "%", 1);
+	else
+	{
+		write(1, "%", 1);
+		write(1, menu, 1);
+	}
 	return (1);
 }
 
@@ -44,9 +55,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (1);
-}
-
-int main(void)
-{
-	ft_printf("como tu te llama yo no %s %c %s %s", "Hola que tal estas", 'c' ,"aaa");
 }

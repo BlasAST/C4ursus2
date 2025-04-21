@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:04:51 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/15 16:39:56 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:01:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,3 @@ char	*ft_strdup(const char *s)
 	}
 	return (reply);
 }
-
-/*
-int main(void)
-{
-	char *a = "hola buenas tardes";
-	char *b = ft_strdup((const char *)a);
-	printf ("%p ---- %p \n %s", a, b, b);
-	free(b);
-	return (0);
-}
-*/
