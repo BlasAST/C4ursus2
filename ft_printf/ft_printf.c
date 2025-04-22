@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:47 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/22 15:36:03 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/23 01:13:22 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ int	ft_base(char *menu, va_list args)
 		size += ft_printstr(va_arg(args, char *));
 	else if (*menu == 'c')
 		size += ft_printchar(va_arg(args, int));
-	else if (*menu == 'd')
-		size += ft_printdec(va_arg(args, double));
-	else if (*menu == 'i')
+	else if (*menu == 'd' || *menu == 'i')
 		size += ft_printeger(va_arg(args, int));
 	else if (*menu == 'u')
-		return (1);
+		size += ft_printeger_unsig(va_arg(args, unsigned int));
 	else if (*menu == 'x')
-		return (1);
+		size += ft_print_hex(va_arg(args, int), 0);
 	else if (*menu == 'X')
-		return (1);
+		size += ft_print_hex(va_arg(args, int), 1);
+	else if (*menu == 'p')
+		size += ft_print_address(va_arg(args, unsigned long), 0);
 	else if (*menu == '%')
 		size += ft_printchar('%');
 	else

@@ -4,15 +4,11 @@ ARFLAGS = rcs
 NAME =libftprintf.a
 SRC_PF = ft_printf.c \
 	ft_printchar.c\
-	ft_printdec.c \
-	ft_printeger.c \
-	ft_printadd.c \
-	ft_printegerung.c \
-	ft_printhexdown.c \
-	ft_printhexup.c \
-	ft_printstr.c
+	ft_printstr.c \
+	ft_print_numbers.c
 OBJ_PF = $(SRC_PF:.c=.o)
-SRC_LIB =	libft/ft_strlen.c
+SRC_LIB =	libft/ft_strlen.c \
+			libft/ft_toupper.c
 OBJ_LIB = $(SRC_LIB:libft/%.c=libft/%.o)
 
 all: $(NAME)

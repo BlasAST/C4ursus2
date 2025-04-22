@@ -3,27 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/22 15:00:25 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/23 01:13:10 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void	spaces()
+{
+	int	i;
+
+	i = 0;
+	ft_printchar('\n');
+	ft_printchar('\n');
+	while (i < 20)
+	{
+		ft_printchar('-');
+		i++;
+	}
+	ft_printchar('\n');
+	ft_printchar('\n');
+}
+
 int main(void)
 {
 	char *str = "Las, como estas?";
+	char c = 'o';
 	int	n = - - +  - 12;
-	double db = 1123412342.11;/* 
-	ft_printf("como tu%s %c te ll %d ama %%h yo no\n\n", "Hola que tal estas" ,"aaa", 12345);
-	
-	printf ("HOla, si %s %%d %c %p %% %c %h %d %i %u %x %X",
-	"soy yo", 'B', str, 'C', db , 30, 123, 123 , 1234); */
-	/* Enteros */
-	ft_printf("%d\n", db);
-	printf ("%f", db);
-	/* Caracteres */
-	
+	int h = - 123;
+	int hex = - 12;
+	spaces();
+	ft_printf("Tester ft_printf: \n\n Enteros: %d \n\n Enteros: %i \n\n Enteros sin signo: %u \
+		\n\n Strings: %s \n\n Caracteres: %c \n\n Hexadecimales: \n\n \tLower: %x \
+		\n\n \tUpper: %X \n\n Porcentaje: %%\n\n Puntero: %p\n\n", n, n, h, str, c, hex, hex, &str);
+	spaces();
+	printf("Tester printf: \n\n Enteros: %d \n\n Enteros: %i \n\n Enteros sin signo: %u \
+		\n\n Strings: %s \n\n Caracteres: %c \n\n Hexadecimales: \n\n \tLower: %x \
+		\n\n \tUpper: %X \n\n Porcentaje: %%\n\n Puntero: %p \n\n", n, n, h, str, c, hex, hex, &str);
+	spaces();
 }
