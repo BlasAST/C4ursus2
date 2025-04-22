@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printdec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:12:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/21 18:08:58 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/21 16:47:11 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/22 15:51:32 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main(void)
+int	ft_printdec(double nb)
 {
-	char *str = "Las, como estas?";
-	double db = 12.1;
-	ft_printf("como tu%s %c te ll %d ama %%h yo no\n\n", "Hola que tal estas" ,"aaa", 12345);
-	printf ("HOla, si %s %%d %c %p %% %c %h %d %i %u %x %X",
-	"soy yo", 'B', str, 'C', db , 30, 123, 123 , 1234);
+	int	size;
+	int	dec;
+
+	size = 0;
+	if (nb < 0)
+	{
+		ft_printchar('-');
+		nb = -nb;
+	}		
+	size += ft_printeger((int) nb);
+	nb -= (int) nb;
+	if (nb == 0)
+		return (size);
+	ft_printchar('.');
+	size++;
+	dec = 0;
+	while (dec < 6)
+	{
+		nb *= 10;
+		ft_printchar((int) (nb + 0.5) + '0');
+		nb -= (int) (nb + 0.5);
+		dec++;
+	}
+	return (size + dec);
 }

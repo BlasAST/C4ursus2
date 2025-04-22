@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_params.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:47 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/21 18:58:05 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:36:03 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_params(char *menu, va_list args)
+int	ft_base(char *menu, va_list args)
 {
+	int	size;
+
+	size = 0;
 	if (*menu == 's')
-		ft_putstr_fd(va_arg(args, char *), 1);
+		size += ft_printstr(va_arg(args, char *));
 	else if (*menu == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
+		size += ft_printchar(va_arg(args, int));
 	else if (*menu == 'd')
-		ft_printdec(va_arg(args, int));
+		size += ft_printdec(va_arg(args, double));
 	else if (*menu == 'i')
-		return (1);
+		size += ft_printeger(va_arg(args, int));
 	else if (*menu == 'u')
 		return (1);
 	else if (*menu == 'x')
@@ -29,30 +32,36 @@ int	ft_params(char *menu, va_list args)
 	else if (*menu == 'X')
 		return (1);
 	else if (*menu == '%')
-		write(1, "%", 1);
+		size += ft_printchar('%');
 	else
 	{
-		write(1, "%", 1);
-		write(1, menu, 1);
+		size += ft_printchar('%');
+		size += ft_printchar(*menu);
 	}
-	return (1);
+	return (size);
 }
 
 int	ft_printf(const char *str, ...)
 {
+	int	size;
 	va_list args;
+
+	size = 0;
 	va_start(args, str);
 	while (*str != '\0')
 	{
 		if (*str == '%')
 		{
-			ft_params((char *)str + 1, args);
+			size = ft_base((char *)str + 1, args);
 			str++;
 		}
 		else
+		{
 			write(1, str, 1);
+			size++;
+		}
 		str++;
 	}
 	va_end(args);
-	return (1);
+	return (size);
 }
