@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/23 01:13:10 by aisber           ###   ########.fr       */
+/*   Updated: 2025/04/24 02:06:29 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	spaces()
 		i++;
 	}
 	ft_printchar('\n');
-	ft_printchar('\n');
 }
 
 int main(void)
@@ -36,12 +35,23 @@ int main(void)
 	int h = - 123;
 	int hex = - 12;
 	spaces();
-	ft_printf("Tester ft_printf: \n\n Enteros: %d \n\n Enteros: %i \n\n Enteros sin signo: %u \
-		\n\n Strings: %s \n\n Caracteres: %c \n\n Hexadecimales: \n\n \tLower: %x \
-		\n\n \tUpper: %X \n\n Porcentaje: %%\n\n Puntero: %p\n\n", n, n, h, str, c, hex, hex, &str);
+	ft_printf("\nTester printf:\n Enteros: %d \t\t Enteros: %i \n Enteros sin signo: %u \
+		\t\t Strings: %s \t\t Caracteres: %c \t\t \nHexadecimales: \n\t\t \tLower: %x \
+		\t\t \tUpper: %X \t\t \n\n Porcentaje: %%\t\t Puntero: %p\t\t \n\n\nOtras pruebas: \
+		\n %^'a %k %N %%% %:% %%%d %\n\n \
+		%% 1 %% d %%%d % 4 % 668 %     %% 8    h      o     % \n\n",
+		n, n, h, str, c, hex, hex, &str);
 	spaces();
-	printf("Tester printf: \n\n Enteros: %d \n\n Enteros: %i \n\n Enteros sin signo: %u \
-		\n\n Strings: %s \n\n Caracteres: %c \n\n Hexadecimales: \n\n \tLower: %x \
-		\n\n \tUpper: %X \n\n Porcentaje: %%\n\n Puntero: %p \n\n", n, n, h, str, c, hex, hex, &str);
 	spaces();
+	printf("\nTester printf:\n Enteros: %d \t\t Enteros: %i \n Enteros sin signo: %u \
+		\t\t Strings: %s \t\t Caracteres: %c \t\t \nHexadecimales: \n\t\t \tLower: %x \
+		\t\t \tUpper: %X \t\t \n\n Porcentaje: %%\t\t Puntero: %p\t\t \n\n\nOtras pruebas: \
+		\n %^'a %k %N %%% %:% %%%d %\n\n \
+		%% 1 %% d %%%d % 4 % 668 %     %% 8    h      o     % \n\n",
+		n, n, h, str, c, hex, hex, &str);
+	spaces();
+
+	spaces();
+	printf("Te juro por mi vida que %s me %%s%%s ja tocado %d los% % %  %%  -5 brazos %u no quiero nada más %c\n\n","el algorimto", 4, -6, 'A');
+	ft_printf("Te juro por mi vida que %s me %%s%%s ja tocado %d los% % %  %%  -5 brazos %u no quiero nada más %c\n\n","el algorimto", 4, -6, 'A');
 }
