@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:47 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/24 01:54:04 by aisber           ###   ########.fr       */
+/*   Updated: 2025/04/24 13:28:39 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_base(char **menu, va_list args)
 	if (**menu == 's')
 		size += ft_printstr(va_arg(args, char *));
 	else if (**menu == 'c')
-		size += ft_printchar(va_arg(args, int));
+		size += ft_printchar((char) va_arg(args, int));
 	else if (**menu == 'd' || **menu == 'i')
 		size += ft_printeger(va_arg(args, int));
 	else if (**menu == 'u')
@@ -33,14 +33,14 @@ int	ft_base(char **menu, va_list args)
 	else if (**menu == 'p')
 		size += ft_print_address(va_arg(args, unsigned long), 0);
 	else
-		size += ft_print_other_value(menu);
+		size += ft_print_other_value(menu, args);
 	return (size);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int	size;
-	va_list args;
+	int		size;
+	va_list	args;
 	char	*temp;
 
 	size = 0;
@@ -50,7 +50,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*temp == '%')
 		{
-			size = ft_base(&temp , args);
+			size += ft_base(&temp, args);
 		}
 		else
 		{

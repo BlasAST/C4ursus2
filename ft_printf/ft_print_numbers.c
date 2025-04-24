@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printeger.c                                     :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:03:33 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/23 01:09:50 by aisber           ###   ########.fr       */
+/*   Updated: 2025/04/24 13:09:48 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ int	ft_printeger(int nb)
 	{
 		write(1, "-2147483648", 11);
 		return (11);
-	}else if (nb < 0)
+	}
+	else if (nb < 0)
 	{
 		write(1, "-", 1);
 		nb = -nb;
 		len++;
 	}
 	if (nb / 10 > 0)
-		len += ft_printeger(nb/10);
+		len += ft_printeger(nb / 10);
 	len++;
 	ft_printchar(nb % 10 + '0');
 	return (len);
@@ -40,7 +41,7 @@ int	ft_printeger_unsig(unsigned int nb)
 
 	len = 0;
 	if (nb / 10 > 0)
-		len += ft_printeger_unsig(nb/10);
+		len += ft_printeger_unsig(nb / 10);
 	len++;
 	ft_printchar(nb % 10 + '0');
 	return (len);
@@ -55,7 +56,7 @@ int	ft_print_hex(unsigned int nb, int upper)
 	size = 0;
 	if (nb >= 16)
 		size += ft_print_hex(nb / 16, upper);
-	if (upper == 1 && nb % 16 >= 10)
+	if (upper)
 		size += ft_printchar(ft_toupper(base[nb % 16]));
 	else
 		size += ft_printchar(base[nb % 16]);
@@ -66,14 +67,19 @@ int	ft_print_address(unsigned long nb, int upper)
 {
 	char	*base;
 	int		size;
-	
+
 	base = "0123456789abcdef";
 	size = 0;
+	if (nb == 0)
+	{
+		size += ft_printstr("(nil)");
+		return (size);
+	}
 	if (nb >= 16)
 		size += ft_print_address(nb / 16, upper);
 	else
-		ft_printstr("0x");
-	if (upper == 1 && nb % 16 >= 10)
+		size = ft_printstr("0x");
+	if (upper)
 		size += ft_printchar(ft_toupper(base[nb % 16]));
 	else
 		size += ft_printchar(base[nb % 16]);

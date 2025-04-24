@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   bonus_tester_printf.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 12:59:39 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/24 13:25:43 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/24 12:56:52 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/24 13:46:46 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printstr(char *c)
+int	main(void)
 {
-	int	i;
-
-	i = 0;
-	if (c == NULL)
-	{
-		i += ft_printstr("(null)");
-		return (i);
-	}
-	while (c[i])
-	{
-		write(1, &c[i], 1);
-		i++;
-	}
-	return (i);
+    char *str = "-Hola buenas tardes \n";
+    int nb = -123;
+	printf("%+k\n\n", nb);
+    ft_printf("%d", str);
 }

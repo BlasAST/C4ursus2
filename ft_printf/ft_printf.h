@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/23 21:21:23 by aisber           ###   ########.fr       */
+/*   Updated: 2025/04/24 13:30:26 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEAD_H
-# define HEAD_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
@@ -24,6 +24,6 @@ int	ft_printeger_unsig(unsigned int nb);
 int	ft_printstr(char *c);
 int	ft_print_hex(unsigned int nb, int upper);
 int	ft_print_address(unsigned long nb, int upper);
-int ft_print_porcent(char **str);
-int ft_print_other_value(char **c);
+int	ft_print_other_value(char **c, va_list args);
+int	ft_bonus_printf(char **c, va_list args);
 #endif
