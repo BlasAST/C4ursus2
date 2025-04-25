@@ -6,11 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:03:33 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/24 13:09:48 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/25 11:00:04 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_printeger(int nb)
 {

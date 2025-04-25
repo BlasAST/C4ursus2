@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_tester_printf.c                              :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 12:56:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/24 13:46:46 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/15 15:42:50 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/21 15:00:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putendl_fd(char *s, int fd)
 {
-    char *str = "-Hola buenas tardes \n";
-    int nb = -123;
-	printf("%+k\n\n", nb);
-    ft_printf("%d", str);
+	while (*s != '\0')
+	{
+		write(fd, s, 1);
+		s++;
+	}
+	write(fd, "\n", 1);
 }

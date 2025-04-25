@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/25 15:47:23 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/14 12:04:15 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/21 14:58:43 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_printchar(char c);
-int	ft_printeger(int nb);
-int	ft_printeger_unsig(unsigned int nb);
-int	ft_printstr(char *c);
-int	ft_print_hex(unsigned int nb, int upper);
-int	ft_print_address(unsigned long nb, int upper);
-#endif
+int	ft_atoi(const char *nptr)
+{
+	int	number;
+	int	neg;
+
+	number = 0;
+	neg = 0;
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr ++;
+	if (*nptr == '+' || *nptr == '-')
+	{
+		if (*nptr == '-')
+			neg = 1;
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		number = number * 10 + *nptr - '0';
+		nptr++;
+	}
+	if (neg)
+		number *= -1;
+	return (number);
+}

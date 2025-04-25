@@ -1,49 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bonus_printf.c                                  :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 13:21:32 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/24 13:47:01 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/10 14:08:26 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/10 14:25:17 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static	int	ft_plus(char **c, va_list args)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	nb;
-	int	size;
+	size_t			i;
+	unsigned char	*s_t;
 
-	nb = va_arg(args, int);
-	size = 0;
-	if (nb)
-	{
-		if (nb >= 0)
-		{
-			size += ft_printchar('+');
-			size += ft_printeger(nb);
-		}
-	}
-	else
-	{
-		size += ft_printchar('+');
-		(*c)++;
-		
-	}
-	return (size);
-}
-
-int	ft_bonus_printf(char **c, va_list args)
-{
-	int	i;
-
+	s_t = (unsigned char *) s;
 	i = 0;
-	if (**c == '+')
-		ft_plus(c, args);
-	**c = **c;
+	while (i < n)
+	{
+		if (s_t[i] == (unsigned char)c)
+			return ((void *)(s_t + i));
+		i++;
+	}
 	return (0);
 }
-

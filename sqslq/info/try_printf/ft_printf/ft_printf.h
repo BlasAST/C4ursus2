@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/25 15:47:23 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/04/25 13:07:05 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int	ft_printeger_unsig(unsigned int nb);
 int	ft_printstr(char *c);
 int	ft_print_hex(unsigned int nb, int upper);
 int	ft_print_address(unsigned long nb, int upper);
+int	ft_print_other_value(char **c);
 #endif

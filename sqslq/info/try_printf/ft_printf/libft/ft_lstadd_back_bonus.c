@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/25 15:47:23 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/15 18:16:25 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/21 14:59:11 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_printchar(char c);
-int	ft_printeger(int nb);
-int	ft_printeger_unsig(unsigned int nb);
-int	ft_printstr(char *c);
-int	ft_print_hex(unsigned int nb, int upper);
-int	ft_print_address(unsigned long nb, int upper);
-#endif
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*temp;
+
+	if (!new || !lst)
+		return ;
+	if (!new->next)
+		new->next = NULL;
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		temp = *lst;
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
+	}
+}

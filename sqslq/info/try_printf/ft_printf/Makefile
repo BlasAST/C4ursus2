@@ -4,7 +4,8 @@ ARFLAGS = rcs
 NAME =libftprintf.a
 SRC_PF = ft_printf.c \
 	src/ft_utils.c\
-	src/ft_utils2.c
+	src/ft_utils2.c \
+	src/ft_print_other_value.c
 OBJ_PF = $(SRC_PF:.c=.o)
 SRC_LIB =	libft/ft_strlen.c \
 			libft/ft_toupper.c \

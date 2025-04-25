@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/25 15:47:23 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/10 11:40:58 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/11 15:47:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_printchar(char c);
-int	ft_printeger(int nb);
-int	ft_printeger_unsig(unsigned int nb);
-int	ft_printstr(char *c);
-int	ft_print_hex(unsigned int nb, int upper);
-int	ft_print_address(unsigned long nb, int upper);
-#endif
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	if (n <= 0)
+		return (0);
+	while (n - 1 != 0 && *s1 == *s2 && (*s1 != '\0' || *s2 != '\0'))
+	{
+		n--;
+		s1++;
+		s2++;
+	}
+	if (*s1 != *s2)
+		return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (0);
+}

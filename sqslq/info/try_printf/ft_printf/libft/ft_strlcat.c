@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/25 15:47:23 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/10 10:39:00 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/11 14:12:44 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_printchar(char c);
-int	ft_printeger(int nb);
-int	ft_printeger_unsig(unsigned int nb);
-int	ft_printstr(char *c);
-int	ft_print_hex(unsigned int nb, int upper);
-int	ft_print_address(unsigned long nb, int upper);
-#endif
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	len;
+
+	i = 0;
+	j = 0;
+	len = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[len] != '\0')
+		len++;
+	if (size <= i)
+		return (size + len);
+	while (j < size - 1 - i && src[j] != '\0')
+	{
+		dest[j + i] = src[j];
+		j++;
+	}
+	dest[j + i] = '\0';
+	return (i + len);
+}

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 12:59:39 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/24 13:25:43 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/08 14:20:55 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/10 11:28:17 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printstr(char *c)
+int	ft_isprint(int c)
 {
-	int	i;
-
-	i = 0;
-	if (c == NULL)
-	{
-		i += ft_printstr("(null)");
-		return (i);
-	}
-	while (c[i])
-	{
-		write(1, &c[i], 1);
-		i++;
-	}
-	return (i);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

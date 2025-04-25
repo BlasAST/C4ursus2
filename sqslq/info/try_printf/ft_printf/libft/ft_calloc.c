@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:12:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/25 15:47:23 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/04/14 12:03:57 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/04/15 16:33:57 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_printchar(char c);
-int	ft_printeger(int nb);
-int	ft_printeger_unsig(unsigned int nb);
-int	ft_printstr(char *c);
-int	ft_print_hex(unsigned int nb, int upper);
-int	ft_print_address(unsigned long nb, int upper);
-#endif
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	size_t	i;
+	void	*pointer;
+
+	pointer = malloc (nmemb * size);
+	if (!pointer)
+		return (NULL);
+	i = 0;
+	while (i < nmemb * size)
+	{
+		((char *)pointer)[i] = '\0';
+		i++;
+	}
+	return (pointer);
+}
