@@ -21,12 +21,12 @@ char	*get_next_line(int fd)
 		return (ft_clean_buffer(buffer));
 	i = 0;
 	bytes = read(fd, &buffer[i],1);
-	if (bytes == -1)
+	if (bytes == -1 || bytes == 0)
 		return (ft_clean_buffer(buffer));
 	i++;
-	while (buffer[i - 1] != '\n' && bytes != 0 && i < BUFFER_SIZE)
+	while (buffer[i - 1] != '\n' && i < BUFFER_SIZE)
 	{
-		bytes = read(fd, &buffer[i],1);
+		bytes = read(fd, &buffer[i], 1);
 		if (bytes == -1)
 			return (ft_clean_buffer(buffer));
 		i++;
@@ -37,7 +37,8 @@ char	*get_next_line(int fd)
 
 int main(void)
 {
-	int value = open("nidea.txt", O_RDONLY);
+	int value = open("el_quijote.txt", O_RDONLY);
+	// int value = open("nose.txt", O_RDONLY);
 	char *c;
 	while ((c = get_next_line(value)))
 	{
