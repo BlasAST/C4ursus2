@@ -44,17 +44,34 @@ int main(void)
 	int	n = 12;
 	int h = - 123;
 	int hex = - 12;
-	/* 
-		* Tester de  align left
-	printf("\nPrintf: \n %-21d holaaaaaaaaaaaaaaaa\n %- 11d holaaaaaaaaaaaaaaaa\n % - 5 d holaaaaaaaaaaaaaaaa\n % -5 d holaaaaaaaaaaaaaaaa\n", n, n, n, n);
-	ft_printf("\nft_Printf: \n %-21d holaaaaaaaaaaaaaaaa\n %- 11d holaaaaaaaaaaaaaaaa\n % - 5 d holaaaaaaaaaaaaaaaa\n % -5 d holaaaaaaaaaaaaaaaa\n", n, n, n, n);
-	 */
+/* 
+	*Pruebas adicionales xd
+	printf("\n\nLongitud total: %d\n\n", printf("%d hola buenas noches, %c , %s ::::: claro que si \
+		%% como serían los cielos azules si fuesen azules. %u, %x y tambien %X por ultimo \
+		la address de algo idnknw: %p si", n, c, str, n, h, hex, hex));
+	ft_printf("\n\nLongitud total: %d\n\n", ft_printf("%d hola buenas noches, %c , %s ::::: claro que si \
+		%% como serían los cielos azules si fuesen azules. %u, %x y tambien %X por ultimo \
+		la address de algo idnknw: %p si", n, c, str, n, h, hex, hex));
+ */
+
+	printf("\n\nLongitud total: %d\n\n",
+		printf("\n %-21u holaaaaaaaaaaaaaaaa\n%- 11d holaaaaaaaaaaaaaaaa\n % - 5 d holaaaaaaaaaaaaaaaa\n % -5 d holaaaaaaaaaaaaaaaa\n", n, n, n, n));
+	printf("\n\nLongitud total: %d\n\n",
+		ft_printf("\n %-21u holaaaaaaaaaaaaaaaa\n%- 11d holaaaaaaaaaaaaaaaa\n % - 5 d holaaaaaaaaaaaaaaaa\n % -5 d holaaaaaaaaaaaaaaaa\n", n, n, n, n));
+	
+/* 	
+	* printf("%s", "\n\nTester de  align left\n\n");
+
+	printf("\nPrintf: \n %-21u holaaaaaaaaaaaaaaaa\n%- 11d holaaaaaaaaaaaaaaaa\n % - 5 d holaaaaaaaaaaaaaaaa\n % -5 d holaaaaaaaaaaaaaaaa\n", n, n, n, n);
+	ft_printf("\nft_Printf: \n %-21u holaaaaaaaaaaaaaaaa\n %- 11d holaaaaaaaaaaaaaaaa\n % - 5 d holaaaaaaaaaaaaaaaa\n % -5 d holaaaaaaaaaaaaaaaa\n", n, n, n, n);
+	  */
 
 	
 	// printf("Printf: \n %-10d hola \n %010d \n %.3d \n %#x %+d\n\n", n, n, n, n, n);
 	// ft_printf("Ft_printf: \n %-10d hola \n %010d \n %.3d \n %#x %+d\n\n", n, n, n, n, n);
-/* 	
-		* Tester general de printf
+
+/* 		
+	* printf("%s", "Tester general de printf");
 	spaces();
 	ft_printf("\nTester ft_printf:\n Enteros: %d \t\t Enteros: %i \n Enteros sin signo: %u \
 		\t\t Strings: %s \t\t Caracteres: %c \t\t \nHexadecimales: \n\t\t \tLower: %x \
@@ -76,7 +93,6 @@ int main(void)
 	printf("Te juro por mi vida que %s me %%s%%s ja tocado %d los% % %  %%  -5 brazos %u no quiero nada más %c\n\n","el algorimto", 4, -6, 'A');
 	ft_printf("Te juro por mi vida que %s me %%s%%s ja tocado %d los% % %  %%  -5 brazos %u no quiero nada más %c\n\n","el algorimto", 4, -6, 'A');
  */
-
 }
 
 /*

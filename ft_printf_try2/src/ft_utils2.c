@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:03:33 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/04/26 17:53:22 by aisber           ###   ########.fr       */
+/*   Updated: 2025/04/28 00:05:02 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	ft_print_address(unsigned long nb, int upper)
 	if (nb >= 16)
 		size += ft_print_address(nb / 16, upper);
 	else
-		size = ft_printstr("0x");
+		size += ft_printstr("0x");
 	size += ft_printchar(base[nb % 16]);
 	return (size);
 }
