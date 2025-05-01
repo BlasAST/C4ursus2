@@ -124,9 +124,20 @@ char	*get_next_line(int fd)
 	// Asignar espacio a last_buffer y copiar buffer
 	last_buffer = ft_realloc(last_buffer, buffer, size);
 	// Buscar  \N
-	// Si no se encuentra repetir
+	while (!ft_find_jump(last_buffer))
+	{
+		// Si no se encuentra repetir
+		// realizar otra lectura para repetir
+		bytes = read (fd, buffer, BUFFER_SIZE);
+		if (bytes <= 0)
+			return (NULL);
+		buffer[bytes] = '\0';
 	// Asignar lo anterior a la variable estatica + size
-	// realizar otra lectura para repetir
+	last_buffer = ft_realloc(last_buffer, buffer, size);
+	}
+	
+	
+	
 	// Si la lectura encuentra el final trabajar el ultimo buffer DEVOLVERLO A RETURN BUFFER
 	// Si se detiene por el bucle devolver todo lo del buffer statico hasta el  \n
 	// Se desplaza la static hasta el siguiente sin el  \n
