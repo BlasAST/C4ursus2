@@ -45,3 +45,21 @@ int main(void)
 		ft_print_buffer(c);
 	}
 }
+
+/* 
+	* Realizar lectura linea por linea
+	* Debe devolver la linea que se acaba de leer
+	! Si no hay nada que leer o a ocurrido un error devolver NULL
+	Debe funcionar con la lectura de archivo y stdin
+	*La linea devuelta deve terminal con "\n" excepto si llega al final
+	*	del archivo y no termina en \n
+	TODO variable estatica
+	*GNL debe tener un comportamiento indeterminado si
+	! si el arhivo es un archivo binario aunque se puede buscar alguna forma
+	! realizar solucionar el problema
+
+	TODO Leer lo menos posible cada vez que se llame a GNL.
+	TODO si se encuentra un \n debe devolver la linea
+	!No leer el archivo entero y procesar cada linea
+	! NO LIBFT NO LSEEK NO VARIABLES GLOBALES
+ */
