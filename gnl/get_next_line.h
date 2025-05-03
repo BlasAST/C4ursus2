@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:45:00 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/05/03 01:49:25 by aisber           ###   ########.fr       */
+/*   Updated: 2025/05/03 14:44:50 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	ft_strlen(char *str);
 char	*ft_strdup(char *str);
 int	ft_find(char *str, char c);
 void	ft_strcpy(char *dest, char *str, char c);
-char	*ft_realloc_buff(char *last_buff, char *str, int size);
+char	*ft_realloc_buff(char *last_buff, char *str);
 #endif

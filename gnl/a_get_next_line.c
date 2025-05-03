@@ -5,11 +5,9 @@ char	*get_next_line(int fd)
 	static char	*last_buffer;
 	char	*buffer;
 	char *temp;
-	int	size;
 	int	pos;
 	int	bytes;
 
-	size = 1;
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
@@ -17,10 +15,9 @@ char	*get_next_line(int fd)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes <= 0)
-			break ;
+			return (last_buffer); //Error aqui
 		buffer[bytes] = '\0';
-		last_buffer = ft_realloc_buff(last_buffer, buffer, size);
-		size++;
+		last_buffer = ft_realloc_buff(last_buffer, buffer);
 	}
 	free(buffer);
 	if (!last_buffer || *last_buffer == '\0')

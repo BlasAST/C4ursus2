@@ -14,6 +14,8 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (i);
 	while (str[i])
 		i++;
 	return (i);
@@ -77,43 +79,21 @@ void	ft_strcpy(char *dest, char *str, char c)
 	dest[i] = '\0';
 }
 
-/* char	*ft_realloc_buff(char *last_buff, char *str, int z)
+char	*ft_realloc_buff(char *last_buff, char *str)
 {
-	char	*temp_buff;
-	int	size;
-
-	temp_buff = ft_strdup(last_buff);
-	size = BUFFER_SIZE * z;
-	free (last_buff);
-	last_buff = malloc (sizeof(char) * (size + 1));
-	if (!last_buff)
-		return (NULL);
-	ft_strcpy(last_buff, temp_buff, '\0');
-	if (*str)
-		ft_strcpy(&(last_buff[size - BUFFER_SIZE]), str, '\0');
-	last_buff[size] = '\0';
-	free(temp_buff);
-	return (last_buff);
-} */
-
-
-char	*ft_realloc_buff(char *last_buff, char *str, int z)
-{
-	char	*temp_buff;
 	char	*new_buff;
-	int	size;
+	int	len1;
+	int	len2;
 
 	if (!str)
 		return (last_buff);
-	temp_buff = ft_strdup(last_buff);
-	size = BUFFER_SIZE * z;
-	new_buff = malloc (sizeof(char) * (size + 1));
+	len1 = ft_strlen(last_buff);
+	len2 = ft_strlen(str);
+	new_buff = malloc (sizeof(char) * (len1 + len2 + 1));
 	if (!new_buff)
 		return (NULL);
-	ft_strcpy(new_buff, temp_buff, '\0');
-	ft_strcpy(&(new_buff[size - BUFFER_SIZE]), str, '\0');
-	new_buff[size] = '\0';
-	free(temp_buff);
+	ft_strcpy(new_buff, last_buff, '\0');
+	ft_strcpy(new_buff + len1, str, '\0');
 	free(last_buff);
 	return (new_buff);
 }

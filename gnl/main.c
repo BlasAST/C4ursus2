@@ -3,16 +3,17 @@
 
 int main(void)
 {
-	int value = open("el_quijote.txt", O_RDONLY);
-	// int value = open("nose.txt", O_RDONLY);
+	// int value = open("el_quijote.txt", O_RDONLY);
+	int value = open("nose.txt", O_RDONLY);
 	char *c;
-	/* while ((c = get_next_line(value)))
+	while ((c = get_next_line(value)))
 	{
 		ft_print_buffer(c);
-	} */
+	}
 
+	/* ft_print_buffer(get_next_line(value));
 	ft_print_buffer(get_next_line(value));
-	ft_print_buffer(get_next_line(value));
+	ft_print_buffer(get_next_line(value)); */
 }
 
 
