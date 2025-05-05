@@ -21,6 +21,22 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	*ft_clean_last_buff(char **last, char *buffer)
+{
+	char	*temp;
+
+	free (buffer);
+	if (*last && **last != '\0')
+	{
+		temp = *last;
+		*last = NULL;
+		return (temp);
+	}
+	free(*last);
+	*last = NULL;
+	return (NULL);
+}
+
 char	*ft_strdup(char *str)
 {
 	int	len;
@@ -50,7 +66,7 @@ int	ft_find(char *str, char c)
 	i = 0;
 	if (!str)
 		return (-1);
-	while (str[i])
+	while (str[i] && str[i] != '\0')
 	{
 		if (str[i] == c)
 			return (i);
@@ -86,7 +102,7 @@ char	*ft_realloc_buff(char *last_buff, char *str)
 	int	len2;
 
 	if (!str)
-		return (last_buff);
+		return (NULL);
 	len1 = ft_strlen(last_buff);
 	len2 = ft_strlen(str);
 	new_buff = malloc (sizeof(char) * (len1 + len2 + 1));

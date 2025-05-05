@@ -14,9 +14,9 @@ char	*get_next_line(int fd)
 	while (ft_find(last_buffer, '\n') == -1)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
-		if (bytes <= 0)
-			return (last_buffer); //Error aqui
 		buffer[bytes] = '\0';
+		if (bytes <= 0)
+			return (ft_clean_last_buff(&last_buffer, buffer));
 		last_buffer = ft_realloc_buff(last_buffer, buffer);
 	}
 	free(buffer);
