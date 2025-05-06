@@ -8,7 +8,6 @@
 # endif
 
 char	*get_next_line(int fd);
-void	ft_print_buffer(char *str);
 char	*ft_clean_last_buff(char **last, char *buff, int bytes);
 int	ft_strlen(char *str);
 int ft_find(char *str, char c);

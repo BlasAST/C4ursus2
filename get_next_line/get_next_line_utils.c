@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/06 13:43:28 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/05/06 13:47:32 by bsiguenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 int	ft_strlen(char *str)
@@ -12,7 +24,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int ft_find(char *str, char c)
+int	ft_find(char *str, char c)
 {
 	int	i;
 
@@ -21,7 +33,7 @@ int ft_find(char *str, char c)
 		return (-1);
 	while (str[i] && str[i] != '\0')
 	{
-		if (str[i] == c)	
+		if (str[i] == c)
 			return (i);
 		i++;
 	}
@@ -31,8 +43,8 @@ int ft_find(char *str, char c)
 char	*ft_strdup(char *str)
 {
 	char	*new_str;
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 
 	if (!str)
 		return (NULL);
@@ -52,7 +64,7 @@ char	*ft_strdup(char *str)
 
 char	*ft_clean_last_buff(char **last, char *buff, int bytes)
 {
-	char *temp;
+	char	*temp;
 
 	free(buff);
 	if (*last)
@@ -85,8 +97,8 @@ void	ft_strcpy(char *dest, char *str, char c)
 char	*ft_realloc(char *last_buffer, char *buffer)
 {
 	char	*temp;
-	int	len1;
-	int	len2;
+	int		len1;
+	int		len2;
 
 	if (!buffer)
 		return (NULL);
