@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:43:28 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/05/06 13:47:32 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:27:27 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,6 @@ char	*ft_strdup(char *str)
 	}
 	new_str[i] = '\0';
 	return (new_str);
-}
-
-char	*ft_clean_last_buff(char **last, char *buff, int bytes)
-{
-	char	*temp;
-
-	free(buff);
-	if (*last)
-	{
-		temp = ft_strdup(*last);
-		free (*last);
-		*last = NULL;
-		return (temp);
-	}
-	return (NULL);
 }
 
 void	ft_strcpy(char *dest, char *str, char c)
