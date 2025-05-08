@@ -45,12 +45,13 @@ void	file_null(int fd)
 int main(void)
 {
 	// int value = open("tester2/el_quijote.txt", O_RDONLY);
-	// int value = open("tester2/nose.txt", O_RDONLY);
-	int value = open("tester2/archivo.bin", O_RDONLY);
+	int value = open("tester2/nose.txt", O_RDONLY);
+	// int value = open("tester2/archivo.bin", O_RDONLY);
 	char *c;
 	while ((c = get_next_line(value)))
 	{
 		ft_print_buffer(c);
+		free(c);
 	}
 	
 	/* ft_print_buffer(get_next_line(value));

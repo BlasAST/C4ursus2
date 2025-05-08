@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:43:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/05/08 14:28:01 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:54:05 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	*modify_last_buff(char **buffer, char **last_buffer)
 {
 	int		pos;
 	char	*temp;
+	char	*to_free;
 
 	free(*buffer);
 	pos = ft_find(*last_buffer, '\n');
@@ -38,7 +39,9 @@ char	*modify_last_buff(char **buffer, char **last_buffer)
 	if (!temp)
 		return (NULL);
 	ft_strcpy(temp, *last_buffer, '\n');
+	to_free = *last_buffer;
 	*last_buffer = ft_strdup(*last_buffer + pos + 1);
+	free(to_free);
 	return (temp);
 }
 
@@ -46,9 +49,7 @@ char	*get_next_line(int fd)
 {
 	static char	*last_buffer;
 	char		*buffer;
-	char		*temp;
 	int			bytes;
-	int			pos;
 
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer || !fd)
