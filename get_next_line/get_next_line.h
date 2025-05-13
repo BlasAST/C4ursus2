@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:43:20 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/05/08 14:07:42 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/05/12 17:37:49 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_clean_last_buff(char **last, char *buff);
+char	*ft_clean_last_buff(char **last, char *buff, int bytes);
 int		ft_strlen(char *str);
 int		ft_find(char *str, char c);
 char	*ft_strdup(char *str);

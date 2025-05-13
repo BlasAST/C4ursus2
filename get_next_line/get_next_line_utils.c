@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:43:28 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/05/08 16:50:08 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/05/12 17:24:01 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_find(char *str, char c)
 	int	i;
 
 	i = 0;
-	if (!str || !c)
+	if (!str)
 		return (-1);
 	while (str[i] && str[i] != '\0')
 	{

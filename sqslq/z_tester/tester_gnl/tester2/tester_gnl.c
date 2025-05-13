@@ -46,9 +46,10 @@ int main(void)
 {
 	// int value = open("tester2/el_quijote.txt", O_RDONLY);
 	int value = open("tester2/nose.txt", O_RDONLY);
+	// int value = open("tester2/empty.txt", O_RDONLY);
 	// int value = open("tester2/archivo.bin", O_RDONLY);
 	char *c;
-	while ((c = get_next_line(value)))
+	while ((c = get_next_line(0)))
 	{
 		ft_print_buffer(c);
 		free(c);
