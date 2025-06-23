@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:21:32 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/20 15:22:19 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/23 17:19:58 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+int	*ft_putargs(int argn, char **args);
 #endif

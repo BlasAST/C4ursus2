@@ -46,8 +46,13 @@ SRC_BONUS= ft_lstnew_bonus.c \
 	ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c
 
+SRC_PRINTF= ft_printf/ft_printf.c \
+	ft_printf/src/ft_utils.c\
+	ft_printf/src/ft_utils2.c
+
 OBJ= $(SRC:.c=.o)
 OBJ_BONUS= $(SRC_BONUS:.c=.o)
+OBJ_PRINTF= $(SRC_PRINTF:.c=.o)
 ARFLAGS= rcs
 
 all: $(NAME)
@@ -55,14 +60,21 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
-	ar $(ARFLAGS) $(NAME) $(OBJ)
+ft_printf/%.c : ft_printf/%.o
+	make -C ft_printf all
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJ) $(OBJ_PRINTF)
+	make -C ft_printf all
+	ar $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_PRINTF)
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
+	make -C ft_printf clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C ft_printf fclean
 
 fclean_bonus: clean_bonus
 	rm -f $(NAME)
