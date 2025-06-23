@@ -22,5 +22,15 @@ int	main(int argn, char **args)
 	b = (int *) malloc (sizeof(int) * (argn));
 	if (!b)
 		return (0);
+	ft_print_arr(a, argn);
+	swap_a(a);
+	ft_print_arr(a, argn);
+	push_b(b,a,argn);
+	push_b(b,a,argn);
+	push_a(a,b,argn);
+	push_b(b,a,argn);
+	push_b(b,a,argn);
+	ft_print_arr(a, argn);
+	ft_print_arr(b, argn);
 	return (0);
 }

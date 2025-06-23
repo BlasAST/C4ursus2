@@ -12,6 +12,15 @@
 
 #include "push_swap.h"
 
+int	ft_len_arr(int *arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		i++;
+	return (i);
+}
 
 int	*ft_putargs(int argn, char **args)
 {
@@ -22,21 +31,26 @@ int	*ft_putargs(int argn, char **args)
 	if (!arr)
 		return (NULL);
 	i = 1;
-	while (args[i])
+	while (i <= argn)
 	{
-		// arr[i - 1] = args[i];
+		arr[i - 1] = ft_atoi(args[i]);
 		i++;
 	}
 	return (arr);
 }
 
-void	ft_print_arr(int  *arr)
+void	ft_print_arr(int  *arr, int len)
 {
 	int	i;
 
-	while (arr[i])
+	i = 0;
+	while (i < len)
 	{
-		printf("%d-", arr[i]);
+		if (arr[i])
+			ft_printf("%d ", arr[i]);
+		else
+			ft_printf(" - ");
 		i++;
 	}
+	ft_printf("\n\n");
 }
