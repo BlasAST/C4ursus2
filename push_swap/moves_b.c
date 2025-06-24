@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 21:57:49 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/23 23:37:23 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/24 16:29:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	swap_b(int *arr)
 	temp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = temp;
+	ft_printf("sb\n");
 }
 
 void	push_b(int *arr_b, int *arr_a, int len)
@@ -49,4 +50,5 @@ void	push_b(int *arr_b, int *arr_a, int len)
 			arr_a[j] = 0;
 		j++;
 	}
+	ft_printf("pb\n");
 }

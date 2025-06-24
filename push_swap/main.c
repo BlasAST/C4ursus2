@@ -30,7 +30,10 @@ int	main(int argn, char **args)
 	push_a(a,b,argn);
 	push_b(b,a,argn);
 	push_b(b,a,argn);
+	push_a(a,b,argn);
 	ft_print_arr(a, argn);
-	ft_print_arr(b, argn);
+	// ft_print_arr(b, argn);
+	rotate_a(a, argn);
+	ft_print_arr(a, argn);
 	return (0);
 }

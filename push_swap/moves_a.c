@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 21:16:19 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/23 23:37:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/24 17:12:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	swap_a(int *arr)
 	temp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = temp;
+	ft_printf("sa\n");
 }
 
 void	push_a(int *arr_a, int *arr_b, int len)
@@ -49,4 +50,24 @@ void	push_a(int *arr_a, int *arr_b, int len)
 			arr_b[j] = 0;
 		j++;
 	}
+	ft_printf("pa\n");
+}
+
+void	rotate_a(int *arr_a, int len)
+{
+	int	i;
+	int	size;
+	int	temp;
+
+	i = 1;
+	size = ft_len_arr(arr_a);
+	temp = *arr_a;
+	while (i < size)
+	{
+		if (size <= len)
+			arr_a[i - 1] = arr_a[i];
+		i++;
+	}
+	arr_a[i] = temp;
+	ft_printf("ra\n");
 }

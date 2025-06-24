@@ -25,4 +25,5 @@ void	swap_b(int *arr);
 void	swap_ab(int *arr_a, int *arr_b);
 void	push_a(int *arr_a, int *arr_b, int len);
 void	push_b(int *arr_b, int *arr_a, int len);
+void	rotate_a(int *arr_a, int len);
 #endif
