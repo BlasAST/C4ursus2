@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:21:32 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/23 17:19:58 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:11:20 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ void	swap_ab(int *arr_a, int *arr_b);
 void	push_a(int *arr_a, int *arr_b, int len);
 void	push_b(int *arr_b, int *arr_a, int len);
 void	rotate_a(int *arr_a, int len);
+void	rotate_b(int *arr_a, int len);
+void	rotate_ab(int *arr_a, int *arr_b);
 #endif

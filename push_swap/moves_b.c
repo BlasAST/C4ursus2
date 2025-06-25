@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 21:57:49 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/24 16:29:36 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/25 14:07:05 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,22 @@ void	push_b(int *arr_b, int *arr_a, int len)
 		j++;
 	}
 	ft_printf("pb\n");
+}
+
+void	rotate_b(int *arr_b, int len)
+{
+	int	i;
+	int	size;
+	int	temp;
+
+	i = 1;
+	size = ft_len_arr(arr_b);
+	temp = *arr_b;
+	while (i < size)
+	{
+		arr_b[i - 1] = arr_b[i];
+		i++;
+	}
+	arr_b[i - 1] = temp;
+	ft_printf("rb\n");
 }

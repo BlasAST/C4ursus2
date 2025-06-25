@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 21:16:19 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/24 17:12:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/25 14:27:48 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,27 @@ void	rotate_a(int *arr_a, int len)
 	temp = *arr_a;
 	while (i < size)
 	{
-		if (size <= len)
-			arr_a[i - 1] = arr_a[i];
+		arr_a[i - 1] = arr_a[i];
 		i++;
 	}
-	arr_a[i] = temp;
+	arr_a[i - 1] = temp;
+	ft_printf("ra\n");
+}
+
+void	reverse_rotate_a(int *arr_a, int len)
+{
+	int	i;
+	int	size;
+	int	temp;
+
+	i = 0;
+	size = ft_len_arr(arr_a);
+	temp = arr_a[size];
+	while (i < size)
+	{
+		arr_a[i + 1] = arr_a[i];
+		i++;
+	}
+	arr_a[0] = temp;
 	ft_printf("ra\n");
 }
