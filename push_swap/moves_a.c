@@ -44,7 +44,7 @@ void	push_a(int *arr_a, int *arr_b, int len)
 	size_b = ft_len_arr(arr_b);
 	while (j < len)
 	{
-		if (arr_b[j + 1])
+		if (arr_b[j + 1] && j + 1 < len)
 			arr_b[j] = arr_b[j + 1];
 		else
 			arr_b[j] = 0;
@@ -76,15 +76,19 @@ void	reverse_rotate_a(int *arr_a, int len)
 	int	i;
 	int	size;
 	int	temp;
+	int temp2;
 
-	i = 0;
+	i = 1;
 	size = ft_len_arr(arr_a);
-	temp = arr_a[size];
+	temp = arr_a[0];
+	arr_a[0] = arr_a[size - 1];
+	arr_a[size - 1] = 0;
 	while (i < size)
 	{
-		arr_a[i + 1] = arr_a[i];
+		temp2 = arr_a[i];
+		arr_a[i] = temp;
+		temp = temp2;
 		i++;
 	}
-	arr_a[0] = temp;
 	ft_printf("ra\n");
 }

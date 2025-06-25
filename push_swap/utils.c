@@ -49,7 +49,7 @@ void	ft_print_arr(int  *arr, int len)
 		if (arr[i])
 			ft_printf("%d ", arr[i]);
 		else
-			ft_printf(" - ");
+			ft_printf("-");
 		i++;
 	}
 	ft_printf("\n\n");

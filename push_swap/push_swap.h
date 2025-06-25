@@ -28,4 +28,5 @@ void	push_b(int *arr_b, int *arr_a, int len);
 void	rotate_a(int *arr_a, int len);
 void	rotate_b(int *arr_a, int len);
 void	rotate_ab(int *arr_a, int *arr_b);
+void	reverse_rotate_a(int *arr_a, int len);
 #endif

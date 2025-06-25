@@ -44,7 +44,7 @@ void	push_b(int *arr_b, int *arr_a, int len)
 	size_a = ft_len_arr(arr_a);
 	while (j < len)
 	{
-		if (arr_a[j + 1])
+		if (arr_a[j + 1] && j + 1 < len)
 			arr_a[j] = arr_a[j + 1];
 		else
 			arr_a[j] = 0;

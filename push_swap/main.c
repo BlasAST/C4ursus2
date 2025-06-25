@@ -22,12 +22,11 @@ int	main(int argn, char **args)
 	b = (int *) malloc (sizeof(int) * (argn));
 	if (!b)
 		return (0);
-	push_b(b,a, argn);
-	push_b(b,a, argn);
 	ft_print_arr(a, argn);
-	ft_print_arr(b, argn);
-	rotate_ab(a,b);
-	rotate_ab(a,b);
+	push_b(b,a, argn);
+	push_b(b,a, argn);
+	push_b(b,a, argn);
+	reverse_rotate_a(a, argn);
 	ft_print_arr(a, argn);
 	ft_print_arr(b, argn);
 	
