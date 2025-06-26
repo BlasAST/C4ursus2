@@ -90,5 +90,5 @@ void	reverse_rotate_a(int *arr_a, int len)
 		temp = temp2;
 		i++;
 	}
-	ft_printf("ra\n");
+	ft_printf("rra\n");
 }

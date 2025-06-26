@@ -12,6 +12,14 @@
 
 #include "push_swap.h"
 
+void	show(int *a, int *b, int argn)
+{
+	ft_printf("\nArray a:\n");
+	ft_print_arr(a, argn);
+	ft_printf("\nArray b:\n");
+	ft_print_arr(b, argn);
+}
+
 int	main(int argn, char **args)
 {
 	int	*a;
@@ -22,13 +30,17 @@ int	main(int argn, char **args)
 	b = (int *) malloc (sizeof(int) * (argn));
 	if (!b)
 		return (0);
-	ft_print_arr(a, argn);
-	push_b(b,a, argn);
-	push_b(b,a, argn);
-	push_b(b,a, argn);
-	reverse_rotate_a(a, argn);
-	ft_print_arr(a, argn);
-	ft_print_arr(b, argn);
-	
+	// show(a,b,argn);
+	// push_b(b, a,argn);
+	// push_b(b, a,argn);
+	// push_b(b, a,argn);
+	// show(a,b,argn);
+	// reverse_rotate_ab(a,b,argn);
+	// show(a,b,argn);
+	while (ft_filter_swap(a) == 1)
+	{
+		push_b(b,a,argn);
+		show(a,b,argn);
+	}
 	return (0);
 }

@@ -7,6 +7,7 @@ SRC_PS = main.c \
 	moves_a.c \
 	moves_b.c \
 	moves_ab.c \
+	filters.c
 
 SRC_LIB = libft/ft_printf/ft_printf.c \
 		    libft/ft_printf/src/ft_utils.c \

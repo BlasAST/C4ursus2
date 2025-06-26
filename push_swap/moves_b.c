@@ -70,3 +70,25 @@ void	rotate_b(int *arr_b, int len)
 	arr_b[i - 1] = temp;
 	ft_printf("rb\n");
 }
+
+void	reverse_rotate_b(int *arr_b, int len)
+{
+	int	i;
+	int	size;
+	int	temp;
+	int temp2;
+
+	i = 1;
+	size = ft_len_arr(arr_b);
+	temp = arr_b[0];
+	arr_b[0] = arr_b[size - 1];
+	arr_b[size - 1] = 0;
+	while (i < size)
+	{
+		temp2 = arr_b[i];
+		arr_b[i] = temp;
+		temp = temp2;
+		i++;
+	}
+	ft_printf("rrb\n");
+}

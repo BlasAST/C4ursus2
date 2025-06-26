@@ -25,6 +25,7 @@ void	swap_ab(int *arr_a, int *arr_b)
     temp_b = arr_b[0];
 	arr_b[0] = arr_b[1];
 	arr_b[1] = temp_b;
+	ft_printf("ss\n");
 }
 
 void	rotate_ab(int *arr_a, int *arr_b)
@@ -53,4 +54,38 @@ void	rotate_ab(int *arr_a, int *arr_b)
 	}
 	arr_b[i - 1] = temp;
 	ft_printf("rr\n");
+}
+
+void	reverse_rotate_ab(int *arr_a, int *arr_b,  int len)
+{
+	int	i;
+	int	size;
+	int	temp;
+	int temp2;
+
+	i = 1;
+	size = ft_len_arr(arr_a);
+	temp = arr_a[0];
+	arr_a[0] = arr_a[size - 1];
+	arr_a[size - 1] = 0;
+	while (i < size)
+	{
+		temp2 = arr_a[i];
+		arr_a[i] = temp;
+		temp = temp2;
+		i++;
+	}
+	i = 1;
+	size = ft_len_arr(arr_b);
+	temp = arr_b[0];
+	arr_b[0] = arr_b[size - 1];
+	arr_b[size - 1] = 0;
+	while (i < size)
+	{
+		temp2 = arr_b[i];
+		arr_b[i] = temp;
+		temp = temp2;
+		i++;
+	}
+	ft_printf("rrr\n");
 }
