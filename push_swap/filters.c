@@ -33,21 +33,68 @@ int	ft_filter_swap(int	*a, int len)
 	return (0);
 }
 
-int	ft_find_smaller(int *arr, int *smaller)
+int	ft_find_smaller(int *arr, int smaller)
+{
+	int	i;
+	int new_smaller;
+	int	size;
+	i = 0;
+	size = ft_len_arr(arr);
+	if (size == 0 || !smaller)
+		return (2147483647);
+	new_smaller = 2147483647;
+	while (i < size)
+	{
+		if (arr[i] < new_smaller && arr[i] > smaller)
+			new_smaller = arr[i];
+		i++;
+	}
+	return (new_smaller);
+}
+
+
+// int	ft_find_smaller(int *arr, int smaller)
+// {
+// 	int	i;
+// 	int	j;
+// 	int new_smaller;
+// 	int	size;
+
+// 	i = 0;
+// 	j = 0;
+// 	size = ft_len_arr(arr);
+// 	if (size == 0)
+// 		return (0);	
+// 	new_smaller = arr[0];
+// 	while (arr[i])
+// 	{
+// 		if (new_smaller > arr[i] && new_smaller > smaller && arr[i] != smaller)
+// 			new_smaller = arr[i];
+// 		i++;
+// 	}
+// 	return (new_smaller);
+// }
+
+/*
+CODE 2:
+int	ft_find_smaller(int *arr)
 {
 	int	i;
 	int	j;
+	int smaller;
 
 	i = 0;
 	j = 0;
+	smaller = arr[0];
 	while (arr[i])
 	{
-		if (*smaller > arr[i])
+		if (smaller > arr[i])
 		{
-			*smaller = arr[i];
+			smaller = arr[i];
 			j = i;
 		}
 		i++;
 	}
 	return (j);
-}
+}	
+*/

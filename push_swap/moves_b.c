@@ -62,7 +62,7 @@ void	rotate_b(int *arr_b, int len)
 	i = 1;
 	size = ft_len_arr(arr_b);
 	temp = *arr_b;
-	while (i < size)
+	while (i < size - 1)
 	{
 		arr_b[i - 1] = arr_b[i];
 		i++;
