@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 21:16:19 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/25 14:27:48 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/01 12:43:14 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	rotate_a(int *arr_a, int len)
 	i = 1;
 	size = ft_len_arr(arr_a);
 	temp = *arr_a;
-	while (i < size - 1)
+	while (i < size)
 	{
 		arr_a[i - 1] = arr_a[i];
 		i++;

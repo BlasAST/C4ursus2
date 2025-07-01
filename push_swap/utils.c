@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 16:02:59 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/06/23 18:00:34 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/01 13:58:05 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_len_arr(int *arr)
 	int	i;
 
 	i = 0;
+	if (!arr)
+		return (0);
 	while (arr[i])
 		i++;
 	return (i);

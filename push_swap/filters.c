@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:39:18 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/27 15:25:19 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:44:54 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,43 @@ int	ft_filter_swap(int	*a, int len)
 	return (0);
 }
 
-int	ft_find_smaller(int *arr, int smaller)
+int	ft_find_smaller(int *arr, int smaller, int size)
 {
 	int	i;
-	int new_smaller;
-	int	size;
+	int	new_smaller;
+
 	i = 0;
-	size = ft_len_arr(arr);
-	if (size == 0 || !smaller)
+	printf("Len: %d", size);
+	if (size  == 0)
 		return (2147483647);
-	new_smaller = 2147483647;
+	new_smaller = arr[0];
 	while (i < size)
 	{
-		if (arr[i] < new_smaller && arr[i] > smaller)
+		if (arr[i] > smaller && arr[i] < new_smaller)
 			new_smaller = arr[i];
 		i++;
 	}
 	return (new_smaller);
 }
+
+// int	ft_find_smaller(int *arr, int smaller)
+// {
+// 	int	i;
+// 	int new_smaller;
+// 	int	size;
+// 	i = 0;
+// 	size = ft_len_arr(arr);
+// 	if (size == 0)
+// 		return (2147483647);
+// 	new_smaller = 2147483647;
+// 	while (i < size)
+// 	{
+// 		if (arr[i] < new_smaller && arr[i] > smaller)
+// 			new_smaller = arr[i];
+// 		i++;
+// 	}
+// 	return (new_smaller);
+// }
 
 
 // int	ft_find_smaller(int *arr, int smaller)

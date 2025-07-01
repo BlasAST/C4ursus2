@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 16:02:55 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/06/27 15:41:45 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:57:24 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,39 @@ int	main(int argn, char **args)
 	if (!b)
 		return (0);
 	i = 0;
+	smaller = -2147483648;
+	smaller_2 = -2147483648;
+	i = 0;
 	// while (ft_filter_swap(a, argn) == 1)
-	while (i < 12)
+	// push_b(b,a,argn);
+	// push_b(b,a,argn);
+	// push_b(b,a,argn);
+	while (i < 8)
 	{
-		smaller = ft_find_smaller(a, smaller);
-		smaller_2 = ft_find_smaller(b, smaller_2);
+		if (smaller_2 == 2147483647)
+			smaller_2 = -2147483648;
+		smaller = ft_find_smaller(a, smaller, ft_len_arr(a));
+		smaller_2 = ft_find_smaller(b, smaller_2, ft_len_arr(b));
+		printf("Smallers: %d, %d\n", smaller, smaller_2);
 		if (smaller < smaller_2)
 		{
-			if (a[0] == smaller)
-				rotate_a(a, argn);
-			else if (a[1] == smaller)
+			while (a[0] != smaller)
 			{
-				swap_a(a);
-				rotate_a(a, argn);
+				if (a[1] == smaller)
+					swap_a(a);
+				else
+					push_b(b,a,argn);
 			}
-			else
-				push_b(b, a, argn);
+			rotate_a(a, argn);
 		}
 		else
 		{
-			if (b[0] == smaller_2)
-				push_a(a,b,argn);
-			else
-				rotate_b(b, argn);
+			if (ft_len_arr(b) > 0 && smaller_2 != 2147483647)
+			{
+				while (b[0] != smaller_2 && ft_len_arr(b) > 1)
+					rotate_b(b, argn);
+				push_a(a, b, argn);
+			}
 		}
 		show(a,b,argn);
 		i++;
@@ -67,6 +77,47 @@ int	main(int argn, char **args)
 	return (0);
 }
 
+
+/* 
+	// while (ft_filter_swap(a, argn) == 1)
+	while (i < 12)
+	{
+		smaller = ft_find_smaller(a, smaller);
+		smaller_2 = ft_find_smaller(b, smaller_2);
+		ft_printf("Smallers:  %d , %d", smaller , smaller_2);
+		if (smaller < smaller_2)
+		{
+			while (a[ft_len_arr(a) - 1] != smaller)
+			{
+				if (a[0] == smaller)
+					rotate_a(a, argn);
+				else if (a[1] == smaller)
+				{
+					swap_a(a);
+					rotate_a(a, argn);
+				}
+				else
+					push_b(b, a, argn);
+			}
+		}
+		else
+		{
+			if (b[0] == smaller_2)
+				push_a(a,b,argn);
+			else
+			{
+				while (b[0] != smaller_2 && ft_len_arr(b) >= 2)
+				{
+					rotate_b(b, argn);
+				}
+				push_a(a,b,argn);
+			}
+				
+		}
+		show(a,b,argn);
+		i++;
+	}
+ */
 /* Intento de algoritmo:
 while (ft_filter_swap(a, argn) == 1)
 	{
