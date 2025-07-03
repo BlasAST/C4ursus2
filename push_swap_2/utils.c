@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/03 14:48:01 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:10:50 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	show_nodes(swap_node **node, char *str_print)
 		ft_printf("Index %d: %d\n", temp->index, temp->value);
 		temp = temp->next;
 	}
-	ft_printf("%s", str_print);
+	ft_printf("\n\n");
 }
