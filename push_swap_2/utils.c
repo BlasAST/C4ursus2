@@ -57,5 +57,5 @@ void	show_nodes(swap_node **node, char *str_print)
 // FIltrar palabras
 // Que no sea vacio
 // Mexlados con comiilas o sin comillas
-// validar más y min	
+// validar más y min
 // SOlo un signo

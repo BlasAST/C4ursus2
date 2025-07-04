@@ -12,6 +12,11 @@
 
 #include "push_swap.h"
 
+int	ft_valid_string(char *str)
+{
+		
+}
+
 int	check_string(char *arg)
 {
 	int	number;
