@@ -14,10 +14,20 @@
 
 int	ft_valid_string(char *str)
 {
-		
+	int	i;
+	
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ' && (str[i] <= '0' || str[i] >= '9')
+			&& str[i] != '+' && str[i] != '-')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int	check_string(char *arg)
+int	check_atoi(char *arg)
 {
 	int	number;
 	char *reconv;
@@ -28,18 +38,37 @@ int	check_string(char *arg)
 		return (1);
 	return (0);
 }
-int	check_args(char **args)
+
+int	check_digits(char *args)
+{
+	int	i;
+	int	simbol;
+
+	i = 0;
+	simbol = 0;
+	while (args[i] == ' ' || (args[i] >= 9 && args[i <= 13]))
+		i++;
+	if (args[i] == '+' || args[i] == '-')
+	{
+		if (args[i] == '-')
+			simbol = -1;
+	}
+	while (args[i] >= '0' && args[i] <= '9' || args[i] == ' ')
+	{
+		i++;
+	}
+}
+
+int	check_args(char *args, swap_node **node)
 {
 	int	i;
 
-	i = 1;
-	while (args[i])
+	if (check_atoi(args) == 1)
 	{
-		if (check_string(args[i]) == 1)
-		{
-			return 1;
-		}
-		i++;
+		if (ft_valid_string(args) == 1)
+			return (1);
 	}
+	else
+		(*node)->value = ft_atoi(args);
 	return (0);
 }

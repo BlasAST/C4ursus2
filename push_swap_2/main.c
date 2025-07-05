@@ -18,13 +18,12 @@ int main(int argn, char **args)
 	swap_node *a;
 	swap_node *b;
 
-	error = check_args(args);
+	error = add_values(&a, argn, args);
 	if (error == 1)
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
-	add_values(&a, argn, args);
 	show_nodes(&a, "HOla");
 	// a->value = 128;
 	// a->index = 1;

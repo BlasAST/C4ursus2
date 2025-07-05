@@ -20,9 +20,10 @@ swap_node	*create_node()
 	return new;
 }
 
-void	add_values(swap_node **node, int len, char **args)
+int	add_values(swap_node **node, int len, char **args)
 {
 	int	i;
+	int	valid_value;
 	swap_node *new_node;
 
 	i = 1;
@@ -31,7 +32,9 @@ void	add_values(swap_node **node, int len, char **args)
 	while (i < len)
 	{
 		new_node->index = i;
-		new_node->value = ft_atoi(args[i]);
+		valid_value = check_args(args[i], &new_node);
+		if (valid_value == 1)
+			return (1);
 		if (i + 1 != len)
 		{
 			new_node->next = create_node();
@@ -39,6 +42,7 @@ void	add_values(swap_node **node, int len, char **args)
 		}
 		i++;
 	}
+	return (0);
 }
 
 void	show_nodes(swap_node **node, char *str_print)
