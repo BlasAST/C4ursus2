@@ -39,7 +39,7 @@ int	check_atoi(char *arg)
 	return (0);
 }
 
-int	check_digits(char *args)
+/* int	check_digits(char *args)
 {
 	int	i;
 	int	simbol;
@@ -57,6 +57,33 @@ int	check_digits(char *args)
 	{
 		i++;
 	}
+} */
+
+void	ft_conver_digits(char *args, swap_node **node)
+{
+	int	i;
+	int	val;
+
+	i = 0;
+	while (args[i])
+	{
+		while (args[i] && args[i] == ' ')
+			i++;
+		val = ft_atoi(&args[i]);
+		if ((args[i] == '+' || args[i] == '-') && args[i + 1] != ' '
+		|| args[i + 1] != '\0')
+			i++;
+		while (args[i] && args[i] >= '0' && args[i] < '9')
+			i++;
+		(*node)->index = 110;
+		(*node)->value = val;
+		if (args[i] != '\0')
+		{
+			(*node)->next = create_node();
+			(*node) = (*node)->next;
+		}
+		i++;
+	}
 }
 
 int	check_args(char *args, swap_node **node)
@@ -67,6 +94,8 @@ int	check_args(char *args, swap_node **node)
 	{
 		if (ft_valid_string(args) == 1)
 			return (1);
+		else
+			ft_conver_digits(args, node);
 	}
 	else
 		(*node)->value = ft_atoi(args);
