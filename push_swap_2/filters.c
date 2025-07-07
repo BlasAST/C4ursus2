@@ -19,7 +19,7 @@ int	ft_valid_string(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] != ' ' && (str[i] <= '0' || str[i] >= '9')
+		if (str[i] != ' ' && (str[i] < '0' || str[i] > '9')
 			&& str[i] != '+' && str[i] != '-')
 			return (1);
 		i++;
@@ -38,52 +38,55 @@ int	check_atoi(char *arg)
 		return (1);
 	return (0);
 }
-
-/* int	check_digits(char *args)
+int	ft_number_conversion(char *arg)
 {
 	int	i;
-	int	simbol;
+	int	sign;
+	int	number;
 
 	i = 0;
-	simbol = 0;
-	while (args[i] == ' ' || (args[i] >= 9 && args[i <= 13]))
+	if (arg[i] == '+' || arg[i] == '-')
 		i++;
-	if (args[i] == '+' || args[i] == '-')
-	{
-		if (args[i] == '-')
-			simbol = -1;
-	}
-	while (args[i] >= '0' && args[i] <= '9' || args[i] == ' ')
-	{
+	if (arg[i] < '0' || arg[i]  > '9')
+		return (-1);
+	while (arg[i] >= '0' && arg[i] <= '9')
 		i++;
-	}
-} */
+	return (i);
+}
 
-void	ft_conver_digits(char *args, swap_node **node)
+int	ft_conver_digits(char *args, swap_node **node)
 {
 	int	i;
-	int	val;
+	int	pos;
 
 	i = 0;
 	while (args[i])
 	{
-		while (args[i] && args[i] == ' ')
+		while (args[i] == ' ')
 			i++;
-		val = ft_atoi(&args[i]);
-		if ((args[i] == '+' || args[i] == '-') && args[i + 1] != ' '
-		|| args[i + 1] != '\0')
-			i++;
-		while (args[i] && args[i] >= '0' && args[i] < '9')
-			i++;
-		(*node)->index = 110;
-		(*node)->value = val;
-		if (args[i] != '\0')
+		pos = ft_number_conversion(&args[i]);
+		if (pos == -1)
+			return (1);
+		else
 		{
-			(*node)->next = create_node();
-			(*node) = (*node)->next;
+			(*node)->index = 110;
+			(*node)->value = ft_atoi(&args[i]);
+			i += pos;
+			while (args[i] == ' ')
+				i++;
+			if (args[i] == '\0')
+				return (0);
+			else
+			{
+				(*node)->next = create_node();
+				(*node) = (*node)->next;
+			}
 		}
+		if (args[i] != '\0')
+			i--;
 		i++;
 	}
+	return (0);
 }
 
 int	check_args(char *args, swap_node **node)
@@ -95,7 +98,10 @@ int	check_args(char *args, swap_node **node)
 		if (ft_valid_string(args) == 1)
 			return (1);
 		else
-			ft_conver_digits(args, node);
+		{
+			if (ft_conver_digits(args, node) == 1)
+				return (1);
+		}
 	}
 	else
 		(*node)->value = ft_atoi(args);
