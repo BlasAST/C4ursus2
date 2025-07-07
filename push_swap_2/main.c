@@ -12,6 +12,29 @@
 
 #include "push_swap.h"
 
+
+int	ft_filter_swap(swap_node **node, int len)
+{
+	int	i;
+	swap_node *temp;
+
+	if (!*node)
+		return (1);
+	temp = (*node);
+
+	i = 0;
+	while (temp->next != NULL)
+	{
+		if (temp->value > temp->next->value)
+			return (1);
+		temp = temp->next;
+		i++;
+	}
+	if (i != len - 1)
+		return (1);
+	return (0);
+}
+
 int main(int argn, char **args)
 {
 	int	error;
@@ -24,28 +47,14 @@ int main(int argn, char **args)
 		ft_printf("Error\n");
 		return (0);
 	}
-	show_nodes(&a, "HOla");
-	// a->value = 128;
-	// a->index = 1;
-	// b = (swap_node *)malloc(sizeof(swap_node));
-	// b->value = 123123;
-	// b->index = 2;
-	// swap_node *c;
-	// swap_node *d;
-	// c = (swap_node *)malloc(sizeof(swap_node));
-	// c->value = 919128;
-	// c->index = 3;
-	// d = (swap_node *)malloc(sizeof(swap_node));
-	// d->value = 6212362;
-	// d->index = 4;
-	// push(&b,&a, "Hola");
-	// push(&c,&a, "Hola");
-	// push(&d,&a, "Hola");
-	// show_nodes(&a, "HOla");
-	// swap(&a, "\n");
-	// show_nodes(&a, "HOla");
-	// rotate(&a,"\n");
-	// show_nodes(&a, "HOla");
-	// reverse_rotate(&a,"\n");
-	// show_nodes(&a, "HOla");
+	push(&a, &b, "pb");
+	push(&a, &b, "pb");
+	while (ft_filter_swap(&a, argn) == 1)
+	{
+		push(&b, &a, "pb");
+		push(&b, &a, "pb");
+		show_nodes(&a, "A");
+		show_nodes(&b, "B");
+	}
+	
 }
