@@ -16,5 +16,7 @@ void	rotate(swap_node **node, char *str_print);
 void	reverse_rotate(swap_node **node, char *str_print);
 int	add_values(swap_node **node, int len, char **args);
 int	check_args(char *args, swap_node **node);
+int	ft_find_min(swap_node **node);
+int	ft_find_nex_min(swap_node **node, int min);
 
 #endif

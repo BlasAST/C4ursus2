@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/08 18:02:50 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:55:46 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	show_nodes(swap_node **node, char *str_print)
 }
 
 // FIltrar palabras check
-// Que no sea vacio //no check//
-// Mexlados con comiilas o sin comillas check
+// Que no sea vacio check
+// Mexlados con comillas o sin comillas check
 // validar más y min check
 // SOlo un signo check

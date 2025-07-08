@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:59:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/04 12:55:29 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:04:55 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	push(swap_node **from, swap_node **to, char *str_print)
 	*from = (*from)->next;
 	temp->next = *to;
 	*to = temp;
+	ft_printf("%s", str_print);
 }
 
 void	swap(swap_node	**node, char *str_print)
@@ -34,6 +35,7 @@ void	swap(swap_node	**node, char *str_print)
 	*node = (*node)->next;
 	temp->next = (*node)->next;
 	(*node)->next = temp;
+	ft_printf("%s", str_print);
 }
 
 void	rotate(swap_node **node, char *str_print)
@@ -50,6 +52,7 @@ void	rotate(swap_node **node, char *str_print)
 	}
 	iter->next = temp;
 	temp->next = NULL;
+	ft_printf("%s", str_print);
 }
 
 void	reverse_rotate(swap_node **node, char *str_print)
@@ -66,4 +69,5 @@ void	reverse_rotate(swap_node **node, char *str_print)
 	iter->next = NULL;
 	temp->next = *node;
 	*node = temp;
+	ft_printf("%s", str_print);
 }

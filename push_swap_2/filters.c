@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:09:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/08 18:42:20 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:55:06 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ int	ft_conver_digits(char *args, swap_node **node)
 int	check_args(char *args, swap_node **node)
 {
 	int	i;
-
+	if (args[0] == '\0')
+		return (1);
 	if (check_atoi(args) == 1)
 	{
 		if (check_valid_string(args) == 1)

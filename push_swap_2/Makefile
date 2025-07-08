@@ -4,7 +4,8 @@ CC = cc
 SRC = main.c \
 	moves.c \
 	utils.c \
-	filters.c
+	filters.c \
+	orders.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
