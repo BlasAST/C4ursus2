@@ -6,13 +6,13 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:09:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/04 14:29:45 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:42:20 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_valid_string(char *str)
+int	check_valid_string(char *str)
 {
 	int	i;
 	
@@ -27,6 +27,20 @@ int	ft_valid_string(char *str)
 	return (0);
 }
 
+int	check_range(char *arg)
+{
+	int	number;
+	char *reconv;
+
+	number = ft_atoi(arg);
+	reconv = ft_itoa(number);
+	if (arg[0] == '+')
+		reconv++;
+	if (ft_strncmp(reconv, arg, ft_strlen(reconv)) != 0)
+		return (1);
+	return (0);
+}
+
 int	check_atoi(char *arg)
 {
 	int	number;
@@ -38,7 +52,7 @@ int	check_atoi(char *arg)
 		return (1);
 	return (0);
 }
-int	ft_number_conversion(char *arg)
+int	check_number_conversion(char *arg)
 {
 	int	i;
 	int	sign;
@@ -64,8 +78,8 @@ int	ft_conver_digits(char *args, swap_node **node)
 	{
 		while (args[i] == ' ')
 			i++;
-		pos = ft_number_conversion(&args[i]);
-		if (pos == -1)
+		pos = check_number_conversion(&args[i]);
+		if (pos == -1 || check_range(&args[i]) == 1)
 			return (1);
 		else
 		{
@@ -95,7 +109,7 @@ int	check_args(char *args, swap_node **node)
 
 	if (check_atoi(args) == 1)
 	{
-		if (ft_valid_string(args) == 1)
+		if (check_valid_string(args) == 1)
 			return (1);
 		else
 		{

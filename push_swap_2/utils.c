@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/04 14:09:12 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:02:50 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int	add_values(swap_node **node, int len, char **args)
 {
 	int	i;
 	int	valid_value;
+	int	index;
 	swap_node *new_node;
 
 	i = 1;
+	index = 1;
 	new_node = create_node();
 	*node = new_node;
 	while (i < len)
@@ -41,6 +43,7 @@ int	add_values(swap_node **node, int len, char **args)
 			new_node = new_node->next;
 		}
 		i++;
+		index++;
 	}
 	return (0);
 }
@@ -50,11 +53,6 @@ void	show_nodes(swap_node **node, char *str_print)
 	swap_node *temp;
 
 	temp = *node;
-	/* while (temp != NULL)
-	{
-		ft_printf("Index %d: %d\n", temp->index, temp->value);
-		temp = temp->next;
-	} */
 	ft_printf("%s:\t", str_print);
 	while (temp != NULL)
 	{
@@ -67,8 +65,8 @@ void	show_nodes(swap_node **node, char *str_print)
 	ft_printf("\n\n");
 }
 
-// FIltrar palabras
-// Que no sea vacio
-// Mexlados con comiilas o sin comillas
-// validar más y min
-// SOlo un signo
+// FIltrar palabras check
+// Que no sea vacio //no check//
+// Mexlados con comiilas o sin comillas check
+// validar más y min check
+// SOlo un signo check
