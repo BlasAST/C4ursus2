@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:57:27 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/08 19:47:19 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:06:47 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,28 +51,28 @@ int main(int argn, char **args)
 		ft_printf("Error\n");
 		return (0);
 	}
-	// show_nodes(&a, "A");
-	// show_nodes(&b, "B");
-	// push(&a, &b, "pb");
-	// push(&a, &b, "pb");
 	min_a = ft_find_min(&a);
 	min_b = ft_find_min(&b);
-	// ft_printf("%d\n", min_b);
 	i = 0;
-	push(&a, &b, "pb");
 	while (i < 20)
 	{
+		if (min_a < min_b)
+		{
+			conditions_min_a(&a,&b, min_a, min_b);
+		}
+		else
+		{
+			conditions_min_b(&a,&b,min_a, min_b);
+			min_b--;
+		}
 		if (a)
 			min_a = ft_find_nex_min(&a, min_a);
 		if (b)
 			min_b = ft_find_nex_min(&b, min_b);
-		ft_printf("%d-%d\n", min_a, min_b);
-		i++;
-	}
-	/* while (ft_filter_swap(&a, b, argn) == 1)
-	{
 		show_nodes(&a, "A");
 		show_nodes(&b, "B");
-		// push(&a, &b, "pb");
-	} */
+		i++;
+	}
+		// show_nodes(&a, "A");
+		// show_nodes(&b, "B");
 }
