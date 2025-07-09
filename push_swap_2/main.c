@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:57:27 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/09 17:06:47 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:36:30 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,19 @@ int main(int argn, char **args)
 	}
 	min_a = ft_find_min(&a);
 	min_b = ft_find_min(&b);
+	// ft_printf("%d\n\n", min_a);
 	i = 0;
 	while (i < 20)
 	{
+		ft_printf("Menor a: %d, Menor b: %d\n", min_a, min_b);
 		if (min_a < min_b)
 		{
 			conditions_min_a(&a,&b, min_a, min_b);
+			min_b--;
 		}
 		else
 		{
 			conditions_min_b(&a,&b,min_a, min_b);
-			min_b--;
 		}
 		if (a)
 			min_a = ft_find_nex_min(&a, min_a);
@@ -73,6 +75,4 @@ int main(int argn, char **args)
 		show_nodes(&b, "B");
 		i++;
 	}
-		// show_nodes(&a, "A");
-		// show_nodes(&b, "B");
 }
