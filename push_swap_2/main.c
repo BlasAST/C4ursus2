@@ -12,8 +12,36 @@
 
 #include "push_swap.h"
 
+// if (ft_nodes_in_order(a) == 0)
+// 		conditions_min_b(a,b,min_a,min_b);
+int	ft_nodes_in_order(swap_node **node)
+{
+	int	i;
+	swap_node *temp;
 
-int	ft_filter_swap(swap_node **node, swap_node *node_b, int len)
+	if (!*node)
+		return (1);
+	temp = (*node);
+
+	i = 0;
+	while (temp->next != NULL)
+	{
+		if (temp->value > temp->next->value)
+			return (1);
+		temp = temp->next;
+		i++;
+	}
+	return (0);
+}
+
+int	ft_filter_swap(swap_node **node, swap_node *node_b)
+{
+	if (ft_nodes_in_order(node) == 1 || node_b != NULL)
+		return (1);
+	return (0);
+}
+
+/* int	ft_filter_swap(swap_node **node, swap_node *node_b, int len)
 {
 	int	i;
 	swap_node *temp;
@@ -33,7 +61,7 @@ int	ft_filter_swap(swap_node **node, swap_node *node_b, int len)
 	if (node_b != NULL)
 		return (1);
 	return (0);
-}
+} */
 
 int main(int argn, char **args)
 {
@@ -53,14 +81,19 @@ int main(int argn, char **args)
 	}
 	min_a = ft_find_min(&a);
 	min_b = ft_find_min(&b);
-	// ft_printf("%d\n\n", min_a);
+	ft_printf("%d\n\n", min_a);
 	i = 0;
 	while (i < 20)
 	{
 		ft_printf("Menor a: %d, Menor b: %d\n", min_a, min_b);
 		if (min_a < min_b)
 		{
-			conditions_min_a(&a,&b, min_a, min_b);
+			// Estoy hay que mirarlo porque tambien hay error 
+			if (ft_nodes_in_order(&a) == 0)
+				ft_printf("ORdenado\n");
+			else
+				conditions_min_a(&a,&b, min_a, min_b);
+				// conditions_min_b(&a,&b,min_a, min_b);
 			min_b--;
 		}
 		else
@@ -71,6 +104,7 @@ int main(int argn, char **args)
 			min_a = ft_find_nex_min(&a, min_a);
 		if (b)
 			min_b = ft_find_nex_min(&b, min_b);
+			// Error aqui
 		show_nodes(&a, "A");
 		show_nodes(&b, "B");
 		i++;

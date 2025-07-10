@@ -67,6 +67,10 @@ int	ft_find_nex_min(swap_node **node, int min)
 		return (0);
 	temp = *node;
 	// new_min = check_bigger(*node);
+	// new_min = temp->value;
+	if (ft_nodes_in_order(node) == 0)
+		return (min);
+	// Lo de arriba sirve pero hay error aqui
 	new_min = temp->value;
 	while (temp != NULL)
 	{

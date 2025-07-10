@@ -35,7 +35,7 @@ int	check_range(char *arg)
 	number = ft_atoi(arg);
 	reconv = ft_itoa(number);
 	if (arg[0] == '+')
-		reconv++;
+		arg++;
 	if (ft_strncmp(reconv, arg, ft_strlen(reconv)) != 0)
 		return (1);
 	return (0);

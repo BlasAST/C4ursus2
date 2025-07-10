@@ -57,7 +57,7 @@ void	show_nodes(swap_node **node, char *str_print)
 	while (temp != NULL)
 	{
 		if (temp->next != NULL)
-			ft_printf("%d-", temp->value);
+			ft_printf("%d|", temp->value);
 		else
 			ft_printf("%d", temp->value);
 		temp = temp->next;
