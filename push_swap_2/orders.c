@@ -58,6 +58,31 @@ int	ft_find_min(swap_node **node)
 	return (min);
 }
 
+/* int	ft_find_nex_min(swap_node **node, int min)
+{
+	int	new_min;
+	swap_node *temp;
+
+	if (!node || !*node)
+		return (0);
+	temp = *node;
+	// new_min = check_bigger(*node);
+	// new_min = temp->value;
+	if (ft_nodes_in_order(node) == 0)
+		return (min);
+	// Lo de arriba sirve pero hay error aqui
+	new_min = temp->value;
+	while (temp != NULL)
+	{
+		if (temp->value > min && temp->value < new_min)
+			new_min = temp->value;
+		temp = temp->next;
+	}
+	// if (new_min < min)
+	//   	new_min = min;
+	return (new_min);
+} */
+
 int	ft_find_nex_min(swap_node **node, int min)
 {
 	int	new_min;
@@ -86,11 +111,6 @@ int	ft_find_nex_min(swap_node **node, int min)
 
 void	conditions_min_a(swap_node **a, swap_node **b, int min_a, int min_b)
 {
-	// if (min_a == check_bigger(*a))
-	// {
-	// 	conditions_min_b(a,b,min_a,min_b);
-	// 	return ;
-	// }
 	while ((*a)->value != min_a && check_in_nodes(*a, min_a) == 0)
 	{
 		push(a, b, "pb");
@@ -104,7 +124,6 @@ void	conditions_min_b(swap_node **a, swap_node **b, int min_a, int min_b)
 		return ;
 	while ((*b)->value != min_b && check_in_nodes(*b, min_b) == 0)
 	{
-		// && ft_find_nex_min(b, min_b - 1) == min_b
 		rotate(b,"rb");
 	}
 	push(b,a,"\npa\n");
