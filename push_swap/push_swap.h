@@ -1,36 +1,25 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 15:21:32 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/01 13:57:44 by bsiguenc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
 
-int	    *ft_putargs(int argn, char **args);
-void	ft_print_arr(int  *arr, int len);
-int	    ft_len_arr(int *arr);
-void	swap_a(int *arr);
-void	swap_b(int *arr);
-void	swap_ab(int *arr_a, int *arr_b);
-void	push_a(int *arr_a, int *arr_b, int len);
-void	push_b(int *arr_b, int *arr_a, int len);
-void	rotate_a(int *arr_a, int len);
-void	rotate_b(int *arr_a, int len);
-void	rotate_ab(int *arr_a, int *arr_b);
-void	reverse_rotate_a(int *arr_a, int len);
-void	reverse_rotate_b(int *arr_b, int len);
-void	reverse_rotate_ab(int *arr_a, int *arr_b,  int len);
-int	    ft_filter_swap(int	*a, int len);
-int	    ft_find_smaller(int *arr, int smaller, int size);
+typedef struct swap_node
+{
+    int value;
+    int index;
+    struct swap_node *next;
+} swap_node;
+swap_node	*create_node();
+void	show_nodes(swap_node **node, char *str_print);
+void	push(swap_node **from, swap_node **to, char *str_print);
+void	swap(swap_node	**node, char *str_print);
+void	rotate(swap_node **node, char *str_print);
+void	reverse_rotate(swap_node **node, char *str_print);
+int	add_values(swap_node **node, int len, char **args);
+int	check_args(char *args, swap_node **node);
+int	ft_find_min(swap_node **node);
+int	ft_find_nex_min(swap_node **node, int min);
+void	conditions_min_a(swap_node **a, swap_node **b, int min_a, int min_b);
+void	conditions_min_b(swap_node **a, swap_node **b, int min_a, int min_b);
+int	ft_nodes_in_order(swap_node **node);
+
 #endif

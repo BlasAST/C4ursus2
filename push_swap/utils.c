@@ -5,54 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 16:02:59 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/01 13:58:05 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/07/08 18:55:46 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_len_arr(int *arr)
+swap_node	*create_node()
 {
-	int	i;
-
-	i = 0;
-	if (!arr)
-		return (0);
-	while (arr[i])
-		i++;
-	return (i);
+	swap_node *new;
+	new = (swap_node*) malloc(sizeof(swap_node));
+	new->next = NULL;
+	return new;
 }
 
-int	*ft_putargs(int argn, char **args)
+int	add_values(swap_node **node, int len, char **args)
 {
-	int *arr;
 	int	i;
+	int	valid_value;
+	int	index;
+	swap_node *new_node;
 
-	arr = (int *) malloc (sizeof(int) * argn);
-	if (!arr)
-		return (NULL);
 	i = 1;
-	while (i <= argn)
-	{
-		arr[i - 1] = ft_atoi(args[i]);
-		i++;
-	}
-	return (arr);
-}
-
-void	ft_print_arr(int  *arr, int len)
-{
-	int	i;
-
-	i = 0;
+	index = 1;
+	new_node = create_node();
+	*node = new_node;
 	while (i < len)
 	{
-		if (arr[i])
-			ft_printf("%d ", arr[i]);
-		else
-			ft_printf("-");
+		new_node->index = i;
+		valid_value = check_args(args[i], &new_node);
+		if (valid_value == 1)
+			return (1);
+		if (i + 1 != len)
+		{
+			new_node->next = create_node();
+			new_node = new_node->next;
+		}
 		i++;
+		index++;
+	}
+	return (0);
+}
+
+void	show_nodes(swap_node **node, char *str_print)
+{
+	swap_node *temp;
+
+	temp = *node;
+	ft_printf("%s:\t", str_print);
+	while (temp != NULL)
+	{
+		if (temp->next != NULL)
+			ft_printf("%d|", temp->value);
+		else
+			ft_printf("%d", temp->value);
+		temp = temp->next;
 	}
 	ft_printf("\n\n");
 }
+
+// FIltrar palabras check
+// Que no sea vacio check
+// Mexlados con comillas o sin comillas check
+// validar más y min check
+// SOlo un signo check
