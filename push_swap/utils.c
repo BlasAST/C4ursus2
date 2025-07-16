@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/08 18:55:46 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/17 00:35:03 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	add_values(swap_node **node, int len, char **args)
 	*node = new_node;
 	while (i < len)
 	{
-		new_node->index = i;
 		valid_value = check_args(args[i], &new_node);
 		if (valid_value == 1)
 			return (1);
@@ -56,10 +55,7 @@ void	show_nodes(swap_node **node, char *str_print)
 	ft_printf("%s:\t", str_print);
 	while (temp != NULL)
 	{
-		if (temp->next != NULL)
-			ft_printf("%d|", temp->value);
-		else
-			ft_printf("%d", temp->value);
+		ft_printf("Indice: %d -> %d\n", temp->index, temp->value);
 		temp = temp->next;
 	}
 	ft_printf("\n\n");

@@ -21,5 +21,6 @@ int	ft_find_nex_min(swap_node **node, int min);
 void	conditions_min_a(swap_node **a, swap_node **b, int min_a, int min_b);
 void	conditions_min_b(swap_node **a, swap_node **b, int min_a, int min_b);
 int	ft_nodes_in_order(swap_node **node);
+void	add_index(swap_node **node);
 
 #endif

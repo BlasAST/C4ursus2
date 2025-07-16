@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:09:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/08 18:55:06 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/17 00:30:15 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int	ft_conver_digits(char *args, swap_node **node)
 			return (1);
 		else
 		{
-			(*node)->index = 110;
 			(*node)->value = ft_atoi(&args[i]);
 			i += pos;
 			while (args[i] == ' ')
