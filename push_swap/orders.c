@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:10:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/17 01:12:20 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/18 00:30:42 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,6 @@ int	ft_find_min(swap_node **node)
 	return (min);
 }
 
-/* int	ft_find_nex_min(swap_node **node, int min)
-{
-	int	new_min;
-	swap_node *temp;
-
-	if (!node || !*node)
-		return (0);
-	temp = *node;
-	if (ft_nodes_in_order(node) == 0)
-		return (min);
-	new_min = temp->value;
-	while (temp != NULL)
-	{
-		if (temp->value > min && temp->value < new_min)
-			new_min = temp->value;
-		temp = temp->next;
-	}
-	return (new_min);
-} */
-
 void	put_index(swap_node **node, int val, int in)
 {
 	swap_node *temp;
@@ -79,23 +59,6 @@ void	put_index(swap_node **node, int val, int in)
 	}
 }
 
-/* int	ft_find_nex_min(swap_node **node, int min)
-{
-	int	new_min;
-	swap_node *temp;
-
-	if (!node || !*node)
-		return (0);
-	temp = *node;
-	new_min = temp->value;
-	while (temp != NULL)
-	{
-		if (temp->value > min && temp->value <= new_min)
-			new_min = temp->value;
-		temp = temp->next;
-	}
-	return (new_min);
-} */
 int	ft_find_nex_min(swap_node **node, int min)
 {
 	int new_min;
@@ -144,12 +107,12 @@ void	add_index(swap_node **node)
 	int	size;
 	int	next_min;
 
-	i = 1;
+	i = 0;
 	size = size_nodes(*node);
 	next_min = ft_find_min(node);
 	put_index(node, next_min, i);
 	i++;
-	while (i <= size)
+	while (i < size)
 	{
 		next_min = ft_find_nex_min(node, next_min);
 		put_index(node, next_min, i);

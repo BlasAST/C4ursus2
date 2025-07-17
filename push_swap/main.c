@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/17 00:50:46 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/18 01:22:11 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,25 @@ int	ft_filter_swap(swap_node **node, swap_node *node_b)
 	return (0);
 }
 
+int	bits_need(int max)
+{
+	int	bit;
+
+	bit = 0;
+	while ((max >> bit) != 0)
+		bit++;
+	return (bit);
+}
+
 int	main(int argn, char **args)
 {
 	int	error;
 	swap_node *a;
 	swap_node *b;
-	int	min_a;
-	int	min_b;
+	int	size;
+	int	max_bits;
 	int	i;
+	int	j;
 
 	b = NULL;
 	error = add_values(&a, argn, args);
@@ -56,5 +67,23 @@ int	main(int argn, char **args)
 		return (0);
 	}
 	add_index(&a);
-	show_nodes(&a, "A:");
+	size = size_nodes(a);
+	max_bits = bits_need(size - 1);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if (((a->index >> i) & 1) == 0 )
+				push(&a, &b, "pb");
+			else
+				rotate(&a, "ra");
+			j++;
+		}
+		while (b)
+			push(&b, &a, "pa");
+		i++;
+	}
+	// show_nodes(&a, "A:");
 }
