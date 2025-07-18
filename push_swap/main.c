@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/18 01:22:11 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/18 23:50:08 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ int	main(int argn, char **args)
 			push(&b, &a, "pa");
 		i++;
 	}
-	// show_nodes(&a, "A:");
+	show_nodes(&a, "A:");
 }
