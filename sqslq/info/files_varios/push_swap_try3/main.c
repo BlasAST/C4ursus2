@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/22 19:49:16 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/22 18:38:40 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,64 +49,6 @@ int	bits_need(int max)
 	return (bit);
 }
 
-void	order_three(swap_node **a)
-{
-	int	first;
-	int	second;
-	int third;
-
-	first = (*a)->value;
-	second = (*a)->next->value;
-	third = (*a)->next->next->value;
-	if (first > second && second < third)
-		swap(a, "sa");
-	else if (first > second && second > third)
-	{
-		swap(a, "sa");
-		rotate(a, "ra");
-	}
-	else if (first > second && second < third)
-		rotate(a, "ra");
-	else if (first < second && second > third && first < third)
-	{
-		swap(a, "sa");
-		rotate(a, "ra");
-	}
-	else if (first < second && second > third && first > third)
-		reverse_rotate(a, "rra");
-}
-
-void	order_five(swap_node **a, swap_node **b)
-{
-	int	min;
-
-	while (size_nodes(*a) > 3)
-	{
-		min = ft_find_min(a);
-		while ((*a)->value != min)
-			rotate(a ,"ra");
-		push(a, b, "pb");
-	}
-	order_three(a);
-	while (*b)
-		push(b, a, "pa");
-}
-
-void	generate_orders(swap_node **a, swap_node **b, int size, int m_bits)
-{
-		if (ft_nodes_in_order(a) != 0)
-		{
-			if (size == 2)
-				swap(a, "sa");
-			else if (size == 3)
-				order_three(a);
-			if (size <= 5)
-				order_five(a, b);
-		}
-}
-
-
-
 int	main(int argn, char **args)
 {
 	int	error;
@@ -127,6 +69,21 @@ int	main(int argn, char **args)
 	add_index(&a);
 	size = size_nodes(a);
 	max_bits = bits_need(size - 1);
-	generate_orders(&a, &b, size, max_bits);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if (((a->index >> i) & 1) == 0 )
+				push(&a, &b, "pb");
+			else
+				rotate(&a, "ra");
+			j++;
+		}
+		while (b)
+			push(&b, &a, "pa");
+		i++;
+	}
 	// show_nodes(&a, "A:");
 }
