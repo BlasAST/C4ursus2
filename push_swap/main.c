@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/22 19:49:16 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/07/24 22:07:29 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ void	order_five(swap_node **a, swap_node **b)
 		push(b, a, "pa");
 }
 
+void 	order_chunks()
+{
+	ft_printf("Esto ya toca organizarlo con chunks");
+}
+
 void	generate_orders(swap_node **a, swap_node **b, int size, int m_bits)
 {
 		if (ft_nodes_in_order(a) != 0)
@@ -100,8 +105,10 @@ void	generate_orders(swap_node **a, swap_node **b, int size, int m_bits)
 				swap(a, "sa");
 			else if (size == 3)
 				order_three(a);
-			if (size <= 5)
+			else if (size <= 5)
 				order_five(a, b);
+			else
+				order_chunks();
 		}
 }
 
