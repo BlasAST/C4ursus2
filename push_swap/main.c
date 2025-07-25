@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/24 22:07:29 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/25 20:24:02 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,91 @@ void	order_five(swap_node **a, swap_node **b)
 		push(b, a, "pa");
 }
 
-void 	order_chunks()
+int get_chunk_size(int size)
 {
-	ft_printf("Esto ya toca organizarlo con chunks");
+	if (size <= 100)
+		return (20);
+	else
+		return (45);
 }
 
-void	generate_orders(swap_node **a, swap_node **b, int size, int m_bits)
+int	get_max_index(swap_node *node)
+{
+	int	max;
+
+	max = node->index;
+	while (node != NULL)
+	{
+		if (max < node->index)
+			max = node->index;
+		node = node->next;
+	}
+	return (max);
+}
+
+int	find_index(swap_node *node, int max)
+{
+	int pos;
+
+	pos = 0;
+	while (node != NULL)
+	{
+		if (node->index == max)
+			return (pos);
+		node = node->next;
+		pos++;
+	}
+	return (pos);
+}
+
+void 	order_chunks(swap_node **a, swap_node **b, int size)
+{
+	int	i;
+	int	chunk_size;
+	int	chunk_max;
+	int	max;
+	int	pos;
+	int len;
+
+	chunk_size = get_chunk_size(size);
+	chunk_max = chunk_size;
+	i = 0;
+	while (size_nodes(*a) != 0)
+	{
+		if ((*a)->index <= i)
+		{
+			push(a,b,"pb");
+			rotate(b, "rb");
+			i++;
+		}
+		else if ((*a)->index <= chunk_max)
+		{
+			push(a,b,"pb");
+			i++;
+		}
+		else
+			rotate(a, "ra");
+		if (i >= chunk_max)
+			chunk_max += chunk_size;
+	}
+	while (size_nodes(*b) != 0)
+	{
+		max = get_max_index(*b);
+		pos = find_index(*b, max);
+		len = size_nodes(*b);
+		if (pos <= len / 2)
+			while ((*b)->index != max)
+				rotate(b, "rb");
+		else
+			while ((*b)->index != max)
+				reverse_rotate(b, "rrb");
+		push(b, a, "pa");
+	}
+	// show_nodes(a, "A:");
+	// show_nodes(b, "B:");
+}
+
+void	generate_orders(swap_node **a, swap_node **b, int size)
 {
 		if (ft_nodes_in_order(a) != 0)
 		{
@@ -108,7 +187,7 @@ void	generate_orders(swap_node **a, swap_node **b, int size, int m_bits)
 			else if (size <= 5)
 				order_five(a, b);
 			else
-				order_chunks();
+				order_chunks(a, b, size);
 		}
 }
 
@@ -134,6 +213,8 @@ int	main(int argn, char **args)
 	add_index(&a);
 	size = size_nodes(a);
 	max_bits = bits_need(size - 1);
-	generate_orders(&a, &b, size, max_bits);
+	// show_nodes(&a, "A:");
+	generate_orders(&a, &b, size);
+
 	// show_nodes(&a, "A:");
 }

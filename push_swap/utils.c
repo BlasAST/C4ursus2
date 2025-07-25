@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/17 00:35:03 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/25 15:05:27 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	show_nodes(swap_node **node, char *str_print)
 	swap_node *temp;
 
 	temp = *node;
-	ft_printf("%s:\t", str_print);
+	ft_printf("%s", str_print);
 	while (temp != NULL)
 	{
 		ft_printf("Indice: %d -> %d\n", temp->index, temp->value);

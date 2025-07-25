@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:59:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/12 00:46:07 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/25 18:21:30 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	push(swap_node **from, swap_node **to, char *str_print)
 	*from = (*from)->next;
 	temp->next = *to;
 	*to = temp;
+	if (size_nodes(*from) == 0)
+		from = NULL;
 	ft_printf("%s\n", str_print);
 }
 
