@@ -128,7 +128,36 @@ int	find_index(swap_node *node, int max)
 	}
 	return (pos);
 }
+/* 
+	int chunk_size;
+	int	mid;
+	int pushed;
+	int	max;
+	int	pos;
+	int len;
 
+	pushed = 0;
+	chunk_size = size / 5;
+	mid = size -chunk_size;
+	while (pushed < chunk_size)
+	{
+		if ((*a)->index >= mid)
+		{
+			push(a, b, "pb");
+			pushed++;
+		}
+		else
+			rotate(a, "ra");
+	}
+	if (size == 2)
+		swap(a, "sa");
+	else if (size == 3)
+		order_three(a);
+	else if (size <= 5)
+		order_five(a, b);
+	else
+		order_chunks(a, b, size_nodes(*a));
+ */
 void 	order_chunks(swap_node **a, swap_node **b, int size)
 {
 	int	i;
