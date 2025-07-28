@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/25 20:24:02 by aisber           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:52:20 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ void	order_five(swap_node **a, swap_node **b)
 int get_chunk_size(int size)
 {
 	if (size <= 100)
-		return (20);
+		return (size / 7);
 	else
-		return (45);
+		return (size / 11);
 }
 
 int	get_max_index(swap_node *node)
