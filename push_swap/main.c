@@ -24,12 +24,12 @@ int	ft_nodes_in_order(swap_node **node)
 	i = 0;
 	while (temp->next != NULL)
 	{
-		if (temp->value > temp->next->value)
-			return (1);
+		if (temp->index > temp->next->index)
+			return (0);
 		temp = temp->next;
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_filter_swap(swap_node **node, swap_node *node_b)
@@ -128,7 +128,66 @@ int	find_index(swap_node *node, int max)
 	}
 	return (pos);
 }
-/* 
+void	order_max_order(swap_node **b, swap_node **a)
+{
+	int	max;
+	int	pos;
+	int	len;
+
+	while (*b)
+	{
+		max = get_max_index(*b);
+		pos = find_index(*b, max);
+		len = size_nodes(*b);
+		if (pos < (len / 2))
+			while ((*b)->index != max)
+				rotate(b, "rb");
+		else
+			while ((*b)->index != max)
+				reverse_rotate(b, "rrb");
+		push(b, a, "pb");
+		rotate(a, "ra");
+	}
+	
+}
+
+void 	order_chunks(swap_node **a, swap_node **b, int size)
+{
+	int	chunk_size;
+	int	chunk_limit;
+
+	while (!ft_nodes_in_order(a))
+	{
+		chunk_size = get_chunk_size(size);
+		chunk_limit = size - chunk_size;
+		while (chunk_size != 0)
+		{
+			if ((*a)->index >= chunk_limit && (*a)->index <= size)
+			{
+				if ((*a)->index >= (chunk_size / 2))
+				{
+					push(a, b, "pb");
+					rotate(b, "rb");
+				}
+				else
+					push(a, b, "pb");
+				size--;
+				chunk_size--;
+			}
+			else
+				rotate(a, "ra");
+		}
+		ft_printf("Size = %d, Chunk_size = %d , Chunk_limit = %d", size, chunk_size, chunk_limit);
+		order_max_order(b, a);
+		chunk_size = get_chunk_size(size);
+		chunk_limit = size - chunk_size;
+	}
+	// show_nodes(a, "A:");
+	// show_nodes(b, "B:");
+}
+
+/* void 	order_chunks(swap_node **a, swap_node **b, int size)
+{
 	int chunk_size;
 	int	mid;
 	int pushed;
@@ -157,8 +216,23 @@ int	find_index(swap_node *node, int max)
 		order_five(a, b);
 	else
 		order_chunks(a, b, size_nodes(*a));
- */
-void 	order_chunks(swap_node **a, swap_node **b, int size)
+	while (size_nodes(*b) != 0)
+	{
+		max = get_max_index(*b);
+		pos = find_index(*b, max);
+		len = size_nodes(*b);
+		if (pos <= len / 2)
+			while ((*b)->index != max)
+				rotate(b, "rb");
+		else
+			while ((*b)->index != max)
+				reverse_rotate(b, "rrb");
+		push(b, a, "pa");
+	}
+	show_nodes(a, "A:");
+	show_nodes(b, "B:");
+} */
+/* void 	order_chunks(swap_node **a, swap_node **b, int size)
 {
 	int	i;
 	int	chunk_size;
@@ -203,11 +277,11 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 	}
 	// show_nodes(a, "A:");
 	// show_nodes(b, "B:");
-}
+} */
 
 void	generate_orders(swap_node **a, swap_node **b, int size)
 {
-		if (ft_nodes_in_order(a) != 0)
+		if (ft_nodes_in_order(a) == 0)
 		{
 			if (size == 2)
 				swap(a, "sa");
