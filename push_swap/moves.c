@@ -22,8 +22,6 @@ void	push(swap_node **from, swap_node **to, char *str_print)
 	*from = (*from)->next;
 	temp->next = *to;
 	*to = temp;
-	if (size_nodes(*from) == 0)
-		from = NULL;
 	ft_printf("%s\n", str_print);
 }
 
