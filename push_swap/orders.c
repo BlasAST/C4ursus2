@@ -119,24 +119,3 @@ void	add_index(swap_node **node)
 		i++;
 	}
 }
-
-
-void	conditions_min_a(swap_node **a, swap_node **b, int min_a, int min_b)
-{
-	while ((*a)->value != min_a && check_in_nodes(*a, min_a) == 0)
-	{
-		push(a, b, "pb");
-	}
-		rotate(a,"ra");
-}
-
-void	conditions_min_b(swap_node **a, swap_node **b, int min_a, int min_b)
-{
-	if (!b || !*b)
-		return ;
-	while ((*b)->value != min_b && check_in_nodes(*b, min_b) == 0)
-	{
-		rotate(b,"rb");
-	}
-	push(b,a,"pa");
-}

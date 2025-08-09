@@ -146,7 +146,6 @@ void	order_max_order(swap_node **b, swap_node **a)
 			while ((*b)->index != max)
 				reverse_rotate(b, "rrb");
 		push(b, a, "pb");
-		// rotate(a, "ra");
 	}
 	
 }
@@ -212,8 +211,6 @@ void	generate_orders(swap_node **a, swap_node **b, int size)
 				order_chunks(a, b, size);
 		}
 }
-
-
 
 int	main(int argn, char **args)
 {
