@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/08/09 17:26:55 by aisber           ###   ########.fr       */
+/*   Updated: 2025/08/09 17:45:45 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	ft_nodes_in_order(swap_node **node)
 	i = 0;
 	while (temp->next != NULL)
 	{
-		if (temp->value > temp->next->value)
-			return (1);
+		if (temp->index > temp->next->index)
+			return (0);
 		temp = temp->next;
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_filter_swap(swap_node **node, swap_node *node_b)
@@ -128,8 +128,29 @@ int	find_index(swap_node *node, int max)
 	}
 	return (pos);
 }
+void	order_max_order(swap_node **b, swap_node **a)
+{
+	int	max;
+	int	pos;
+	int	len;
 
-int	get_pos_in_chunk(swap_node *node, int max)
+	while (*b)
+	{
+		max = get_max_index(*b);
+		pos = find_index(*b, max);
+		len = size_nodes(*b);
+		if (pos < (len / 2))
+			while ((*b)->index != max)
+				rotate(b, "rb");
+		else
+			while ((*b)->index != max)
+				reverse_rotate(b, "rrb");
+		push(b, a, "pb");
+		// rotate(a, "ra");
+	}
+	
+}
+/* int	get_pos_in_chunk(swap_node *node, int max)
 {
 	int pos;
 
@@ -142,7 +163,7 @@ int	get_pos_in_chunk(swap_node *node, int max)
 		pos++;
 	}
 	return (pos);
-}
+} */
 void 	order_chunks(swap_node **a, swap_node **b, int size)
 {
 	int	i;
@@ -187,11 +208,13 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 				reverse_rotate(b, "rrb");
 		push(b, a, "pa");
 	}
+	show_nodes(a, "A:");
+	show_nodes(b, "B:");
 }
 
 void	generate_orders(swap_node **a, swap_node **b, int size)
 {
-		if (ft_nodes_in_order(a) != 0)
+		if (ft_nodes_in_order(a) == 0)
 		{
 			if (size == 2)
 				swap(a, "sa");
