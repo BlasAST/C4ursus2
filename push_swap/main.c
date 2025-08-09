@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/28 18:52:20 by aisber           ###   ########.fr       */
+/*   Updated: 2025/08/09 17:26:55 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,36 +128,21 @@ int	find_index(swap_node *node, int max)
 	}
 	return (pos);
 }
-/* 
-	int chunk_size;
-	int	mid;
-	int pushed;
-	int	max;
-	int	pos;
-	int len;
 
-	pushed = 0;
-	chunk_size = size / 5;
-	mid = size -chunk_size;
-	while (pushed < chunk_size)
+int	get_pos_in_chunk(swap_node *node, int max)
+{
+	int pos;
+
+	pos = 0;
+	while (node != NULL)
 	{
-		if ((*a)->index >= mid)
-		{
-			push(a, b, "pb");
-			pushed++;
-		}
-		else
-			rotate(a, "ra");
+		if (node->index <= max)
+			return (pos);
+		node = node->next;
+		pos++;
 	}
-	if (size == 2)
-		swap(a, "sa");
-	else if (size == 3)
-		order_three(a);
-	else if (size <= 5)
-		order_five(a, b);
-	else
-		order_chunks(a, b, size_nodes(*a));
- */
+	return (pos);
+}
 void 	order_chunks(swap_node **a, swap_node **b, int size)
 {
 	int	i;
@@ -175,7 +160,8 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 		if ((*a)->index <= i)
 		{
 			push(a,b,"pb");
-			rotate(b, "rb");
+			if ((*b)->index < chunk_max - chunk_size / 2)
+				rotate(b, "rb");
 			i++;
 		}
 		else if ((*a)->index <= chunk_max)
@@ -184,7 +170,7 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 			i++;
 		}
 		else
-			rotate(a, "ra");
+			rotate(a, "rra");
 		if (i >= chunk_max)
 			chunk_max += chunk_size;
 	}
@@ -201,8 +187,6 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 				reverse_rotate(b, "rrb");
 		push(b, a, "pa");
 	}
-	// show_nodes(a, "A:");
-	// show_nodes(b, "B:");
 }
 
 void	generate_orders(swap_node **a, swap_node **b, int size)
@@ -218,6 +202,8 @@ void	generate_orders(swap_node **a, swap_node **b, int size)
 			else
 				order_chunks(a, b, size);
 		}
+		// show_nodes(a, "A:");
+		// show_nodes(b, "B:");
 }
 
 
