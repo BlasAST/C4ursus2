@@ -6,7 +6,7 @@
 /*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/07/28 18:52:20 by aisber           ###   ########.fr       */
+/*   Updated: 2025/08/09 17:45:45 by aisber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,20 @@ void	order_max_order(swap_node **b, swap_node **a)
 	}
 	
 }
+/* int	get_pos_in_chunk(swap_node *node, int max)
+{
+	int pos;
 
+	pos = 0;
+	while (node != NULL)
+	{
+		if (node->index <= max)
+			return (pos);
+		node = node->next;
+		pos++;
+	}
+	return (pos);
+} */
 void 	order_chunks(swap_node **a, swap_node **b, int size)
 {
 	int	i;
@@ -167,7 +180,8 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 		if ((*a)->index <= i)
 		{
 			push(a,b,"pb");
-			rotate(b, "rb");
+			if ((*b)->index < chunk_max - chunk_size / 2)
+				rotate(b, "rb");
 			i++;
 		}
 		else if ((*a)->index <= chunk_max)
@@ -176,7 +190,7 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 			i++;
 		}
 		else
-			rotate(a, "ra");
+			rotate(a, "rra");
 		if (i >= chunk_max)
 			chunk_max += chunk_size;
 	}
@@ -210,6 +224,8 @@ void	generate_orders(swap_node **a, swap_node **b, int size)
 			else
 				order_chunks(a, b, size);
 		}
+		// show_nodes(a, "A:");
+		// show_nodes(b, "B:");
 }
 
 int	main(int argn, char **args)
