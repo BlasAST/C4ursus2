@@ -194,21 +194,22 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 		if (i >= chunk_max)
 			chunk_max += chunk_size;
 	}
-	while (size_nodes(*b) != 0)
-	{
-		max = get_max_index(*b);
-		pos = find_index(*b, max);
-		len = size_nodes(*b);
-		if (pos <= len / 2)
-			while ((*b)->index != max)
-				rotate(b, "rb");
-		else
-			while ((*b)->index != max)
-				reverse_rotate(b, "rrb");
-		push(b, a, "pa");
-	}
-	show_nodes(a, "A:");
-	show_nodes(b, "B:");
+	order_max_order(b,a);
+	// while (size_nodes(*b) != 0)
+	// {
+	// 	max = get_max_index(*b);
+	// 	pos = find_index(*b, max);
+	// 	len = size_nodes(*b);
+	// 	if (pos <= len / 2)
+	// 		while ((*b)->index != max)
+	// 			rotate(b, "rb");
+	// 	else
+	// 		while ((*b)->index != max)
+	// 			reverse_rotate(b, "rrb");
+	// 	push(b, a, "pa");
+	// }
+	// show_nodes(a, "A:");
+	// show_nodes(b, "B:");
 }
 
 void	generate_orders(swap_node **a, swap_node **b, int size)
