@@ -1,6 +1,9 @@
 #include "pipex.h"
 
-int main(void)
+int main(int argn, char **args)
 {
-    ft_printf("Hola buenas tardes");
+    ft_printf("%s", args[1]);
 }
+
+// Rutas donde busca el shell:
+// /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
