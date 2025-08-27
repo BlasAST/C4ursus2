@@ -2,7 +2,8 @@ NAME=pipex
 CC=cc
 C_FLAGS= -Wall -Werror -Wextra
 
-SRC= src/main.c
+SRC= src/main.c \
+	src/files.c
 
 OBJ_SRC = $(SRC:.c=.o)
 
