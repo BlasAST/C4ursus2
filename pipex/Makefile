@@ -3,7 +3,8 @@ CC=cc
 C_FLAGS= -Wall -Werror -Wextra
 
 SRC= src/main.c \
-	src/files.c
+	src/files.c \
+	src/forks.c
 
 OBJ_SRC = $(SRC:.c=.o)
 
@@ -18,7 +19,7 @@ $(NAME): $(OBJ_SRC)
 	$(CC) $(FLAGS_CC) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ_SRC)
 	make -C libft clean
 fclean: clean
 	rm -f $(NAME)
