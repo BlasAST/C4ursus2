@@ -4,7 +4,8 @@ C_FLAGS= -Wall -Werror -Wextra
 
 SRC= src/main.c \
 	src/files.c \
-	src/forks.c
+	src/forks.c \
+	src/exec.c
 
 OBJ_SRC = $(SRC:.c=.o)
 
