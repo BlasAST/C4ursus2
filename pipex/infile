@@ -8,3 +8,9 @@ por X pero bueno
 Son cosas que pasan
 hay dias y dias
 : )
+
+
+/* char buffer[1024];
+	int n;
+	while ((n = read(STDIN_FILENO, buffer, sizeof(buffer))) > 0)
+    	write(STDOUT_FILENO, buffer, n); */
