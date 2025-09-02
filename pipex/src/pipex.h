@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:51:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/01 14:54:13 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:33:26 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <sys/wait.h>
 # include <stdlib.h>
 
-extern int	testDone;
 int		check_file(char *file, int param);
 int		do_pid1(int *pid, int *fds, char *cmd1, char **envp);
 int		do_pid2(int *pid, int *fds, char *cmd2, char **envp);
