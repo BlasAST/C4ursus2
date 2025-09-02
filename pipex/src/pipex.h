@@ -20,7 +20,8 @@
 # include <sys/wait.h>
 # include <stdlib.h>
 
-int		check_file(char *file, char **message, int param);
+extern int	testDone;
+int		check_file(char *file, int param);
 int		do_pid1(int *pid, int *fds, char *cmd1, char **envp);
 int		do_pid2(int *pid, int *fds, char *cmd2, char **envp);
 int		exec_command(char **command, char **envp);

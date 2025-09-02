@@ -39,11 +39,10 @@ int	pipex(char *file1, char **cmds, char *file2, char **envp)
 {
 	int		pipe_fd[2];
 	int		fds[2];
-	char	*message;
 	int		status;
 
-	fds[0] = check_file(file1, &message, 0);
-	fds[1] = check_file(file2, &message, 1);
+	fds[0] = check_file(file1, 0);
+	fds[1] = check_file(file2, 1);
 	if (fds[1] == -1)
 	{
 		return (1);
@@ -61,6 +60,7 @@ int	main(int argn, char **args, char **envp)
 	char	**cmds;
 	int		exit_status;
 
+	exit_status = 0;
 	if (argn != 5)
 		return (1);
 	cmds = (char **)malloc(sizeof(char *) * 3);

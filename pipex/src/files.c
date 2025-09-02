@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-int	check_file(char *file, char **message, int param)
+int	check_file(char *file, int param)
 {
 	int	fd;
 
@@ -20,7 +20,7 @@ int	check_file(char *file, char **message, int param)
 	{
 		fd = open(file, O_RDONLY);
 		if (fd == -1)
-			perror(file);
+			perror (file);
 	}
 	else
 	{

@@ -42,13 +42,12 @@ char	*get_path(char **envp)
 	return (*envp + 5);
 }
 
-int	exec_plus(char *route_temp, char **command, char **envp)
+void	exec_plus(char *route_temp, char **command, char **envp)
 {
 	execve(route_temp, command, envp);
 	perror ("execve failed");
 	free(route_temp);
 	exit(127);
-	return (1);
 }
 
 int	exec_command(char **command, char **envp)
@@ -70,11 +69,12 @@ int	exec_command(char **command, char **envp)
 	{
 		route_temp = ft_strjoin(routes[i], ft_strjoin ("/", command[0]));
 		if (access(route_temp, X_OK) == 0)
-			return (exec_plus(route_temp, command, envp));
+			exec_plus(route_temp, command, envp);
 		free (route_temp);
 		i++;
 	}
-	ft_printf("%s: command not found\n", command[0]);
+	write(2, command[0], ft_strlen(command[0]));
+	write (2, ": command not found\n", 20);
 	exit(127);
 	return (1);
 }
