@@ -2,11 +2,11 @@ NAME=pipex
 CC=cc
 C_FLAGS= -Wall -Werror -Wextra
 
-SRC= src/main.c \
-	src/files.c \
-	src/forks.c \
-	src/exec.c \
-	src/free.c
+SRC= main.c \
+	files.c \
+	forks.c \
+	exec.c \
+	free.c
 
 OBJ_SRC = $(SRC:.c=.o)
 

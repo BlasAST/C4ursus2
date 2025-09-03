@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/08/09 21:18:23 by aisber           ###   ########.fr       */
+/*   Updated: 2025/09/03 16:07:38 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@ int	ft_filter_swap(swap_node **node, swap_node *node_b)
 	if (ft_nodes_in_order(node) == 1 || node_b != NULL)
 		return (1);
 	return (0);
+}
+
+int	find_index(swap_node *node, int max)
+{
+	int pos;
+
+	pos = 0;
+	while (node != NULL)
+	{
+		if (node->index == max)
+			return (pos);
+		node = node->next;
+		pos++;
+	}
+	return (pos);
 }
 
 int	bits_need(int max)
@@ -79,12 +94,19 @@ void	order_three(swap_node **a)
 void	order_five(swap_node **a, swap_node **b)
 {
 	int	min;
+	int	pos;
+	int	size;
 
 	while (size_nodes(*a) > 3)
 	{
 		min = ft_find_min(a);
-		while ((*a)->value != min)
-			rotate(a ,"ra");
+		pos = find_index(*a, min);
+		if (pos <= size_nodes(*a) / 2)
+			while ((*a)->value != min)
+				reverse_rotate (a, "rra");
+		else
+			while ((*a)->value != min)
+				rotate(a ,"ra");
 		push(a, b, "pb");
 	}
 	order_three(a);
@@ -112,21 +134,6 @@ int	get_max_index(swap_node *node)
 		node = node->next;
 	}
 	return (max);
-}
-
-int	find_index(swap_node *node, int max)
-{
-	int pos;
-
-	pos = 0;
-	while (node != NULL)
-	{
-		if (node->index == max)
-			return (pos);
-		node = node->next;
-		pos++;
-	}
-	return (pos);
 }
 
 void	order_max_order(swap_node **b, swap_node **a)
@@ -189,8 +196,8 @@ void	generate_orders(swap_node **a, swap_node **b, int size)
 			else
 				order_chunks(a, b, size);
 		}
-		// show_nodes(a, "A:");
-		// show_nodes(b, "B:");
+		/* show_nodes(a, "A:");
+		show_nodes(b, "B:"); */
 }
 
 int count_repeats(swap_node *a, int value)
@@ -235,11 +242,12 @@ int	main(int argn, char **args)
 	error = add_values(&a, argn, args);
 	if (error == 1 || find_nodes_repeat(a) == 1)
 	{
-		ft_printf("Error\n");
-		return (0);
+		write(2, "Error\n", 6);
+		return (1);
 	}
 	add_index(&a);
 	size = size_nodes(a);
 	max_bits = bits_need(size - 1);
 	generate_orders(&a, &b, size);
+	return (0);
 }

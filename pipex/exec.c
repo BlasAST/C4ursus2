@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:43:18 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/02 17:22:54 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:35:09 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	exec_plus(char *route_temp, char **command, char **envp)
 	exit(127);
 }
 
-int	exec_command(char **command, char **envp)
+void	exec_command(char **command, char **envp)
 {
 	char	*path;
 	char	**routes;
@@ -76,5 +76,4 @@ int	exec_command(char **command, char **envp)
 	write(2, command[0], ft_strlen(command[0]));
 	write (2, ": command not found\n", 20);
 	exit(127);
-	return (1);
 }

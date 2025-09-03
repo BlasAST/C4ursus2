@@ -6,13 +6,13 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:03:45 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/01 14:51:58 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:26:30 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	do_pid1(int *pid, int *fds, char *cmd1, char **envp)
+void	do_pid1(int *pid, int *fds, char *cmd1, char **envp)
 {
 	char	**command;
 
@@ -25,7 +25,7 @@ int	do_pid1(int *pid, int *fds, char *cmd1, char **envp)
 	free(command);
 }
 
-int	do_pid2(int *pid, int *fds, char *cmd2, char **envp)
+void	do_pid2(int *pid, int *fds, char *cmd2, char **envp)
 {
 	char	**command;
 

@@ -6,33 +6,31 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:43:28 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/01 14:53:16 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:27:30 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	do_forks(int *pipe_fd, int *fds, char **cmds, char **envp)
+void	do_forks(int *pipe_fd, int *fds, char **cmds, char **envp)
 {
 	pid_t	pid1;
 	pid_t	pid2;
-	int		status;
 
 	pid1 = fork();
 	if (pid1 == -1)
 		perror ("Error en fork");
 	if (pid1 == 0)
-		status = do_pid1(pipe_fd, fds, cmds[0], envp);
+		do_pid1(pipe_fd, fds, cmds[0], envp);
 	pid2 = fork();
 	if (pid2 == -1)
 		perror ("Error en fork");
 	if (pid2 == 0)
-		status = do_pid2(pipe_fd, fds, cmds[1], envp);
+		do_pid2(pipe_fd, fds, cmds[1], envp);
 	close (pipe_fd[0]);
 	close (pipe_fd[1]);
 	waitpid (pid1, NULL, 0);
 	waitpid (pid2, NULL, 0);
-	return (status);
 }
 
 int	pipex(char *file1, char **cmds, char *file2, char **envp)
@@ -49,7 +47,7 @@ int	pipex(char *file1, char **cmds, char *file2, char **envp)
 	}
 	if (pipe(pipe_fd) == -1)
 		perror("Error en la creación del pipe");
-	status = do_forks(pipe_fd, fds, cmds, envp);
+	do_forks(pipe_fd, fds, cmds, envp);
 	close(fds[0]);
 	close(fds[1]);
 	return (0);
