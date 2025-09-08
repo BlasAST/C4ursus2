@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:09:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/17 00:30:15 by aisber           ###   ########.fr       */
+/*   Updated: 2025/09/08 13:25:40 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	check_valid_string(char *str)
 	int	i;
 	
 	i = 0;
+	if (str[i] == '+' && str[i] == '-')
+		i++;
 	while (str[i])
 	{
-		if (str[i] != ' ' && (str[i] < '0' || str[i] > '9')
-			&& str[i] != '+' && str[i] != '-')
+		if (str[i] != ' ' && (str[i] < '0' || str[i] > '9'))
 			return (1);
 		i++;
 	}
