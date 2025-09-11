@@ -7,7 +7,9 @@ SRC = main.c \
 	utils_2.c \
 	filters.c \
 	orders.c \
-	checkers.c
+	checkers.c \
+	algoritm.c \
+	utils_algoritm.c 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

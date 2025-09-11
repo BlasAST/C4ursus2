@@ -6,22 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:10:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/11 13:58:36 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:17:44 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check_in_nodes(t_swap_node *node, int min)
-{
-	while (node != NULL)
-	{
-		if (node->value == min)
-			return (0);
-		node = node->next;
-	}
-	return (1);
-}
 
 int	ft_find_min(t_swap_node **node)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/11 14:00:19 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:20:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,4 @@ int	add_values(t_swap_node **node, int len, char **args)
 		index++;
 	}
 	return (0);
-}
-
-void	show_nodes(t_swap_node **node, char *str_print)
-{
-	t_swap_node	*temp;
-
-	temp = *node;
-	ft_printf("%s", str_print);
-	while (temp != NULL)
-	{
-		ft_printf("Indice: %d -> %d\n", temp->index, temp->value);
-		temp = temp->next;
-	}
-	ft_printf("\n\n");
 }
