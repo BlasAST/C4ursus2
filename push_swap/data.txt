@@ -1,0 +1,1 @@
+Corregir error de valgrind --leak-check=full --track-origins=yes me da un no free
