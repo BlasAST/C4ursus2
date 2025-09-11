@@ -6,21 +6,20 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 00:05:27 by aisber            #+#    #+#             */
-/*   Updated: 2025/09/03 16:07:38 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:03:02 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_nodes_in_order(swap_node **node)
+int	ft_nodes_in_order(t_swap_node **node)
 {
-	int	i;
-	swap_node *temp;
+	int			i;
+	t_swap_node	*temp;
 
 	if (!*node)
 		return (1);
 	temp = (*node);
-
 	i = 0;
 	while (temp->next != NULL)
 	{
@@ -32,16 +31,9 @@ int	ft_nodes_in_order(swap_node **node)
 	return (1);
 }
 
-int	ft_filter_swap(swap_node **node, swap_node *node_b)
+int	find_index(t_swap_node *node, int max)
 {
-	if (ft_nodes_in_order(node) == 1 || node_b != NULL)
-		return (1);
-	return (0);
-}
-
-int	find_index(swap_node *node, int max)
-{
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (node != NULL)
@@ -64,16 +56,16 @@ int	bits_need(int max)
 	return (bit);
 }
 
-void	order_three(swap_node **a)
+void	order_three(t_swap_node **a)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	first = (*a)->value;
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
-	if (first > second && second >  third)
+	if (first > second && second > third)
 	{
 		swap(a, "sa");
 		reverse_rotate(a, "rra");
@@ -91,7 +83,7 @@ void	order_three(swap_node **a)
 	}
 }
 
-void	order_five(swap_node **a, swap_node **b)
+void	order_five(t_swap_node **a, t_swap_node **b)
 {
 	int	min;
 	int	pos;
@@ -106,7 +98,7 @@ void	order_five(swap_node **a, swap_node **b)
 				reverse_rotate (a, "rra");
 		else
 			while ((*a)->value != min)
-				rotate(a ,"ra");
+				rotate(a, "ra");
 		push(a, b, "pb");
 	}
 	order_three(a);
@@ -114,7 +106,7 @@ void	order_five(swap_node **a, swap_node **b)
 		push(b, a, "pa");
 }
 
-int get_chunk_size(int size)
+int	get_chunk_size(int size)
 {
 	if (size <= 100)
 		return (size / 7);
@@ -122,7 +114,7 @@ int get_chunk_size(int size)
 		return (size / 11);
 }
 
-int	get_max_index(swap_node *node)
+int	get_max_index(t_swap_node *node)
 {
 	int	max;
 
@@ -136,7 +128,7 @@ int	get_max_index(swap_node *node)
 	return (max);
 }
 
-void	order_max_order(swap_node **b, swap_node **a)
+void	order_max_order(t_swap_node **b, t_swap_node **a)
 {
 	int	max;
 	int	pos;
@@ -157,7 +149,7 @@ void	order_max_order(swap_node **b, swap_node **a)
 	}
 }
 
-void 	order_chunks(swap_node **a, swap_node **b, int size)
+void	order_chunks(t_swap_node **a, t_swap_node **b, int size)
 {
 	int	i;
 	int	chunk_size;
@@ -170,8 +162,9 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 	{
 		if ((*a)->index <= chunk_max)
 		{
-			push(a,b,"pb");
-			if (*b && (*b)->index < chunk_max - chunk_size / 2 && (*b)->index <= i)
+			push(a, b, "pb");
+			if (*b && (*b)->index < chunk_max - chunk_size / 2 \
+				&& (*b)->index <= i)
 				rotate(b, "rb");
 			i++;
 		}
@@ -180,27 +173,25 @@ void 	order_chunks(swap_node **a, swap_node **b, int size)
 		if (i >= chunk_max)
 			chunk_max += chunk_size;
 	}
-	order_max_order(b,a);
+	order_max_order(b, a);
 }
 
-void	generate_orders(swap_node **a, swap_node **b, int size)
+void	generate_orders(t_swap_node **a, t_swap_node **b, int size)
 {
-		if (ft_nodes_in_order(a) == 0)
-		{
-			if (size == 2)
-				swap(a, "sa");
-			else if (size == 3)
-				order_three(a);
-			else if (size <= 5)
-				order_five(a, b);
-			else
-				order_chunks(a, b, size);
-		}
-		/* show_nodes(a, "A:");
-		show_nodes(b, "B:"); */
+	if (ft_nodes_in_order(a) == 0)
+	{
+		if (size == 2)
+			swap(a, "sa");
+		else if (size == 3)
+			order_three(a);
+		else if (size <= 5)
+			order_five(a, b);
+		else
+			order_chunks(a, b, size);
+	}
 }
 
-int count_repeats(swap_node *a, int value)
+int	count_repeats(t_swap_node *a, int value)
 {
 	int	count;
 
@@ -214,9 +205,9 @@ int count_repeats(swap_node *a, int value)
 	return (count);
 }
 
-int	find_nodes_repeat(swap_node *a)
+int	find_nodes_repeat(t_swap_node *a)
 {
-	swap_node *temp;
+	t_swap_node	*temp;
 
 	temp = a;
 	while (temp != NULL)
@@ -230,13 +221,11 @@ int	find_nodes_repeat(swap_node *a)
 
 int	main(int argn, char **args)
 {
-	int	error;
-	swap_node	*a;
-	swap_node	*b;
-	int	size;
-	int	max_bits;
-	int	i;
-	int	j;
+	int			error;
+	t_swap_node	*a;
+	t_swap_node	*b;
+	int			size;
+	int			max_bits;
 
 	b = NULL;
 	error = add_values(&a, argn, args);

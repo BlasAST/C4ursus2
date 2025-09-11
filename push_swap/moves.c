@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aisber <aisber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:59:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/07/25 18:21:30 by aisber           ###   ########.fr       */
+/*   Updated: 2025/09/11 13:57:21 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(swap_node **from, swap_node **to, char *str_print)
+void	push(t_swap_node **from, t_swap_node **to, char *str_print)
 {
-	swap_node *temp;
+	t_swap_node	*temp;
 
 	if (!*from)
 		return ;
@@ -25,9 +25,9 @@ void	push(swap_node **from, swap_node **to, char *str_print)
 	ft_printf("%s\n", str_print);
 }
 
-void	swap(swap_node	**node, char *str_print)
+void	swap(t_swap_node	**node, char *str_print)
 {
-	swap_node *temp;
+	t_swap_node	*temp;
 
 	if (!node || !(*node)->next)
 		return ;
@@ -38,10 +38,10 @@ void	swap(swap_node	**node, char *str_print)
 	ft_printf("%s\n", str_print);
 }
 
-void	rotate(swap_node **node, char *str_print)
+void	rotate(t_swap_node **node, char *str_print)
 {
-	swap_node *temp;
-	swap_node *iter;
+	t_swap_node	*temp;
+	t_swap_node	*iter;
 
 	iter = *node;
 	temp = *node;
@@ -57,10 +57,10 @@ void	rotate(swap_node **node, char *str_print)
 	ft_printf("%s\n", str_print);
 }
 
-void	reverse_rotate(swap_node **node, char *str_print)
+void	reverse_rotate(t_swap_node **node, char *str_print)
 {
-	swap_node *temp;
-	swap_node *iter;
+	t_swap_node	*temp;
+	t_swap_node	*iter;
 
 	iter = *node;
 	while (iter->next->next != NULL)

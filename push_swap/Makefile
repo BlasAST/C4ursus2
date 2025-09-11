@@ -3,9 +3,11 @@ CC = cc
 # FLAGS_CC= -Wall -Werror -Wextra
 SRC = main.c \
 	moves.c \
-	utils.c \
+	utils_1.c \
+	utils_2.c \
 	filters.c \
-	orders.c
+	orders.c \
+	checkers.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

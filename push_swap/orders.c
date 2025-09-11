@@ -6,13 +6,13 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:10:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/03 16:00:50 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:58:36 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_in_nodes(swap_node *node, int min)
+int	check_in_nodes(t_swap_node *node, int min)
 {
 	while (node != NULL)
 	{
@@ -23,10 +23,10 @@ int	check_in_nodes(swap_node *node, int min)
 	return (1);
 }
 
-int	ft_find_min(swap_node **node)
+int	ft_find_min(t_swap_node **node)
 {
-	int	min;
-	swap_node *temp;
+	int			min;
+	t_swap_node	*temp;
 
 	if (!node || !*node)
 		return (2147483647);
@@ -43,9 +43,9 @@ int	ft_find_min(swap_node **node)
 	return (min);
 }
 
-void	put_index(swap_node **node, int val, int in)
+void	put_index(t_swap_node **node, int val, int in)
 {
-	swap_node *temp;
+	t_swap_node	*temp;
 
 	temp = *node;
 	while (temp != NULL)
@@ -59,11 +59,11 @@ void	put_index(swap_node **node, int val, int in)
 	}
 }
 
-int	ft_find_nex_min(swap_node **node, int min)
+int	ft_find_nex_min(t_swap_node **node, int min)
 {
-	int new_min;
-	int	found;
-	swap_node *temp;
+	int			new_min;
+	int			found;
+	t_swap_node	*temp;
 
 	if (!node || !*node)
 		return (0);
@@ -87,8 +87,7 @@ int	ft_find_nex_min(swap_node **node, int min)
 	return (min);
 }
 
-
-int	size_nodes(swap_node *node)
+int	size_nodes(t_swap_node *node)
 {
 	int	i;
 
@@ -101,7 +100,7 @@ int	size_nodes(swap_node *node)
 	return (i);
 }
 
-void	add_index(swap_node **node)
+void	add_index(t_swap_node **node)
 {
 	int	i;
 	int	size;

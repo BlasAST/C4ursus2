@@ -6,15 +6,15 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/08 13:08:49 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:00:19 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	clean_nodes(swap_node **node)
+int	clean_nodes(t_swap_node **node)
 {
-	swap_node *temp;
+	t_swap_node	*temp;
 
 	while (*node != NULL)
 	{
@@ -31,25 +31,26 @@ int	return_error(char *str)
 	return (1);
 }
 
-swap_node	*create_node()
+t_swap_node	*create_node(void)
 {
-	swap_node *new;
-	new = (swap_node*) malloc(sizeof(swap_node));
+	t_swap_node	*new;
+
+	new = (t_swap_node *) malloc(sizeof(t_swap_node));
 	if (!new)
 	{
 		write(2, "Error:", 6);
 		return (NULL);
 	}
 	new->next = NULL;
-	return new;
+	return (new);
 }
 
-int	add_values(swap_node **node, int len, char **args)
+int	add_values(t_swap_node **node, int len, char **args)
 {
-	int	i;
-	int	valid_value;
-	int	index;
-	swap_node *new_node;
+	int			i;
+	int			valid_value;
+	int			index;
+	t_swap_node	*new_node;
 
 	i = 1;
 	index = 1;
@@ -75,9 +76,9 @@ int	add_values(swap_node **node, int len, char **args)
 	return (0);
 }
 
-void	show_nodes(swap_node **node, char *str_print)
+void	show_nodes(t_swap_node **node, char *str_print)
 {
-	swap_node *temp;
+	t_swap_node	*temp;
 
 	temp = *node;
 	ft_printf("%s", str_print);
