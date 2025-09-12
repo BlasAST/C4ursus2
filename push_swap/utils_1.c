@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/11 14:20:00 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:29:12 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,18 @@ t_swap_node	*create_node(void)
 	return (new);
 }
 
+int	create_new_node(int i, int len, t_swap_node **new_node)
+{
+	if (i + 1 != len)
+	{
+		(*new_node)->next = create_node();
+		if ((*new_node)->next == NULL)
+			return (return_error("Error create node"));
+		*new_node = (*new_node)->next;
+	}
+	return (0);
+}
+
 int	add_values(t_swap_node **node, int len, char **args)
 {
 	int			i;
@@ -63,13 +75,8 @@ int	add_values(t_swap_node **node, int len, char **args)
 		valid_value = check_args(args[i], &new_node);
 		if (valid_value == 1)
 			return (clean_nodes(node));
-		if (i + 1 != len)
-		{
-			new_node->next = create_node();
-			if (new_node->next == NULL)
-				return (return_error("Error create node"));
-			new_node = new_node->next;
-		}
+		if (create_new_node(i, len, &new_node) == 1)
+			return (1);
 		i++;
 		index++;
 	}

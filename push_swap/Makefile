@@ -4,7 +4,6 @@ CC = cc
 SRC = main.c \
 	moves.c \
 	utils_1.c \
-	utils_2.c \
 	filters.c \
 	orders.c \
 	checkers.c \
