@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:15:04 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/12 14:44:02 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:11:26 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int	clean_nodes(t_swap_node **node)
 	return (1);
 }
 
-int	return_error(char *str)
+int	return_error(char *str, t_swap_node **node)
 {
 	write(2, str, ft_strlen(str));
+	if (*node)
+		clean_nodes(node);
 	return (1);
 }
 
@@ -65,7 +67,7 @@ int	add_values(t_swap_node **node, int len, char **args)
 		{
 			new_node->next = create_node();
 			if (new_node->next == NULL)
-				return (return_error("Error create node"));
+				return (return_error("Error create node", node));
 			new_node = new_node->next;
 		}
 		i++;

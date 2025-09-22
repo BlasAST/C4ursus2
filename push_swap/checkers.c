@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 13:24:23 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/12 14:45:36 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:16:39 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	check_atoi(char *arg)
 	reconv = ft_itoa(number);
 	if (ft_strncmp(reconv, arg, ft_strlen(arg)) != 0)
 		return (1);
+	free(reconv);
 	return (0);
 }
 
