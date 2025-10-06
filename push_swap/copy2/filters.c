@@ -29,7 +29,10 @@ int	ft_conver_digits(char *args, t_swap_node **node)
 {
 	int	i;
 	int	pos;
+	t_swap_node *now_node;
 
+	now_node = create_node();
+	*node = now_node;
 	i = 0;
 	while (args[i])
 	{
@@ -49,7 +52,7 @@ int	ft_conver_digits(char *args, t_swap_node **node)
 	return (0);
 }
 
-int	check_args(char *args, t_swap_node **node)
+/* int	check_args(char *args, t_swap_node **node)
 {
 	int	i;
 
@@ -68,4 +71,4 @@ int	check_args(char *args, t_swap_node **node)
 	else
 		(*node)->value = ft_atoi(args);
 	return (0);
-}
+} */

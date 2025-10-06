@@ -86,7 +86,7 @@ int	add_values(t_swap_node **node, int len, char **args)
 			else
 				if (ft_conver_digits(args[i],node) == 1)
 					return (return_error("Error create node", node));
-				else if(i + 1 != len)
+				if(i + 1 != len)
 				{
 					new_node->next = create_node();
 					if (new_node->next == NULL)
