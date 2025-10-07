@@ -6,13 +6,13 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 12:56:43 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/10/06 14:05:19 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:44:58 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char *new_str(char *str, int size, char delimiter)
+char *new_str(char *str, int size)
 {
 	int	i;
 	char *new;
@@ -21,7 +21,7 @@ char *new_str(char *str, int size, char delimiter)
 	new = (char *)malloc((size + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
-	while (str[i] && i < size && str[i] != delimiter)
+	while (str[i] && i < size)
 	{
 		new[i] = str[i];
 		i++;
@@ -55,6 +55,40 @@ int	size_str(char *str, char delimiter)
 	return (i);
 }
 
+int	find_other_limiter(char *str, char limiter)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] != limiter)
+		i++;
+	if (str[i] == limiter)
+		return (1);
+	return (0);
+}
+
+void	flag_str(char **str, char **strs, int *i)
+{
+	char	limiter;
+	int		valid_limiter;
+	int		size;
+
+	limiter = **str;
+	if (limiter == '\'' || limiter == '\"')
+	{	
+		if (find_other_limiter(*(str + 1), limiter) == 1)
+		{
+			(*str)++;
+			size = size_str(*str, limiter);
+		}
+		else
+			size = size_str(*str, ' ');
+		strs[*i] = new_str(*str, size);
+		(*i)++;
+		*str+=size;
+	}
+}
+
 void	add_strs(char **strs, char *str, char delimiter)
 {
 	int	i;
@@ -62,16 +96,19 @@ void	add_strs(char **strs, char *str, char delimiter)
 	int	spaces;
 
 	i = 0;
-	size = 0;
-	spaces = 0;
 	while (*str)
 	{
 		spaces = jump_spaces(str);
 		str += spaces;
-		size = size_str(str, delimiter);
-		strs[i] = new_str(str, size, delimiter);
-		i++;
-		str+=size;
+		if (*str == '\'' || *str == '\"')
+			flag_str(&str, strs, &i);
+		else
+		{
+			size = size_str(str, delimiter);
+			strs[i] = new_str(str, size);
+			i++;
+			str+=size;
+		}
 	}
 	strs[i] = NULL;
 }
@@ -97,7 +134,7 @@ char **ft_split_pipex(char *str, char delimiter)
 	return (strs);
 }
 
-int main(void)
+/* int main(void)
 {
 	int	i = 0;
 	char **aa = ft_split_pipex("Hola que tal estas", ' ');
@@ -106,4 +143,4 @@ int main(void)
 		ft_printf("%s\n", aa[i]);
 		i++;
 	}
-}
+} */

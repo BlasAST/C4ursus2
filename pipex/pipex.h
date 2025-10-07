@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:51:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/03 13:37:00 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:18:12 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	do_pid2(int *pid, int *fds, char *cmd2, char **envp);
 void	exec_command(char **command, char **envp);
 void	free_split(char **arr);
 void	free_all(char **command, char **routes, char *route_temp);
+char	**ft_split_pipex(char *str, char delimiter);
 #endif

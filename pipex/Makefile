@@ -6,7 +6,8 @@ SRC= main.c \
 	files.c \
 	forks.c \
 	exec.c \
-	free.c
+	free.c \
+	split_pipex.c
 
 OBJ_SRC = $(SRC:.c=.o)
 
