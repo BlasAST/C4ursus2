@@ -30,15 +30,15 @@ char *new_str(char *str, int size)
 	return (new);
 }
 
-int	jump_spaces(char *str)
+int	jump_spaces(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (*str == ' ')
+	while (**str == ' ' && **str != '\0')
 	{
 		i++;
-		str++;
+		(*str)++;
 	}
 	return (i);
 }
@@ -67,26 +67,23 @@ int	find_other_limiter(char *str, char limiter)
 	return (0);
 }
 
-void	flag_str(char **str, char **strs, int *i)
+int	find_valid_limiters(char *str, char delimiter)
 {
-	char	limiter;
-	int		valid_limiter;
-	int		size;
+	int	i;
+	int	count;
 
-	limiter = **str;
-	if (limiter == '\'' || limiter == '\"')
-	{	
-		if (find_other_limiter(*(str + 1), limiter) == 1)
+	i = 0;
+	count = 0;
+	while (*str)
+	{
+		if (*str == delimiter && i <= 2)
 		{
-			(*str)++;
-			size = size_str(*str, limiter);
+			count++;
+			i++;
 		}
-		else
-			size = size_str(*str, ' ');
-		strs[*i] = new_str(*str, size);
-		(*i)++;
-		*str+=size;
+		str++;
 	}
+	return (count);
 }
 
 void	add_strs(char **strs, char *str, char delimiter)
@@ -94,14 +91,65 @@ void	add_strs(char **strs, char *str, char delimiter)
 	int	i;
 	int	size;
 	int	spaces;
+	int	limiter;
 
 	i = 0;
 	while (*str)
 	{
+		jump_spaces(&str);
+		limiter = *str;
+		if (limiter == '\'' || limiter == '\"')
+		{
+			if (find_valid_limiters((str), limiter) == 2)
+			{
+				str++;
+				size = size_str(str, limiter);
+				if (size != 0)
+					strs[i] = new_str(str, size);
+				if(*(str + 1) != '\0')
+					str++;
+			}
+			else
+			{
+				size = size_str(str, delimiter);
+				strs[i] = new_str(str, size);
+			}
+		}
+		else
+		{
+			size = size_str(str, delimiter);
+			strs[i] = new_str(str, size);
+		}
+		i++;
+		str += size;
+	}
+	strs[i] = NULL;
+}
+
+
+/*
+while (*str)
+	{
 		spaces = jump_spaces(str);
 		str += spaces;
-		if (*str == '\'' || *str == '\"')
-			flag_str(&str, strs, &i);
+		limiter = *str;
+		if (limiter == '\'' || limiter == '\"')
+		{	
+			if (find_other_limiter(str + 1, limiter) == 1)
+			{
+				str++;
+				size = size_str(str, limiter);
+			}
+			else
+			{
+				str++;
+				size = size_str(str, ' ');
+			}
+			strs[i] = new_str(str, size);
+			i++;
+			str+=size;
+		}
+			// flag_str(&str, strs, &i);
 		else
 		{
 			size = size_str(str, delimiter);
@@ -109,9 +157,8 @@ void	add_strs(char **strs, char *str, char delimiter)
 			i++;
 			str+=size;
 		}
-	}
-	strs[i] = NULL;
-}
+} 
+ */
 
 char **ft_split_pipex(char *str, char delimiter)
 {
