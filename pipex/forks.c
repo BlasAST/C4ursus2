@@ -20,7 +20,6 @@ void	do_pid1(int *pid, int *fds, char *cmd1, char **envp)
 	dup2(pid[1], STDOUT_FILENO);
 	close(pid[0]);
 	close(pid[1]);
-	// command = ft_split(cmd1, ' ');
 	command = ft_split_pipex(cmd1, ' ');
 	exec_command(command, envp);
 	free(command);
@@ -34,7 +33,6 @@ void	do_pid2(int *pid, int *fds, char *cmd2, char **envp)
 	dup2 (fds[1], STDOUT_FILENO);
 	close (pid[0]);
 	close (pid[1]);
-	// command = ft_split(cmd2, ' ');
 	command = ft_split_pipex(cmd2, ' ');
 	exec_command(command, envp);
 	free(command);

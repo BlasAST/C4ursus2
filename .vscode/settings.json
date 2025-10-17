@@ -5,7 +5,8 @@
 		"push_swap.h": "c",
 		"libft.h": "c",
 		"unistd.h": "c",
-		"pipex.h": "c"
+		"pipex.h": "c",
+		"fcntl.h": "c"
 	},
 	"peacock.color": "#05040b",
 	"workbench.colorCustomizations": {
