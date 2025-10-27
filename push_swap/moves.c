@@ -43,10 +43,10 @@ void	rotate(t_swap_node **node, char *str_print)
 	t_swap_node	*temp;
 	t_swap_node	*iter;
 
+	if (!node || !*node || !(*node)->next)
+		return ;
 	iter = *node;
 	temp = *node;
-	if ((*node)->next == NULL)
-		return ;
 	(*node) = (*node)->next;
 	while (iter->next)
 	{
@@ -62,6 +62,8 @@ void	reverse_rotate(t_swap_node **node, char *str_print)
 	t_swap_node	*temp;
 	t_swap_node	*iter;
 
+	if (!node || !*node || !(*node)->next)
+		return ;
 	iter = *node;
 	while (iter->next->next != NULL)
 	{

@@ -97,8 +97,8 @@ void	order_chunks(t_swap_node **a, t_swap_node **b, int size)
 		if ((*a)->index <= chunk_max)
 		{
 			push(a, b, "pb");
-			if (*b && (*b)->index < chunk_max - chunk_size / 2 \
-				&& (*b)->index <= i)
+			if (*b && (*b)->index < chunk_max - chunk_size / 2 && \
+(*b)->index <= i)
 				rotate(b, "rb");
 			i++;
 		}

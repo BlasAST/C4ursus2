@@ -17,11 +17,10 @@ int	check_valid_string(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '+' && str[i] == '-')
-		i++;
 	while (str[i])
 	{
-		if (str[i] != ' ' && (str[i] < '0' || str[i] > '9'))
+		if (str[i] != ' ' && (str[i] < '0' || str[i] > '9') \
+			&& str[i] != '+' && str[i] != '-')
 			return (1);
 		i++;
 	}
@@ -35,10 +34,16 @@ int	check_range(char *arg)
 
 	number = ft_atoi(arg);
 	reconv = ft_itoa(number);
+	if (!reconv)
+		return (1);
 	if (arg[0] == '+')
 		arg++;
 	if (ft_strncmp(reconv, arg, ft_strlen(reconv)) != 0)
+	{
+		free(reconv);
 		return (1);
+	}
+	free(reconv);
 	return (0);
 }
 
@@ -50,7 +55,10 @@ int	check_atoi(char *arg)
 	number = ft_atoi(arg);
 	reconv = ft_itoa(number);
 	if (ft_strncmp(reconv, arg, ft_strlen(arg)) != 0)
+	{
+		free(reconv);
 		return (1);
+	}
 	free(reconv);
 	return (0);
 }
@@ -68,5 +76,7 @@ int	check_number_conversion(char *arg)
 		return (-1);
 	while (arg[i] >= '0' && arg[i] <= '9')
 		i++;
+	if (arg[i] != ' ' && arg[i] != '\0')
+		return (-1);
 	return (i);
 }

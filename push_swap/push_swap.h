@@ -44,4 +44,5 @@ void		order_three(t_swap_node **a);
 void		order_five(t_swap_node **a, t_swap_node **b);
 void		order_max_order(t_swap_node **b, t_swap_node **a);
 void		order_chunks(t_swap_node **a, t_swap_node **b, int size);
+int			clean_nodes(t_swap_node **node);
 #endif

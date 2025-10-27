@@ -83,13 +83,21 @@ int	main(int argn, char **args)
 
 	b = NULL;
 	error = add_values(&a, argn, args);
-	if (error == 1 || find_nodes_repeat(a) == 1)
+	if (error == 1)
 	{
 		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (find_nodes_repeat(a) == 1)
+	{
+		write(2, "Error\n", 6);
+		clean_nodes(&a);
 		return (1);
 	}
 	add_index(&a);
 	size = size_nodes(a);
 	generate_orders(&a, &b, size);
+	clean_nodes(&a);
+	clean_nodes(&b);
 	return (0);
 }

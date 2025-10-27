@@ -23,6 +23,8 @@ int	valid_string(t_swap_node **node, char *args, int *i, int pos)
 	else
 	{
 		(*node)->next = create_node();
+		if (!(*node)->next)
+			return (2);
 		(*node) = (*node)->next;
 	}
 	return (1);
@@ -32,6 +34,7 @@ int	ft_conver_digits(char *args, t_swap_node **node)
 {
 	int	i;
 	int	pos;
+	int	ret_valid;
 
 	i = 0;
 	while (args[i])
@@ -42,8 +45,13 @@ int	ft_conver_digits(char *args, t_swap_node **node)
 		if (pos == -1 || check_range(&args[i]) == 1)
 			return (1);
 		else
-			if (valid_string(node, args, &i, pos) == 0)
+		{
+			ret_valid = valid_string(node, args, &i, pos);
+			if (ret_valid == 0)
 				return (0);
+			if (ret_valid == 2)
+				return (1);
+		}
 		if (args[i] != '\0')
 			i--;
 		i++;
