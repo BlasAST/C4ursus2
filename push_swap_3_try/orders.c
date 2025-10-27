@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:10:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/10/27 18:16:45 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/20 09:16:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	put_index(t_swap_node **node, int val, int in)
 	}
 }
 
-int	ft_find_nex_min(t_swap_node **node, int min)
+int	ft_find_next_min(t_swap_node **node, int min)
 {
 	int			new_min;
 	int			found;
@@ -102,7 +102,7 @@ void	add_index(t_swap_node **node)
 	i++;
 	while (i < size)
 	{
-		next_min = ft_find_nex_min(node, next_min);
+		next_min = ft_find_next_min(node, next_min);
 		put_index(node, next_min, i);
 		i++;
 	}
