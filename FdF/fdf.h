@@ -6,13 +6,14 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/02 23:28:20 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/03 17:29:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 #define FDF_H
 #include "minilibx-linux/minilibx-linux/mlx.h"
+#include "libft/libft.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -30,7 +31,7 @@ typedef struct t_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	struct t_img img_data;
+	struct t_img i_d;
 	int		map_size_w;
 	int		map_size_h;
 	int		**map_z_values;
