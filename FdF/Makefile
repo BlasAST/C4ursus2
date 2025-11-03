@@ -1,11 +1,12 @@
 NAME    = fdf
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Werror
-SRCS    = main.c
+SRCS    = main.c \
+		utils_1.c
 OBJS    = $(SRCS:.c=.o)
 
-MLX_DIR = minilibx-linux
-MLX = $(MLX_DIR)/libmlx.a
+# MLX_DIR = minilibx-linux
+# MLX = $(MLX_DIR)/libmlx.a
 
 all: $(NAME)
 

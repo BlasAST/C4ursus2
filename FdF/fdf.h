@@ -47,4 +47,7 @@ typedef struct t_point
 	int	z;
 } t_point;
 
+void    create_ini(t_data *df);
+void    finish_fdf(t_data *df);
+
 #endif
