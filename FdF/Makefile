@@ -7,7 +7,8 @@ SRCS    = main.c \
 		events.c \
 		draw.c \
 		utils_file.c \
-		errors.c
+		errors.c \
+		exits.c
 OBJS    = $(SRCS:.c=.o)
 
 # MLX_DIR = minilibx-linux

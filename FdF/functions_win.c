@@ -6,26 +6,36 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/04 13:11:38 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:02:26 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	key_press(int key_code)
+static int	key_press(int key_code,t_data *data)
 {
 	if (key_code == 65307)
-		exit(0);
+		clean_and_exit(data);
 	return (0);
 }
 
-static int	close_button()
+static int	close_button(t_data *data)
 {
-	exit(0);
+	clean_and_exit(data);
+	return (0);
 }
+/* FUnción de prueba */
+/* int render_frame(t_data *data)
+{
+    clear_image(data, 0x000000); 
+    mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->i_d.img, 0, 0);
+   
+    return (0);
+} */
 
 void	functions_win(t_data *data)
 {
 	mlx_hook(data->win_ptr, 2, 1L << 0, key_press, data);
 	mlx_hook(data->win_ptr, 17, 0, close_button, data);
+	/* mlx_hook(data->win_ptr,9,1L << 15, render_frame, data); */
 }

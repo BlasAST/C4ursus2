@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/04 13:18:41 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:02:33 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ void	events();
 int		open_file(char *str);
 char 	**read_file(char *str);
 
+/* REsize de imagen */
+// void    clear_image(t_data *data, int color);
+
 // Pintar en imagen
 void    paint(t_data *data, int color);
 void	put_pixel(t_img_data *img, int x, int y, int color);
@@ -73,5 +76,6 @@ int		get_b(int trgb);
 void	error_ex(char *str);
 
 /* Loop y final programa */
+int	clean_and_exit(t_data *data);
 void    finish_fdf(t_data *df);
 #endif

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/04 13:13:46 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:02:11 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,24 @@ void    paint(t_data *data, int color)
         y++;
     }
 }
+/* Funcion de prueba */
+/* void    clear_image(t_data *data, int color)
+{
+    int x;
+    int y;
+
+    y = 0;
+    // ➡️ Itera sobre el ALTO de la ventana
+    while (y < data->map_size_h)
+    {
+        x = 0;
+        // ➡️ Itera sobre el ANCHO de la ventana
+        while (x < data->map_size_w)
+        {
+            // Llama a tu función para pintar el píxel en (x, y)
+            put_pixel(&(data->i_d), x, y, color);
+            x++;
+        }
+        y++;
+    }
+} */

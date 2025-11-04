@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/04 12:49:22 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:33:00 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ char **read_file(char *str)
 	/* while ((ns = get_next_line(fd)) != NULL)
 	{
 		ft_printf("%d",points_paint(ns));
-	} */
+	}*/
 	return (NULL);
 }
