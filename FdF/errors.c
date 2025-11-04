@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/04 13:20:42 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/09/29 13:07:42 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/09/29 13:08:40 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(void)
+void	error_ex(char *str)
 {
-	t_data	*df;
-
-	df = (t_data *)malloc(sizeof(t_data));
-	if (!df)
-		return (1);
-	create_ini(df);
-	functions_win(df);
-	events();
-	paint(df,0x001FF1);
-	finish_fdf(df);
+	write(2, str, ft_strlen(str));
+	exit(1);
 }

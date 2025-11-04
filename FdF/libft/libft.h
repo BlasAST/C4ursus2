@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:00:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/06/23 17:39:31 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:24:06 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "ft_printf/ft_printf.h"
+# include "gnl/get_next_line.h"
 
 typedef struct s_list
 {

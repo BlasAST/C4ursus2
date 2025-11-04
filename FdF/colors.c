@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/04 13:20:42 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/11/04 13:15:25 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/11/04 13:15:36 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(void)
+int create_trgb(int t, int r, int g, int b)
 {
-	t_data	*df;
+return (t << 24 | r << 16 | g << 8 | b);
+}
 
-	df = (t_data *)malloc(sizeof(t_data));
-	if (!df)
-		return (1);
-	create_ini(df);
-	functions_win(df);
-	events();
-	paint(df,0x001FF1);
-	finish_fdf(df);
+int get_t(int trgb)
+{
+return ((trgb >> 24) & 0xFF);
+}
+
+int get_r(int trgb)
+{
+return ((trgb >> 16) & 0xFF);
+}
+
+int get_g(int trgb)
+{
+return ((trgb >> 8) & 0xFF);
+}
+
+int get_b(int trgb)
+{
+return (trgb & 0xFF);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/03 17:29:28 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/04 13:18:41 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,32 @@ typedef struct t_point
 	int	y;
 	int	z;
 } t_point;
-
+/* Inicio */
 void    create_ini(t_data *df);
-void    finish_fdf(t_data *df);
 
+// Manejo de eventos y ventana
+void	functions_win(t_data *data);
+void	events();
+
+// Lectura de fichero
+int		open_file(char *str);
+char 	**read_file(char *str);
+
+// Pintar en imagen
+void    paint(t_data *data, int color);
+void	put_pixel(t_img_data *img, int x, int y, int color);
+void	draw(char *file);
+
+// Funciones crear y pintar rgb
+int		create_trgb(int t, int r, int g, int b);
+int		get_t(int trgb);
+int		get_r(int trgb);
+int		get_g(int trgb);
+int		get_b(int trgb);
+
+// Manejo de errores
+void	error_ex(char *str);
+
+/* Loop y final programa */
+void    finish_fdf(t_data *df);
 #endif

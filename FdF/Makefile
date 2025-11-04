@@ -1,8 +1,13 @@
 NAME    = fdf
-CC      = gcc
+CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 SRCS    = main.c \
-		utils_1.c
+		utils_1.c \
+		functions_win.c \
+		events.c \
+		draw.c \
+		utils_file.c \
+		errors.c
 OBJS    = $(SRCS:.c=.o)
 
 # MLX_DIR = minilibx-linux
