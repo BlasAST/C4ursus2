@@ -8,5 +8,24 @@
 		"pipex.h": "c",
 		"fcntl.h": "c"
 	},
-	"peacock.color": "#05040b"
+	"peacock.color": "#05040b",
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#161230",
+		"activityBar.background": "#161230",
+		"activityBar.foreground": "#e7e7e7",
+		"activityBar.inactiveForeground": "#e7e7e799",
+		"activityBarBadge.background": "#8b4034",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#161230",
+		"statusBar.background": "#05040b",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#161230",
+		"statusBarItem.remoteBackground": "#05040b",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#05040b",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#05040b99",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	}
 }

@@ -6,13 +6,13 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/04 14:02:26 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:13:46 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	key_press(int key_code,t_data *data)
+static int	key_press(int key_code, t_data *data)
 {
 	if (key_code == 65307)
 		clean_and_exit(data);

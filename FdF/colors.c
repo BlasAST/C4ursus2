@@ -6,33 +6,33 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:15:25 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/04 13:15:36 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/05 13:54:22 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int create_trgb(int t, int r, int g, int b)
+int	create_trgb(int t, int r, int g, int b)
 {
-return (t << 24 | r << 16 | g << 8 | b);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-int get_t(int trgb)
+int	get_t(int trgb)
 {
-return ((trgb >> 24) & 0xFF);
+	return ((trgb >> 24) & 0xFF);
 }
 
-int get_r(int trgb)
+int	get_r(int trgb)
 {
-return ((trgb >> 16) & 0xFF);
+	return ((trgb >> 16) & 0xFF);
 }
 
-int get_g(int trgb)
+int	get_g(int trgb)
 {
-return ((trgb >> 8) & 0xFF);
+	return ((trgb >> 8) & 0xFF);
 }
 
-int get_b(int trgb)
+int	get_b(int trgb)
 {
-return (trgb & 0xFF);
+	return (trgb & 0xFF);
 }

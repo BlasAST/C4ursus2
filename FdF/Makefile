@@ -18,6 +18,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C libft
+	make -C minilibx-linux
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) libft/libft.a libft/ft_printf/libftprintf.a \
 	-L minilibx-linux/ -lmlx -lXext -lX11
 %.o : %.c
@@ -25,6 +26,7 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 	make -C libft clean
+	make -C minilibx-linux clean
 fclean: clean
 	rm -f $(NAME)
 	make -C libft fclean

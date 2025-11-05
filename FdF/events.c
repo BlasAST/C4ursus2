@@ -6,13 +6,17 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:29 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/29 12:34:51 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:07:04 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	events()
+void	events(void)
 {
-	
+	int	i;
+
+	i = 0;
+	if (i == 2)
+		i = 3;
 }

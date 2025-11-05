@@ -6,22 +6,26 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/04 13:20:42 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:44:25 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(void)
+int	main(int argn, char **args)
 {
 	t_data	*df;
 
+	if (argn != 2)
+		return (1);
 	df = (t_data *)malloc(sizeof(t_data));
 	if (!df)
 		return (1);
 	create_ini(df);
 	functions_win(df);
 	events();
-	paint(df,0x001FF1);
+	draw(args[1]);
+	// paint(df, 0x001FF1);
 	finish_fdf(df);
+	return (0);
 }

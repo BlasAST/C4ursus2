@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/04 13:33:00 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:51:46 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,17 @@ int	points_paint(char *str)
 	return (size);
 }
 
-char **read_file(char *str)
+char	**read_file(char *str)
 {
-	int	fd;
+	int		fd;
+	char	*ns;
 	// char ***lines;
-	char *ns;
 
 	fd = open_file(str);
 	ns = get_next_line(fd);
-	ft_printf("%s", ns);
-	ft_printf("%d",points_paint(ns));
-	/* while ((ns = get_next_line(fd)) != NULL)
+	while ((ns = get_next_line(fd)) != NULL)
 	{
-		ft_printf("%d",points_paint(ns));
-	}*/
+		ft_printf("%s", ns);
+	}
 	return (NULL);
 }
