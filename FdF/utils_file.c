@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/05 16:51:46 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/06 00:41:24 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,33 @@ int	points_paint(char *str)
 	return (size);
 }
 
+void	print_content(void *content)
+{
+	ft_printf("%s", (char *)content);
+}
+
 char	**read_file(char *str)
 {
 	int		fd;
-	char	*ns;
+	char	*line;
+	t_list *node;
+	t_list *temp;
 	// char ***lines;
 
 	fd = open_file(str);
-	ns = get_next_line(fd);
-	while ((ns = get_next_line(fd)) != NULL)
+	if (fd < 0)
+		return (NULL);
+	node = NULL;
+	while ((line = get_next_line(fd)) != NULL)
 	{
-		ft_printf("%s", ns);
+		temp = ft_lstnew(line);
+		ft_lstadd_back(&node, temp);
 	}
+	ft_printf("%s", node->content);
+	node = node->next;
+	ft_printf("%s", node->content);
+	node = node->next;
+	ft_printf("%s", node->content);
+	// ft_lstiter(node, print_content);
 	return (NULL);
 }

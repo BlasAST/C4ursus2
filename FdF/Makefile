@@ -17,7 +17,7 @@ OBJS    = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft
+	make -C libft bonus
 	make -C minilibx-linux
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) libft/libft.a libft/ft_printf/libftprintf.a \
 	-L minilibx-linux/ -lmlx -lXext -lX11
@@ -25,11 +25,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJS)
-	make -C libft clean
+	make -C libft clean_bonus
 	make -C minilibx-linux clean
 fclean: clean
 	rm -f $(NAME)
-	make -C libft fclean
+	make -C libft fclean_bonus
 re: fclean all
 
 .PHONY: all clean fclean re
