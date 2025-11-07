@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 09:21:35 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/17 11:04:06 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/07 13:59:49 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,15 @@ int	size_scapes(char *str)
 
 	scapes = 0;
 	i = 0;
-	while (str[i++])
+	while (str[i])
 	{
-		if (str[i] == '\\' && (str[i + 1] == '\'' || str[i + 1] == '\"'))
+		if (str[i] == '\\' && (str[i + 1] == '\'' || str[i + 1] == '\"' || \
+			str[i + 1] == '\\'))
+		{
 			scapes++;
+			i++;
+		}
+		i++;
 	}
 	return (scapes);
 }
@@ -67,7 +72,8 @@ char	*rm_scapes(char *str)
 	j = 0;
 	while (str[i])
 	{
-		if (str[i] == '\\' && (str[i + 1] == '\'' || str[i + 1] == '\"'))
+		if (str[i] == '\\' && (str[i + 1] == '\'' || str[i + 1] == '\"' || \
+			str[i + 1] == '\\'))
 			i++;
 		new_str[j++] = str[i++];
 	}

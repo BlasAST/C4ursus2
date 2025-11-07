@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 12:56:43 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/10/07 14:44:58 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:31:55 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	find_valid_limiters(char *str, char delimiter)
 
 int	delimiters(char **strs, char **str, char limiter, int	*i)
 {
-	int	size;
+	char	*start;
+	int		size;
 
 	if (find_valid_limiters((*str), limiter) == 2)
 	{
@@ -54,10 +55,10 @@ int	delimiters(char **strs, char **str, char limiter, int	*i)
 
 void	add_strs(char **strs, char *str, char delimiter)
 {
-	int	i;
-	int	size;
-	int	spaces;
-	int	limiter;
+	int		i;
+	int		size;
+	int		spaces;
+	int		limiter;
 
 	i = 0;
 	while (*str)
