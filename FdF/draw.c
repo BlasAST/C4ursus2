@@ -20,12 +20,11 @@ void	put_pixel(t_img_data *data, int x, int y, int color)
 	*(unsigned int *) dst = color;
 }
 
-void	draw(char *file)
+void	draw(char *file, t_list **node)
 {
-	// char ***lines;
-	// char *line;
-
-	read_file(file);
+	*node = read_file(file);
+	if (*node == NULL)
+		error_ex("Error al almacenar lineas");
 }
 
 // Función extra anterior

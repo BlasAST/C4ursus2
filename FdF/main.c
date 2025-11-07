@@ -24,8 +24,8 @@ int	main(int argn, char **args)
 	create_ini(df);
 	functions_win(df);
 	events();
-	draw(args[1]);
-	// paint(df, 0x001FF1);
+	draw(args[1], &df->map_lines);
+	ft_lstiter(df->map_lines, print_content);
 	finish_fdf(df);
 	return (0);
 }

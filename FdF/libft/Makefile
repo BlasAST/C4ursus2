@@ -68,14 +68,20 @@ clean:
 	rm -f $(OBJ)
 	make -C ft_printf clean
 
+clean_bonus:
+	rm -f $(OBJ) $(OBJ_BONUS)
+	make -C ft_printf clean
+
 fclean: clean
 	rm -f $(NAME)
 	make -C ft_printf fclean
 
 fclean_bonus: clean_bonus
 	rm -f $(NAME)
+	make -C ft_printf fclean
 
 bonus: $(OBJ_BONUS) $(OBJ)
+	make -C ft_printf all
 	ar $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 re: fclean all
