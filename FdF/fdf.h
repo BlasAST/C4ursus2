@@ -38,7 +38,7 @@ typedef struct t_data
 	int				zoom;
 	int				offset_x;
 	int				offset_y;
-	struct t_list	*map_lines;
+	t_list			*map_lines;
 }	t_data;
 
 typedef struct t_point
@@ -63,7 +63,7 @@ void	events(void);
 
 // Lectura de fichero
 int		open_file(char *str);
-char	**read_file(char *str);
+t_list	*read_file(char *str);
 
 /* REsize de imagen */
 // void    clear_image(t_data *data, int color);
@@ -71,7 +71,7 @@ char	**read_file(char *str);
 // Pintar en imagen
 void	paint(t_data *data, int color);
 void	put_pixel(t_img_data *img, int x, int y, int color);
-void	draw(char *file);
+void	draw(char *file, t_list **node);
 
 // Funciones crear y pintar rgb
 int		create_trgb(int t, int r, int g, int b);
@@ -86,4 +86,7 @@ void	error_ex(char *str);
 /* Loop y final programa */
 int		clean_and_exit(t_data *data);
 void	finish_fdf(t_data *df);
+
+/* FUnciones temporales: */
+void	print_content(void *content);
 #endif

@@ -44,13 +44,12 @@ void	print_content(void *content)
 	ft_printf("%s", (char *)content);
 }
 
-char	**read_file(char *str)
+t_list	*read_file(char *str)
 {
 	int		fd;
 	char	*line;
 	t_list *node;
 	t_list *temp;
-	// char ***lines;
 
 	fd = open_file(str);
 	if (fd < 0)
@@ -61,11 +60,5 @@ char	**read_file(char *str)
 		temp = ft_lstnew(line);
 		ft_lstadd_back(&node, temp);
 	}
-	ft_printf("%s", node->content);
-	node = node->next;
-	ft_printf("%s", node->content);
-	node = node->next;
-	ft_printf("%s", node->content);
-	// ft_lstiter(node, print_content);
-	return (NULL);
+	return (node);
 }
