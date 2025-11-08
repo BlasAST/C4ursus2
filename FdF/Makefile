@@ -1,6 +1,6 @@
 NAME    = fdf
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
+# CFLAGS  = -Wall -Wextra -Werror
 SRCS    = main.c \
 		utils_1.c \
 		functions_win.c \

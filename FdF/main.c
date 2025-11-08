@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/05 16:44:25 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/07 18:22:26 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argn, char **args)
 	functions_win(df);
 	events();
 	draw(args[1], &df->map_lines);
+	paint(df, 0xFFFFFF);
 	ft_lstiter(df->map_lines, print_content);
 	finish_fdf(df);
 	return (0);
