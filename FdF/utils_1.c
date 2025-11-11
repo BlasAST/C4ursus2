@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/05 14:20:27 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/10 16:24:56 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	create_ini(t_data *df)
 {
 	ft_bzero(df, sizeof(t_data));
-	df->map_size_h = 900;
-	df->map_size_w = 500;
+	df->map_size_h = 800;
+	df->map_size_w = 600;
 	df->mlx_ptr = mlx_init();
 	df->win_ptr = mlx_new_window(df->mlx_ptr, df->map_size_w,
 			df->map_size_h, "Salu2");

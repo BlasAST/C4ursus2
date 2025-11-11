@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/05 16:59:37 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:11:25 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct t_data
 	struct t_img	i_d;
 	int				map_size_w;
 	int				map_size_h;
-	int				**map_z_values;
+	// int				**map_z_values;
+	node_map		*data_map;
 	int				zoom;
 	int				offset_x;
 	int				offset_y;
@@ -47,6 +48,15 @@ typedef struct t_point
 	int	y;
 	int	z;
 }	t_point;
+
+typedef struct node_map
+{
+	int	line;
+	int	pos;
+	int	z;
+	int	color;
+	struct node_map *next;
+}	node_map;
 
 /* typedef struct file_ln
 {

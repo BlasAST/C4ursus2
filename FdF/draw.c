@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/07 18:38:58 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/10 16:25:25 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	paint(t_data *data, int color)
 		x = 0;
 		while (x < data->map_size_w)
 		{
-			if (y >= 500 && (x >50 && x < 200))
-				put_pixel(&(data->i_d), x, y, color);
-			if (y >= 500 && (x > 300 && x < 450))
-				put_pixel(&(data->i_d), x, y, color);
-			if (y < 500 && (x > 200 && x < 300))
-				put_pixel(&(data->i_d), x, y, color);
-			x++;
+			// if (y >= 500 && (x >50 && x < 200))
+			// 	put_pixel(&(data->i_d), x, y, color);
+			// if (y >= 500 && (x > 300 && x < 450))
+			// 	put_pixel(&(data->i_d), x, y, color);
+			// if (y < 500 && (x > 200 && x < 300))
+			// 	put_pixel(&(data->i_d), x, y, color);
+			// x++;
 		}
 		y++;
 	}

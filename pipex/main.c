@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:43:28 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/09/03 13:27:30 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/11 11:56:14 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ int	pipex(char *file1, char **cmds, char *file2, char **envp)
 
 	fds[0] = check_file(file1, 0);
 	fds[1] = check_file(file2, 1);
-	if (fds[1] == -1)
+	if (fds[0] == -1 || fds[1] == -1)
 	{
+		if (fds[0] == -1)
+			close(fds[1]);
+		if (fds[1] == -1)
+			close(fds[0]);
 		return (1);
 	}
 	if (pipe(pipe_fd) == -1)

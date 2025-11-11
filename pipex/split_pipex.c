@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 12:56:43 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/07 13:31:55 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/11 11:39:26 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	**ft_split_pipex(char *str, char delimiter)
 			word++;
 		i++;
 	}
-	strs = (char **)malloc(word * sizeof(char *));
+	strs = (char **)malloc((word + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
 	add_strs(strs, str, delimiter);

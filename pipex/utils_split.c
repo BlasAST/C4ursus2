@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 09:21:35 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/07 13:59:49 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/11 11:44:15 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,12 @@ char	*rm_scapes(char *str)
 void	find_chars_scapes(char **strs)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (strs[i] != NULL)
 	{
-		j = 0;
-		while (strs[i][j])
-		{
-			if (size_scapes(strs[i]) > 0)
-				strs[i] = rm_scapes(strs[i]);
-			j++;
-		}
+		if (size_scapes(strs[i]) > 0)
+			strs[i] = rm_scapes(strs[i]);
 		i++;
 	}
 }
