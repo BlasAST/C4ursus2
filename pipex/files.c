@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   files.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:43:14 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/10/17 11:07:42 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/12 13:17:11 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,41 @@ char	*new_str(char *str, int size)
 	}
 	new[i] = '\0';
 	return (new);
+}
+
+int	find_char(char *str, char t_char)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == t_char)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*try_routes(char *route, char *command)
+{
+	char	*temp_path;
+	char	*temp;
+
+	if (find_char(command, '/') == 1)
+	{
+		temp = ft_strdup(command);
+		if (!temp)
+			return (NULL);
+		return (temp);
+	}
+	else
+	{
+		temp_path = ft_strjoin(route, "/");
+		if (!temp_path)
+			return (NULL);
+		temp = ft_strjoin(temp_path, command);
+		free (temp_path);
+		return (temp);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:51:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/12 12:45:44 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:16:18 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@ int		size_scapes(char *str);
 char	*rm_scapes(char *str);
 void	find_chars_scapes(char **strs);
 void	error_ex(char *str);
+void	end_program(char **routes, char **command, char **cmds);
+void	frees_errors_routes(char **routes, char **command, char **cmds);
+char	*try_routes(char *route, char *command);
 #endif
