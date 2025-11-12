@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:43:28 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/11 11:56:14 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:18:14 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	do_forks(int *pipe_fd, int *fds, char **cmds, char **envp)
 	if (pid1 == -1)
 		perror ("Error en fork");
 	if (pid1 == 0)
-		do_pid1(pipe_fd, fds, cmds[0], envp);
+		do_pid1(pipe_fd, fds, cmds, envp);
 	pid2 = fork();
 	if (pid2 == -1)
 		perror ("Error en fork");
 	if (pid2 == 0)
-		do_pid2(pipe_fd, fds, cmds[1], envp);
+		do_pid2(pipe_fd, fds, cmds, envp);
 	close (pipe_fd[0]);
 	close (pipe_fd[1]);
 	waitpid (pid1, NULL, 0);
@@ -64,7 +64,7 @@ int	main(int argn, char **args, char **envp)
 
 	exit_status = 0;
 	if (argn != 5)
-		return (1);
+		error_ex("Exec only: ./pipex file1 command1 file2 command 2");
 	cmds = (char **)malloc(sizeof(char *) * 3);
 	if (!cmds)
 		return (1);

@@ -6,13 +6,13 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:03:45 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/11 12:43:36 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:46:03 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	do_pid1(int *pid, int *fds, char *cmd1, char **envp)
+void	do_pid1(int *pid, int *fds, char **cmds, char **envp)
 {
 	char	**command;
 
@@ -22,14 +22,19 @@ void	do_pid1(int *pid, int *fds, char *cmd1, char **envp)
 	close(pid[1]);
 	close(fds[0]);
 	close(fds[1]);
-	command = ft_split_pipex(cmd1, ' ');
-	exec_command(command, envp);
+	command = ft_split_pipex(cmds[0], ' ');
 	if (!command)
+	{
+		free_split(cmds);
 		exit (1);
-	free(command);
+	}
+	exec_command(command, envp, cmds);
+	free_split(cmds);
+	free_split(command);
+	exit(127);
 }
 
-void	do_pid2(int *pid, int *fds, char *cmd2, char **envp)
+void	do_pid2(int *pid, int *fds, char **cmds, char **envp)
 {
 	char	**command;
 
@@ -39,9 +44,14 @@ void	do_pid2(int *pid, int *fds, char *cmd2, char **envp)
 	close (pid[1]);
 	close(fds[0]);
 	close(fds[1]);
-	command = ft_split_pipex(cmd2, ' ');
+	command = ft_split_pipex(cmds[1], ' ');
 	if (!command)
+	{
+		free_split(cmds);
 		exit (1);
-	exec_command(command, envp);
-	free(command);
+	}
+	exec_command(command, envp, cmds);
+	free_split(cmds);
+	free_split(command);
+	exit(127);
 }

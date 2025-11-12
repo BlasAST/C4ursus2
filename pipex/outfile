@@ -1,0 +1,24 @@
+total 96$
+drwxr-xr-x  4 bsiguenc 2025_ceu   335 Nov 12 12:46 .$
+drwxr-xr-x 12 bsiguenc 2025_ceu   227 Sep  9 12:37 ..$
+-rw-r--r--  1 bsiguenc 2025_ceu  2656 Nov 12 12:45 exec.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  3856 Nov 12 12:46 exec.o$
+-rw-r--r--  1 bsiguenc 2025_ceu  1634 Nov  4 12:07 files.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  2240 Nov 12 11:53 files.o$
+-rw-r--r--  1 bsiguenc 2025_ceu  1746 Nov 12 12:46 forks.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  2424 Nov 12 12:46 forks.o$
+-rw-r--r--  1 bsiguenc 2025_ceu  1227 Nov 12 11:59 free.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  1736 Nov 12 12:01 free.o$
+-rw-r--r--  1 bsiguenc 2025_ceu    57 Nov 12 11:46 infile$
+drwxr-xr-x  3 bsiguenc 2025_ceu  4096 Nov 12 11:54 libft$
+-rw-r--r--  1 bsiguenc 2025_ceu  2243 Nov 12 12:18 main.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  3216 Nov 12 12:18 main.o$
+-rw-r--r--  1 bsiguenc 2025_ceu   488 Nov  4 12:07 Makefile$
+-rw-r--r--  1 bsiguenc 2025_ceu     0 Nov 12 12:53 outfile$
+-rwxr-xr-x  1 bsiguenc 2025_ceu 22168 Nov 12 12:46 pipex$
+-rw-r--r--  1 bsiguenc 2025_ceu  1676 Nov 12 12:45 pipex.h$
+-rw-r--r--  1 bsiguenc 2025_ceu  2271 Nov 11 11:39 split_pipex.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  2584 Nov 12 11:53 split_pipex.o$
+-rw-r--r--  1 bsiguenc 2025_ceu  1999 Nov 11 11:44 utils_split.c$
+-rw-r--r--  1 bsiguenc 2025_ceu  2496 Nov 12 11:53 utils_split.o$
+drwxr-xr-x  2 bsiguenc 2025_ceu    27 Nov 12 11:59 .vscode$
