@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/10 16:25:25 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:26:20 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw(char *file, t_list **node)
 {
 	*node = read_file(file);
 	if (*node == NULL)
-		error_ex("Error al almacenar lineas");
+		error_ex("Error al almacenar lineas", 1);
 }
 
 // Función extra anterior

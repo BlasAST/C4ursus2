@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/10 17:11:25 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:27:37 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ typedef struct t_img
 
 typedef struct t_data
 {
+	char			*file;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	struct t_img	i_d;
 	int				map_size_w;
 	int				map_size_h;
-	// int				**map_z_values;
-	node_map		*data_map;
+	int				**map_z_values;
 	int				zoom;
 	int				offset_x;
 	int				offset_y;
@@ -49,14 +49,14 @@ typedef struct t_point
 	int	z;
 }	t_point;
 
-typedef struct node_map
+/* typedef struct node_map
 {
 	int	line;
 	int	pos;
 	int	z;
 	int	color;
 	struct node_map *next;
-}	node_map;
+}	node_map; */
 
 /* typedef struct file_ln
 {
@@ -65,7 +65,7 @@ typedef struct node_map
 }	file_ln; */
 
 /* Inicio */
-void	create_ini(t_data *df);
+void	create_ini(t_data *df, char *file);
 
 // Manejo de eventos y ventana
 void	functions_win(t_data *data);
@@ -91,7 +91,7 @@ int		get_g(int trgb);
 int		get_b(int trgb);
 
 // Manejo de errores
-void	error_ex(char *str);
+void	error_ex(char *str, int error);
 
 /* Loop y final programa */
 int		clean_and_exit(t_data *data);

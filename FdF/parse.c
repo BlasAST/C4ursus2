@@ -1,51 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_file.c                                       :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/14 17:43:38 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/11/14 17:14:45 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int	open_file(char *str)
-{
-	int	fd;
-
-	fd = open(str, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error:");
-		error_ex("Error en la apertura del fichero", 1);
-	}
-	return (fd);
-}
-
-int	points_paint(char *str)
-{
-	int	i;
-	int	size;
-
-	i = 0;
-	size = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != ' ' && str[i] != '\n'
-			&& (i == 0 || str[i - 1] == ' '))
-			size++;
-		i++;
-	}
-	return (size);
-}
-
-void	print_content(void *content)
-{
-	ft_printf("%s", (char *)content);
-}
 
 t_list	*read_file(char *str)
 {
@@ -56,7 +21,7 @@ t_list	*read_file(char *str)
 
 	fd = open_file(str);
 	if (fd < 0)
-		error_ex("Error en la apertura del archivo", 1);
+		return (NULL);
 	node = NULL;
 	while ((line = get_next_line(fd)) != NULL)
 	{
