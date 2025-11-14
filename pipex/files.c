@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:43:14 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/12 13:17:11 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/14 13:36:56 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	find_char(char *str, char t_char)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (str[i] == t_char)
