@@ -52,13 +52,13 @@ int	main(int argn, char **args)
 	dt = (t_data *)malloc(sizeof(t_data));
 	if (!dt)
 		error_ex("Error create data", 1);
-	read_file(dt->file);
 	create_ini(dt, args[1]);
+	dt->map_lines =  read_file(dt->file);
+	ft_lstiter(dt->map_lines, print_content);
 	functions_win(dt);
 	// events();
 	// ft_printf("%s", dt->file);
 	// paint(dt, 0xFFFFFF);
-	// ft_lstiter(dt->map_lines, print_content);
 	finish_fdf(dt);
 	return (0);
 }

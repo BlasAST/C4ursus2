@@ -20,7 +20,7 @@ int	open_file(char *str)
 	if (fd == -1)
 	{
 		perror("Error:");
-		error_ex("Error en la apertura del fichero", 1);
+		error_ex("Error en la apertura del fichero\n", 1);
 	}
 	return (fd);
 }

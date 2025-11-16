@@ -19,6 +19,11 @@ void	create_ini(t_data *df, char *file)
 	df->map_size_h = 800;
 	df->map_size_w = 600;
 	df->mlx_ptr = mlx_init();
+	if (!df->mlx_ptr)
+	{
+		free(df);
+		error_ex("Error de interfaz grafica\n", 1);
+	}
 	df->win_ptr = mlx_new_window(df->mlx_ptr, df->map_size_w,
 			df->map_size_h, "Salu2");
 	df->i_d.img = mlx_new_image(df->mlx_ptr, df->map_size_w, df->map_size_h);
