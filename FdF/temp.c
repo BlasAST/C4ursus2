@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   temp.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 02:15:18 by blas             ###   ########.fr       */
+/*   Created: 2025/11/17 00:42:35 by blas              #+#    #+#             */
+/*   Updated: 2025/11/17 00:48:00 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// Fichero para el parseo de datos y manejo de distintos parseos
-
-void	put_sizes_fdf(t_data *dt)
+// * Funcines temporales que luego se pueden borrar
+void	print_content(void *content)
 {
-	char	**strs;
-	int	points;
-
-	dt->map_lines = read_file(dt->file);
-	dt->map_size_h = ft_lstsize(dt->map_lines);
-	strs = ft_split(dt->map_lines->content, ' ');
-	points = points_paint(*strs);
-	dt->map_size_w = points;
-	check_lines_width(dt);
-	ft_lstiter(dt->map_lines, print_content);
+	ft_printf("%s", (char *)content);
 }
+	close(fd);

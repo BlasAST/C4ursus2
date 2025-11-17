@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   frees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 02:15:18 by blas             ###   ########.fr       */
+/*   Created: 2025/11/17 01:22:12 by blas              #+#    #+#             */
+/*   Updated: 2025/11/17 01:22:32 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// Fichero para el parseo de datos y manejo de distintos parseos
-
-void	put_sizes_fdf(t_data *dt)
+void    free_split(char **arr)
 {
-	char	**strs;
-	int	points;
+        int     i;
 
-	dt->map_lines = read_file(dt->file);
-	dt->map_size_h = ft_lstsize(dt->map_lines);
-	strs = ft_split(dt->map_lines->content, ' ');
-	points = points_paint(*strs);
-	dt->map_size_w = points;
-	check_lines_width(dt);
-	ft_lstiter(dt->map_lines, print_content);
+        i = 0;
+        while (arr[i] != NULL)
+        {
+                free(arr[i]);
+                i++;
+        }
+        free(arr);
 }

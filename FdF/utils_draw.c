@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   utils_draw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 02:15:18 by blas             ###   ########.fr       */
+/*   Created: 2025/11/17 00:50:36 by blas              #+#    #+#             */
+/*   Updated: 2025/11/17 00:50:48 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// Fichero para el parseo de datos y manejo de distintos parseos
-
-void	put_sizes_fdf(t_data *dt)
+void	put_pixel(t_img_data *data, int x, int y, int color)
 {
-	char	**strs;
-	int	points;
+	char	*dst;
 
-	dt->map_lines = read_file(dt->file);
-	dt->map_size_h = ft_lstsize(dt->map_lines);
-	strs = ft_split(dt->map_lines->content, ' ');
-	points = points_paint(*strs);
-	dt->map_size_w = points;
-	check_lines_width(dt);
-	ft_lstiter(dt->map_lines, print_content);
+	dst = data->addr + (y * data->line_length + x * (data->bit_per_pixel / 8));
+	*(unsigned int *) dst = color;
 }

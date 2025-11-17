@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/14 17:43:38 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/17 00:48:57 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+// *Funciones relacionadas con los ficheros
 
 int	open_file(char *str)
 {
@@ -23,28 +25,6 @@ int	open_file(char *str)
 		error_ex("Error en la apertura del fichero\n", 1);
 	}
 	return (fd);
-}
-
-int	points_paint(char *str)
-{
-	int	i;
-	int	size;
-
-	i = 0;
-	size = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != ' ' && str[i] != '\n'
-			&& (i == 0 || str[i - 1] == ' '))
-			size++;
-		i++;
-	}
-	return (size);
-}
-
-void	print_content(void *content)
-{
-	ft_printf("%s", (char *)content);
 }
 
 t_list	*read_file(char *str)
@@ -63,5 +43,6 @@ t_list	*read_file(char *str)
 		temp = ft_lstnew(line);
 		ft_lstadd_back(&node, temp);
 	}
+	close(fd);
 	return (node);
 }

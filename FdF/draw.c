@@ -3,23 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/14 16:26:20 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/17 00:50:33 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	put_pixel(t_img_data *data, int x, int y, int color)
-{
-	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bit_per_pixel / 8));
-	*(unsigned int *) dst = color;
-}
-
+// ! Función no valida, no hace nada solo guarda el dato. Modificar
 void	draw(char *file, t_list **node)
 {
 	*node = read_file(file);
@@ -50,6 +44,25 @@ void	paint(t_data *data, int color)
 		y++;
 	}
 }
+
+// * Función adicional de pintar en la matriz
+int	points_paint(char *str)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != ' ' && str[i] != '\n'
+			&& (i == 0 || str[i - 1] == ' '))
+			size++;
+		i++;
+	}
+	return (size);
+}
+
 /* Funcion de prueba */
 /* void    clear_image(t_data *data, int color)
 {

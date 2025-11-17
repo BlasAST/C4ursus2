@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:29 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/05 14:07:04 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/17 00:45:06 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+// ! Fichero temporal de eventos ahora mismo no hace nada
 void	events(void)
 {
 	int	i;

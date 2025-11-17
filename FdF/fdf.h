@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/14 17:27:37 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/17 01:48:46 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,39 +64,49 @@ typedef struct t_point
 	struct file_ln *next;
 }	file_ln; */
 
-/* Inicio */
+/* // ! Inicio */
 void	create_ini(t_data *df, char *file);
 
-// Manejo de eventos y ventana
+//*  Manejo de eventos y ventana
 void	functions_win(t_data *data);
 void	events(void);
 
-// Lectura de fichero
+// *Lectura de fichero y comprobaciones
+int		check_file_fdf(char *str);
+char	*check_validate_file_and_save(char *str);
+void	check_lines_width(t_data *dt);
 int		open_file(char *str);
 t_list	*read_file(char *str);
 
-/* REsize de imagen */
+// * Funciones guardado matriz
+void	put_sizes_fdf(t_data *dt);
+void	ft_lstiter_fdf(t_list *lst, void (*f)(void *content, void *context),
+void *context);
+
+/* // *REsize de imagen */
 // void    clear_image(t_data *data, int color);
 
 // Pintar en imagen
 void	paint(t_data *data, int color);
 void	put_pixel(t_img_data *img, int x, int y, int color);
 void	draw(char *file, t_list **node);
+int		points_paint(char *str);
 
-// Funciones crear y pintar rgb
+// * Funciones crear y pintar rgb
 int		create_trgb(int t, int r, int g, int b);
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 
-// Manejo de errores
+// *Manejo de errores
 void	error_ex(char *str, int error);
+void    free_split(char **arr);
 
-/* Loop y final programa */
+/* //*Loop y final programa */
 int		clean_and_exit(t_data *data);
 void	finish_fdf(t_data *df);
 
-/* FUnciones temporales: */
+/* //* FUnciones temporales: */
 void	print_content(void *content);
 #endif

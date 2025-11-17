@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/14 17:27:20 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/17 00:48:36 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+//! Maneja funciones del main, debería de tener otro nombre
 
 void	create_ini(t_data *df, char *file)
 {
