@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:44:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/05 14:08:59 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:08:48 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ void	free_map(int **map_z, int height)
 	i = 0;
 	while (i < height)
 	{
-		// 1. Libera cada fila (que se reservó con malloc)
 		free(map_z[i]);
 		i++;
 	}
-	// 2. Libera el array de punteros a filas
 	free(map_z);
 }

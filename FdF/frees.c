@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 01:22:12 by blas              #+#    #+#             */
-/*   Updated: 2025/11/17 01:22:32 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/17 18:04:51 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void    frees_t_data(t_data *dt, int code)
         free(dt->file);
         frees_t_img(&(dt->i_d));
         ft_lstclear(&dt->map_lines, free);
-        free_map(dt->map_z_values);
+        free_map(dt->map_z_values, dt->map_size_h);
         clean_and_exit(dt, code);
 }
