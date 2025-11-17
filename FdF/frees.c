@@ -24,3 +24,19 @@ void    free_split(char **arr)
         }
         free(arr);
 }
+
+void    frees_t_img(t_img *img)
+{
+        free(img->addr);
+        free(img->img);
+        free(img);
+}
+
+void    frees_t_data(t_data *dt, int code)
+{
+        free(dt->file);
+        frees_t_img(&(dt->i_d));
+        ft_lstclear(&dt->map_lines, free);
+        free_map(dt->map_z_values);
+        clean_and_exit(dt, code);
+}

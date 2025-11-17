@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int	clean_and_exit(t_data *data)
+int	clean_and_exit(t_data *data, int code)
 {
 	if (data->i_d.img && data->mlx_ptr)
 		mlx_destroy_image(data->mlx_ptr, data->i_d.img);
@@ -22,7 +22,7 @@ int	clean_and_exit(t_data *data)
 		mlx_destroy_display(data->mlx_ptr);
 	if (data)
 		free(data);
-	exit(0);
+	exit(code);
 	return (0);
 }
 

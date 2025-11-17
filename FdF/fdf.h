@@ -25,7 +25,7 @@ typedef struct t_img
 	int		bit_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_img_data;
+}	t_img;
 
 typedef struct t_data
 {
@@ -88,7 +88,7 @@ void *context);
 
 // Pintar en imagen
 void	paint(t_data *data, int color);
-void	put_pixel(t_img_data *img, int x, int y, int color);
+void	put_pixel(t_img *img, int x, int y, int color);
 void	draw(char *file, t_list **node);
 int		points_paint(char *str);
 int	points_paint_split(char **str);
@@ -103,9 +103,12 @@ int		get_b(int trgb);
 // *Manejo de errores
 void	error_ex(char *str, int error);
 void    free_split(char **arr);
+void	free_map(int **map_z, int height);
+void    frees_t_img(t_img *img);
+void    frees_t_data(t_data *dt, int code);
 
 /* //*Loop y final programa */
-int		clean_and_exit(t_data *data);
+int		clean_and_exit(t_data *data, int code);
 void	finish_fdf(t_data *df);
 
 /* //* FUnciones temporales: */
