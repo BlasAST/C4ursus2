@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 00:50:33 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/17 13:14:41 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,18 @@ int	points_paint(char *str)
 		i++;
 	}
 	return (size);
+}
+
+int	points_paint_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		i++;
+	}
+	return (i);
 }
 
 /* Funcion de prueba */

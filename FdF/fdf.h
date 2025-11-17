@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/17 01:48:46 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/17 12:33:02 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	paint(t_data *data, int color);
 void	put_pixel(t_img_data *img, int x, int y, int color);
 void	draw(char *file, t_list **node);
 int		points_paint(char *str);
+int	points_paint_split(char **str);
 
 // * Funciones crear y pintar rgb
 int		create_trgb(int t, int r, int g, int b);
