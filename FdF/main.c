@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/18 14:43:52 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:33:43 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argn, char **args)
 	if (!dt)
 		error_ex("Error create data", 1);
 	put_sizes_fdf(dt, args[1]);
+	do_matrix(dt);
 	create_ini(dt);
 	functions_win(dt);
 	// events();

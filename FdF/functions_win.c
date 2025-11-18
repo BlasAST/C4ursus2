@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions_win.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 13:03:54 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:24:34 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static int	key_press(int key_code, t_data *data)
 {
 	if (key_code == 65307)
-		clean_and_exit(data, 0);
+		clean_and_exit(data, 0, 0, NULL);
 	return (0);
 }
 
 static int	close_button(t_data *data)
 {
-	clean_and_exit(data, 0);
+	clean_and_exit(data, 0, 0, NULL);
 	return (0);
 }
 

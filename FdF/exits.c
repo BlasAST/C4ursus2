@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:44:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 13:52:46 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:20:20 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	clean_and_exit(t_data *data, int code)
+int	clean_and_exit(t_data *data, int code, int exit_print, char *err)
 {
 	if (data->i_d.img && data->mlx_ptr)
 		mlx_destroy_image(data->mlx_ptr, data->i_d.img);
@@ -22,7 +22,10 @@ int	clean_and_exit(t_data *data, int code)
 		mlx_destroy_display(data->mlx_ptr);
 	if (data)
 		frees_t_data(data);
-	exit(code);
+	if (exit_print == 1 && err != NULL)
+		error_ex(err, code);
+	else
+		exit(code);
 	return (0);
 }
 

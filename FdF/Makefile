@@ -4,13 +4,14 @@ CC      = cc
 SRCS    = main.c \
 		utils_main.c \
 		check_file.c \
+		utils_file.c \
 		parse.c \
 		utils_parse.c \
 		check_parse.c \
 		functions_win.c \
+		matrix.c \
 		draw.c \
 		utils_draw.c \
-		utils_file.c \
 		errors.c \
 		exits.c \
 		frees.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 14:42:40 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:10:38 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	put_sizes_fdf(t_data *dt, char *file)
 	}
 	points = points_paint_split(strs);
 	dt->map_size_w = points;
-	check_lines_width(dt);
 	free_split(strs);
+	check_lines_width(dt);
 }
