@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/17 00:59:39 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 01:07:53 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	main(int argn, char **args)
 	// ft_printf("%s", dt->file);
 	// paint(dt, 0xFFFFFF);
 	finish_fdf(dt);
+	frees_t_data(dt, 0);
 	return (0);
 }

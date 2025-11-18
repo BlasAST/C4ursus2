@@ -13,6 +13,7 @@ SRCS    = main.c \
 		utils_file.c \
 		errors.c \
 		exits.c \
+		frees.c \
 		temp.c
 OBJS    = $(SRCS:.c=.o)
 

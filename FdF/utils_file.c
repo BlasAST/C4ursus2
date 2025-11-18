@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 00:48:57 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 01:47:36 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ t_list	*read_file(char *str)
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		temp = ft_lstnew(line);
-		ft_lstadd_back(&node, temp);
+		if (node == NULL)
+			node = temp;
+		else
+			ft_lstadd_back(&node, temp);
 	}
 	close(fd);
 	return (node);

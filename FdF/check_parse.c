@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:31:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 12:33:45 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 01:55:43 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,21 @@ void	count_split(void *content, void *context)
 	int		size_temp;
 	t_data *dt;
 	char	*line;
+	char	**lines;
 
 	dt = (t_data *)context;
 	line = (char *)content;
-	size_temp = points_paint_split(ft_split(line, ' '));
-	ft_printf("%d", size_temp);
+	lines = ft_split(line, ' ');
+	size_temp = points_paint_split(lines);
 	if (size_temp != dt->map_size_w)
+	{
+		clean_and_exit(dt, 1);
+		free(line);
+		free_split(lines);
 		error_ex("Fichero mal formateado\n", 1);
+	}
+	free(line);
+	free_split(lines);
 }
 
 void	check_lines_width(t_data *dt)
