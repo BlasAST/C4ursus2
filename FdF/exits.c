@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:44:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 18:08:48 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:52:46 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	clean_and_exit(t_data *data, int code)
 	if (data->mlx_ptr)
 		mlx_destroy_display(data->mlx_ptr);
 	if (data)
-		free(data);
+		frees_t_data(data);
 	exit(code);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/18 01:07:53 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 14:43:52 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	main(int argn, char **args)
 	dt = (t_data *)malloc(sizeof(t_data));
 	if (!dt)
 		error_ex("Error create data", 1);
-	create_ini(dt, args[1]);
-	put_sizes_fdf(dt);
+	put_sizes_fdf(dt, args[1]);
+	create_ini(dt);
 	functions_win(dt);
 	// events();
 	// ft_printf("%s", dt->file);
 	// paint(dt, 0xFFFFFF);
 	finish_fdf(dt);
-	frees_t_data(dt, 0);
+	frees_t_data(dt);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_1.c                                          :+:      :+:    :+:   */
+/*   utils_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 00:48:36 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 14:42:23 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 //! Maneja funciones del main, debería de tener otro nombre
 
-void	create_ini(t_data *df, char *file)
+void	create_ini(t_data *df)
 {
-	ft_bzero(df, sizeof(t_data));
-	df->file = file;
 	df->map_size_h = 800;
 	df->map_size_w = 600;
 	df->mlx_ptr = mlx_init();

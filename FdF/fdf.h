@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/17 17:51:26 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 14:41:14 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct t_point
 }	file_ln; */
 
 /* // ! Inicio */
-void	create_ini(t_data *df, char *file);
+void	create_ini(t_data *df);
 
 //*  Manejo de eventos y ventana
 void	functions_win(t_data *data);
@@ -79,7 +79,7 @@ int		open_file(char *str);
 t_list	*read_file(char *str);
 
 // * Funciones guardado matriz
-void	put_sizes_fdf(t_data *dt);
+void	put_sizes_fdf(t_data *dt, char *file);
 void	ft_lstiter_fdf(t_list *lst, void (*f)(void *content, void *context),
 void *context);
 
@@ -104,8 +104,7 @@ int		get_b(int trgb);
 void	error_ex(char *str, int error);
 void    free_split(char **arr);
 void	free_map(int **map_z, int height);
-void    frees_t_img(t_img *img);
-void    frees_t_data(t_data *dt, int code);
+void    frees_t_data(t_data *dt);
 
 /* //*Loop y final programa */
 int		clean_and_exit(t_data *data, int code);

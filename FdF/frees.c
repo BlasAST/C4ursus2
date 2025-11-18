@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   frees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 01:22:12 by blas              #+#    #+#             */
-/*   Updated: 2025/11/18 01:26:59 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:57:09 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void    free_split(char **arr)
 }
 
 
-void    frees_t_data(t_data *dt, int code)
+void    frees_t_data(t_data *dt)
 {
+	if (dt->map_lines)
         ft_lstclear(&(dt->map_lines), free);
+	if (dt->map_z_values)
         free_map(dt->map_z_values, dt->map_size_h);
-        clean_and_exit(dt, code);
+	free(dt);
 }

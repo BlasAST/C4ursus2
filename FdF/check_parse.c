@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:31:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 01:55:43 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:50:03 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ void	count_split(void *content, void *context)
 	size_temp = points_paint_split(lines);
 	if (size_temp != dt->map_size_w)
 	{
-		clean_and_exit(dt, 1);
-		free(line);
 		free_split(lines);
+		frees_t_data(dt);
 		error_ex("Fichero mal formateado\n", 1);
 	}
-	free(line);
 	free_split(lines);
 }
 
