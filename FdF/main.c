@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/19 15:09:48 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:56:31 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int argn, char **args)
 	functions_win(dt);
 	// finish_fdf(dt);
 	mlx_loop(dt->mlx_ptr);
+	clear_image(dt);
+	// clean_and_exit(dt, 0, 0, NULL);
 	// frees_t_data(dt);
 	return (0);
 }

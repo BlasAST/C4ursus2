@@ -1,0 +1,99 @@
+// fdf.h
+typedef struct t_data
+{
+    // ... otros miembros (file, mlx_ptr, win_ptr, etc.)
+    int     map_size_w;
+    int     map_size_h;
+    
+    int     max_z;      // <-- NUEVO: Aquí guardaremos la altitud máxima (Absoluta)
+    double  zoom;
+    double  z_scale;    // Divisor de altitud
+    double  offset_x;
+    double  offset_y;
+    // ...
+}   t_data;
+
+
+Calcular la altura maxima:
+// matrix.c
+void	calculate_max_z(t_data *dt)
+{
+	int	y;
+	int	x;
+	int	max;
+
+	max = 0;
+	y = 0;
+	while (y < dt->map_size_h)
+	{
+		x = 0;
+		while (x < dt->map_size_w)
+		{
+            // abs() te permite manejar altitudes negativas y positivas
+			if (abs(dt->map[y][x].z) > max)
+				max = abs(dt->map[y][x].z);
+			x++;
+		}
+		y++;
+	}
+	dt->max_z = max;
+}
+
+EN el main:
+// main.c -> main
+// ...
+	put_sizes_fdf(dt, args[1]);
+	do_matrix(dt);
+	calculate_max_z(dt); // <--- Llama a esta función
+	init_projection(dt);
+// ...
+
+
+3. Implementar el Z-Scaling DinámicoAhora que tienes dt->max_z, puedes
+ calcular un dt->z_scale que normaliza la altura de todos los mapas.
+ La fórmula que debes usar es:$$\mathbf{dt->z\_scale} = \frac{\mathbf{dt->max\_z}}{\mathbf{C}}$$Donde C es una constante (por ejemplo, 1.0 o 2.0) que define la pendiente visual que quieres que tenga el mapa más alto.Si $C=1$: El mapa más alto caerá $1$ unidad de zoom, resultando en un mapa alto y puntiagudo.Si $C=2$: El mapa más alto caerá $2$ unidades de zoom, resultando en un mapa un poco más bajo (lo que suele ser más agradable visualmente).
+ Un valor de C entre 1.0 y 2.0 es un buen punto de partida.
+
+
+ // init_projection
+void	init_projection(t_data *dt)
+{
+    // ... otras inicializaciones (zoom, offset_x, offset_y, etc.)
+
+    // La constante 1.5 asegura que el mapa de máxima altura se comprima
+    // ligeramente y se vea bien proporcionado.
+	if (dt->max_z > 0)
+        dt->z_scale = (double)dt->max_z / 1.5;
+    else
+        dt->z_scale = 1.0; // Si el mapa es plano (max_z = 0), usamos un divisor de 1.0
+}
+
+
+
+Correción project_point:
+// draw.c
+
+t_point project_point(t_point p, t_data *dt)
+{
+    double  x_temp;
+    double  y_temp;
+
+    x_temp = p.x;
+    y_temp = p.y;
+    
+    // Proyección X (correcta)
+    p.x = (x_temp - y_temp) * cos(dt->angle) * dt->zoom;
+
+    // Proyección Y CORREGIDA: Usa el z_scale dinámico
+    // Esto asegura que la pendiente sea consistente para todos los mapas.
+    p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom - (p.z * dt->zoom) / dt->z_scale;
+    
+    // Aplicar Offset (p.y en p.y)
+    p.x += dt->offset_x;
+    p.y += dt->offset_y;
+    
+    return (p);
+}
+
+
+

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/19 16:14:59 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:33:16 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_point	project_point(t_point p, t_data *dt)
 	x_temp = p.x;
 	y_temp = p.y;
 	p.x = (x_temp - y_temp) * cos(dt->angle) *dt->zoom;
-	p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom - (p.z * dt->zoom) / 10.0;
+	p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom - (p.z * dt->zoom) / 2.0;
 	p.x += dt->offset_x;
 	p.y += dt->offset_y;
 	return (p);
