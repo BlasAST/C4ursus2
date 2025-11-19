@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   frees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 01:22:12 by blas              #+#    #+#             */
-/*   Updated: 2025/11/19 00:35:52 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 14:39:58 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ void	free_partial_map_and_exit(t_data *dt, int y)
 	free(dt->map);
 	dt->map = NULL;
 	clean_and_exit(dt, 1, 1, "Error: Memoria insuficiente para el mapa\n");
+}
+
+void	clear_image(t_data *dt)
+{
+	ft_bzero(dt->i_d.addr, dt->map_size_w_view * dt->map_size_h_view *
+		(dt->i_d.bit_per_pixel / 8));
 }

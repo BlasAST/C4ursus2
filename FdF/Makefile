@@ -28,7 +28,7 @@ $(NAME): $(OBJS)
 	make -C libft bonus
 	make -C minilibx-linux
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) libft/libft.a libft/ft_printf/libftprintf.a \
-	-L minilibx-linux/ -lmlx -lXext -lX11
+	-L minilibx-linux/ -lmlx -lXext -lX11 -lm
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 18:10:38 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 16:12:28 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	put_sizes_fdf(t_data *dt, char *file)
 	char	**strs;
 	int	points;
 
-	ft_bzero(dt, sizeof(t_data));
 	dt->file = file;
 	dt->map_lines = read_file(dt->file);
 	if (dt->map_lines == NULL)

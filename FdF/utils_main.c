@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/19 01:19:54 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 16:15:30 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 void	create_ini(t_data *df)
 {
-	df->map_size_h_view = 800;
-	df->map_size_w_view = 600;
 	df->mlx_ptr = mlx_init();
 	if (!df->mlx_ptr)
 	{
@@ -31,8 +29,21 @@ void	create_ini(t_data *df)
 			&df->i_d.line_length, &df->i_d.endian);
 }
 
+void	init_projection(t_data *dt)
+{
+	double	center_shift;
+
+	dt->map_size_h_view = 800;
+	dt->map_size_w_view = 800;
+	dt->angle = 0.523599;
+	put_zoom(dt);
+	center_shift = (dt->map_size_w - dt->map_size_h) * dt->zoom * cos(dt->angle) / 2.0;
+	dt->offset_x = (dt->map_size_w_view / 2.0) - center_shift;
+	dt->offset_y = (dt->map_size_h_view / 2.0) -
+	((dt->map_size_w + dt->map_size_h) * dt->zoom * sin(dt->angle)) / 2.0;
+}
+
 void	finish_fdf(t_data *df)
 {
 	mlx_put_image_to_window(df->mlx_ptr, df->win_ptr, df->i_d.img, 0, 0);
-	mlx_loop(df->mlx_ptr);
 }

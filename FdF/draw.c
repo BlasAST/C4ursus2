@@ -3,43 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/17 13:14:41 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 16:14:59 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-
-// ! Función no valida, no hace nada solo guarda el dato. Modificar
-void	draw(char *file, t_list **node)
+t_point	project_point(t_point p, t_data *dt)
 {
-	*node = read_file(file);
-	if (*node == NULL)
-		error_ex("Error al almacenar lineas", 1);
+	double	x_temp;
+	double	y_temp;
+
+	x_temp = p.x;
+	y_temp = p.y;
+	p.x = (x_temp - y_temp) * cos(dt->angle) *dt->zoom;
+	p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom - (p.z * dt->zoom) / 10.0;
+	p.x += dt->offset_x;
+	p.y += dt->offset_y;
+	return (p);
 }
 
 // Función extra anterior
-void	paint(t_data *data, int color)
+void	draw_map(t_data *dt)
 {
 	int	x;
 	int	y;
+	t_point current;
+	t_point next;
 
 	y = 0;
-	while (y < data->map_size_h)
+	while (y < dt->map_size_h)
 	{
 		x = 0;
-		while (x < data->map_size_w)
+		while (x < dt->map_size_w)
 		{
-			// if (y >= 500 && (x >50 && x < 200))
-			// 	put_pixel(&(data->i_d), x, y, color);
-			// if (y >= 500 && (x > 300 && x < 450))
-			// 	put_pixel(&(data->i_d), x, y, color);
-			// if (y < 500 && (x > 200 && x < 300))
-			// 	put_pixel(&(data->i_d), x, y, color);
-			// x++;
+			current = dt->map[y][x];
+			current = project_point(current, dt);
+			if (x < dt->map_size_w - 1)
+			{
+				next = dt->map[y][x + 1];
+				next = project_point(next, dt);
+				draw_line(dt, current, next);
+			}
+			if (y < dt->map_size_h - 1)
+			{
+				next = dt->map[y + 1][x];
+				next = project_point(next, dt);
+				draw_line(dt, current, next);
+			}
+			x++;
 		}
 		y++;
 	}
@@ -74,25 +89,3 @@ int	points_paint_split(char **str)
 	}
 	return (i);
 }
-
-/* Funcion de prueba */
-/* void    clear_image(t_data *data, int color)
-{
-    int x;
-    int y;
-
-    y = 0;
-    // ➡️ Itera sobre el ALTO de la ventana
-    while (y < data->map_size_h)
-    {
-        x = 0;
-        // ➡️ Itera sobre el ANCHO de la ventana
-        while (x < data->map_size_w)
-        {
-            // Llama a tu función para pintar el píxel en (x, y)
-            put_pixel(&(data->i_d), x, y, color);
-            x++;
-        }
-        y++;
-    }
-} */

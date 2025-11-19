@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions_win.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 18:24:34 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 16:22:57 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,33 @@ static int	close_button(t_data *data)
 	return (0);
 }
 
+static int	render_frame(t_data *dt)
+{
+	clear_image(dt);
+	draw_map(dt);
+	mlx_put_image_to_window(dt->mlx_ptr, dt->win_ptr, dt->i_d.img, 0, 0);
+	return (0);
+}
+
 void	functions_win(t_data *data)
 {
 	mlx_hook(data->win_ptr, 2, 1L << 0, key_press, data);
 	mlx_hook(data->win_ptr, 17, 0, close_button, data);
-	/* mlx_hook(data->win_ptr,9,1L << 15, render_frame, data); */
+	mlx_loop_hook(data->mlx_ptr, render_frame, data);
 }
 
-/* // ! FUnción de prueba */
-/* int render_frame(t_data *data)
+void	put_zoom(t_data *dt)
 {
-    clear_image(data, 0x000000); 
-    mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->i_d.img, 0, 0);
-   
-    return (0);
-} */
+	int	max_dim;
+
+	if (dt->map_size_w > dt->map_size_h)
+		max_dim = dt->map_size_w;
+	else
+		max_dim = dt->map_size_h;
+	if (max_dim > 0)
+		dt->zoom = (dt->map_size_w_view * 0.5) / max_dim;
+	else
+		dt->zoom = 1;
+	if (dt->zoom < 1)
+		dt->zoom = + dt->zoom;
+}

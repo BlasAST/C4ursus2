@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   temp.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 00:42:35 by blas              #+#    #+#             */
-/*   Updated: 2025/11/19 01:25:24 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 12:53:10 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ void	print_matrix(t_data *dt)
 		x = 0;
 		while (x < dt->map_size_w)
 		{
-			ft_printf("%d(0x%x) ", dt->map[y][x].z, dt->map[y][x].color);
+			if (dt->map[y][x].z == 0)
+				ft_printf("0  ");
+			else
+				ft_printf("%d ", dt->map[y][x].z);
+			// (0x%x) , dt->map[y][x].color
 			x++;
 		}
 		ft_printf("\n");
