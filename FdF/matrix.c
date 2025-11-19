@@ -6,26 +6,57 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:11:09 by blas              #+#    #+#             */
-/*   Updated: 2025/11/18 18:37:37 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 00:40:48 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+int get_point_color(char *token)
+{
+    char    *comma_ptr;
+	char *base;
+
+	base = "0123456789ABCDEF";
+    comma_ptr = ft_strchr(token, ',');
+    if (comma_ptr)
+    {
+        return (ft_atoi_base(comma_ptr + 3, (char *) base));
+    }
+    return (0xFFFFFF);
+}
+
 void	do_matrix(t_data *dt)
 {
-	t_list	*temp;
-	int	i;
+	t_list	*current_line;
+	char	**strs;
+	int		y;
+	int		x;
 
-	dt->map_z_values =(int **)malloc(sizeof(int *) * dt->map_size_h);
-	if (!dt->map_z_values)
+	dt->map = (t_point **)malloc(sizeof(t_point *) * dt->map_size_h);
+	if (!dt->map)
 		clean_and_exit(dt, 1, 1, "Error asignación de memoria");
-	temp = dt->map_lines;
-	i = 0;
-	while (temp != NULL)
+	current_line = dt->map_lines;
+	y = 0;
+	while (current_line != NULL)
 	{
-		dt->map_z_values[i] = (int *)malloc(sizeof(int) * dt->map_size_w);
-		temp = temp->next;
-		i++;
+		dt->map[y] = (t_point *)malloc(sizeof(t_point) * dt->map_size_w);
+		if (!dt->map[y])
+			free_partial_map_and_exit(dt, y - 1);
+		strs = ft_split(current_line->content, ' ');
+		if (!strs)
+			free_partial_map_and_exit(dt, y - 1);
+		x = 0;
+		while (x < dt->map_size_w)
+		{
+			dt->map[y][x].z = ft_atoi(strs[x]);
+			dt->map[y][x].color = get_point_color(strs[x]);
+			x++;
+		}
+		free_split(strs);
+		current_line = current_line->next;
+		y++;
 	}
+	ft_lstclear(&(dt->map_lines), free);
+	dt->map_lines = NULL;
 }

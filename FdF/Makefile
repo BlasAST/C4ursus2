@@ -15,6 +15,7 @@ SRCS    = main.c \
 		errors.c \
 		exits.c \
 		frees.c \
+		ft_atoi_base.c \
 		temp.c
 OBJS    = $(SRCS:.c=.o)
 

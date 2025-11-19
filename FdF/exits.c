@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:44:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 18:20:20 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 00:53:01 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ int	clean_and_exit(t_data *data, int code, int exit_print, char *err)
 
 /* FUnción liberar mapa */
 
-void	free_map(int **map_z, int height)
+void	free_map(t_point **map, int height)
 {
 	int	i;
 
 	i = 0;
 	while (i < height)
 	{
-		free(map_z[i]);
+		free(map[i]);
 		i++;
 	}
-	free(map_z);
+	free(map);
 }

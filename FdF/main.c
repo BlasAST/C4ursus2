@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:26 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/18 18:33:43 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 01:27:19 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argn, char **args)
 		error_ex("Error create data", 1);
 	put_sizes_fdf(dt, args[1]);
 	do_matrix(dt);
+	// print_matrix(dt);
 	create_ini(dt);
 	functions_win(dt);
 	// events();

@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/18 18:18:10 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/19 00:56:19 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef struct t_img
 	int		endian;//utilizado
 }	t_img;
 
+typedef struct t_point
+{
+	int	z;
+	int	color;
+}	t_point;
+
 typedef struct t_data
 {
 	char			*file;//utilizado
@@ -35,34 +41,15 @@ typedef struct t_data
 	struct t_img	i_d;//utilizado
 	int				map_size_w;//utilizado
 	int				map_size_h;//utilizado
-	int				**map_z_values;
+	int				map_size_w_view;
+	int				map_size_h_view;
 	int				zoom;
 	int				offset_x;
 	int				offset_y;
 	t_list			*map_lines;//utilizado
+	t_point			**map;
 }	t_data;
 
-typedef struct t_point
-{
-	int	x;
-	int	y;
-	int	z;
-}	t_point;
-
-/* typedef struct node_map
-{
-	int	line;
-	int	pos;
-	int	z;
-	int	color;
-	struct node_map *next;
-}	node_map; */
-
-/* typedef struct file_ln
-{
-	char *line;
-	struct file_ln *next;
-}	file_ln; */
 
 /* // ! Inicio */
 void	create_ini(t_data *df);
@@ -85,6 +72,8 @@ void *context);
 
 // Funciones generación matriz
 void	do_matrix(t_data *dt);
+int	ft_find_fdf(char *str, char c);
+int	ft_atoi_base(char *str, char *base);
 /* // *REsize de imagen */
 // void    clear_image(t_data *data, int color);
 
@@ -105,7 +94,8 @@ int		get_b(int trgb);
 // *Manejo de errores
 void	error_ex(char *str, int error);
 void    free_split(char **arr);
-void	free_map(int **map_z, int height);
+void	free_map(t_point **map, int height);
+void	free_partial_map_and_exit(t_data *dt, int y);
 void    frees_t_data(t_data *dt);
 
 /* //*Loop y final programa */
@@ -114,4 +104,5 @@ void	finish_fdf(t_data *df);
 
 /* //* FUnciones temporales: */
 void	print_content(void *content);
+void	print_matrix(t_data *dt);
 #endif
