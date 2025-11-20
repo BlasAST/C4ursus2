@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_draw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 00:50:36 by blas              #+#    #+#             */
-/*   Updated: 2025/11/19 15:21:30 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:38:30 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ void	put_pixel(t_data *dt, int x, int y, int color)
 	dst = dt->i_d.addr + (y * dt->i_d.line_length + x * (dt->i_d.bit_per_pixel / 8));
 	*(unsigned int *) dst = color;
 }
+
+// int	ft_round(double num)
+// {
+// 	if (num < 0)
+// 		return ((int)(num - 0.5));
+// 	return ((int)(num + 0.5));
+// }
 
 void	draw_line(t_data *dt, t_point p1, t_point p2)
 {
@@ -49,4 +56,26 @@ void	draw_line(t_data *dt, t_point p1, t_point p2)
 		y += y_inc;
 		steps--;
 	}
+}
+
+void	max_size_z(t_data *dt)
+{
+	int	x;
+	int	y;
+	int	max;
+
+	max = 0;
+	y = 0;
+	while (y < dt->map_size_h)
+	{
+		x = 0;
+		while (x < dt->map_size_w)
+		{
+			if (abs(dt->map[y][x].z) > max )
+				max = abs(dt->map[y][x].z);
+			x++;
+		}
+		y++;
+	}
+	dt->max_z = max;
 }

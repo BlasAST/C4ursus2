@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/19 16:15:30 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:15:44 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	init_projection(t_data *dt)
 {
 	double	center_shift;
 
+	max_size_z(dt);
 	dt->map_size_h_view = 800;
 	dt->map_size_w_view = 800;
 	dt->angle = 0.523599;

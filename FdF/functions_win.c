@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions_win.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/19 16:45:11 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 00:57:07 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ void	put_zoom(t_data *dt)
 	else
 		dt->zoom = 1;
 	if (dt->zoom < 1)
-		dt->zoom = + dt->zoom;
+		dt->zoom = +dt->zoom;
 }

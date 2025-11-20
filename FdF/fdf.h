@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:16:24 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/19 16:14:27 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:38:34 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct t_data
 	double				offset_y;
 	t_list			*map_lines;//utilizado
 	t_point			**map;
-
+	int				max_z;
 }	t_data;
 
 
@@ -90,6 +90,7 @@ int		points_paint(char *str);
 int	points_paint_split(char **str);
 void	put_zoom(t_data *dt);
 void	draw_line(t_data *dt, t_point p1, t_point p2);
+// int	ft_round(double num);
 
 // * Funciones crear y pintar rgb
 int		create_trgb(int t, int r, int g, int b);
@@ -105,6 +106,8 @@ void	free_map(t_point **map, int height);
 void	free_partial_map_and_exit(t_data *dt, int y);
 void    frees_t_data(t_data *dt);
 void	clear_image(t_data *dt);
+void	max_size_z(t_data *dt);
+void	min_size_z(t_data *dt);
 
 /* //*Loop y final programa */
 int	clean_and_exit(t_data *data, int code, int exit_print, char *err);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/19 16:33:16 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:45:22 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@ t_point	project_point(t_point p, t_data *dt)
 {
 	double	x_temp;
 	double	y_temp;
+	int	z_divisor;
 
 	x_temp = p.x;
 	y_temp = p.y;
+	if (dt->max_z >= 50)
+		z_divisor = 25;
+	else if (dt->max_z >= 20)
+		z_divisor = 15;
+	else if (dt->max_z >= 10)
+		z_divisor = 9;
+	else
+		z_divisor = 2.5;
 	p.x = (x_temp - y_temp) * cos(dt->angle) *dt->zoom;
-	p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom - (p.z * dt->zoom) / 2.0;
+	p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom;
+	p.y -= (p.z * dt->zoom) / z_divisor;
 	p.x += dt->offset_x;
 	p.y += dt->offset_y;
 	return (p);
