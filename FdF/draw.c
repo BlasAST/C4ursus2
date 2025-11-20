@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:30:31 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/20 01:45:22 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/20 02:04:19 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_point	project_point(t_point p, t_data *dt)
 {
 	double	x_temp;
 	double	y_temp;
-	int	z_divisor;
+	int		z_divisor;
 
 	x_temp = p.x;
 	y_temp = p.y;
@@ -28,7 +28,7 @@ t_point	project_point(t_point p, t_data *dt)
 		z_divisor = 9;
 	else
 		z_divisor = 2.5;
-	p.x = (x_temp - y_temp) * cos(dt->angle) *dt->zoom;
+	p.x = (x_temp - y_temp) * cos(dt->angle) * dt->zoom;
 	p.y = (x_temp + y_temp) * sin(dt->angle) * dt->zoom;
 	p.y -= (p.z * dt->zoom) / z_divisor;
 	p.x += dt->offset_x;
@@ -39,10 +39,10 @@ t_point	project_point(t_point p, t_data *dt)
 // Función extra anterior
 void	draw_map(t_data *dt)
 {
-	int	x;
-	int	y;
-	t_point current;
-	t_point next;
+	int		x;
+	int		y;
+	t_point	current;
+	t_point	next;
 
 	y = 0;
 	while (y < dt->map_size_h)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 00:40:05 by blas              #+#    #+#             */
-/*   Updated: 2025/11/18 13:34:01 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:53:17 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,4 @@ char	*check_validate_file_and_save(char *str)
 	if (!extension || check_file_fdf(extension) == 1)
 		error_ex("Error file: The extension must be .fdf\n", 1);
 	return (str);
-} 
+}

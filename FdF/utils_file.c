@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 13:11:55 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:56:13 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_list	*read_file(char *str)
 {
 	int		fd;
 	char	*line;
-	t_list *node;
-	t_list *temp;
+	t_list	*node;
+	t_list	*temp;
 
 	fd = open_file(str);
 	if (fd < 0)

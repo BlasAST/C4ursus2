@@ -6,7 +6,7 @@
 /*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 00:50:36 by blas              #+#    #+#             */
-/*   Updated: 2025/11/20 01:38:30 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/20 01:55:46 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	put_pixel(t_data *dt, int x, int y, int color)
 
 	if (x < 0 || x >= dt->map_size_w_view || y < 0 || y >= dt->map_size_h_view)
 		return ;
-	dst = dt->i_d.addr + (y * dt->i_d.line_length + x * (dt->i_d.bit_per_pixel / 8));
+	dst = dt->i_d.addr + (y * dt->i_d.line_length + x * \
+(dt->i_d.bit_per_pixel / 8));
 	*(unsigned int *) dst = color;
 }
 
@@ -31,8 +32,8 @@ void	put_pixel(t_data *dt, int x, int y, int color)
 
 void	draw_line(t_data *dt, t_point p1, t_point p2)
 {
-	double dx;
-	double dy;
+	double	dx;
+	double	dy;
 	int		steps;
 	double	x_inc;
 	double	y_inc;
@@ -71,7 +72,7 @@ void	max_size_z(t_data *dt)
 		x = 0;
 		while (x < dt->map_size_w)
 		{
-			if (abs(dt->map[y][x].z) > max )
+			if (abs(dt->map[y][x].z) > max)
 				max = abs(dt->map[y][x].z);
 			x++;
 		}

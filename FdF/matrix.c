@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   matrix.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:11:09 by blas              #+#    #+#             */
-/*   Updated: 2025/11/19 13:09:25 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 02:01:03 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int get_point_color(char *token)
+int	get_point_color(char *token)
 {
-    char    *comma_ptr;
-	char *base;
+	char	*comma_ptr;
+	char	*base;
 
 	base = "0123456789ABCDEF";
-    comma_ptr = ft_strchr(token, ',');
-    if (comma_ptr)
-    {
-        return (ft_atoi_base(comma_ptr + 3, (char *) base));
-    }
-    return (0xFFFFFF);
+	comma_ptr = ft_strchr(token, ',');
+	if (comma_ptr)
+	{
+		return (ft_atoi_base(comma_ptr + 3, (char *) base));
+	}
+	return (0xFFFFFF);
 }
 
 void	do_matrix(t_data *dt)

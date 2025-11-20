@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:31:37 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/18 13:50:03 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/11/20 01:53:34 by blas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	count_split(void *content, void *context)
 {
 	int		size_temp;
-	t_data *dt;
+	t_data	*dt;
 	char	*line;
 	char	**lines;
 
