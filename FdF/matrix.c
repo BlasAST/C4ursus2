@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:11:09 by blas              #+#    #+#             */
-/*   Updated: 2025/11/20 02:01:03 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:28:31 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ void	do_matrix(t_data *dt)
 		x = 0;
 		while (x < dt->map_size_w)
 		{
+			if (!strs[x])
+			{
+				free_split(strs);
+				free_partial_map_and_exit(dt, y);
+			}
 			dt->map[y][x].z = ft_atoi(strs[x]);
 			dt->map[y][x].color = get_point_color(strs[x]);
 			dt->map[y][x].x = x;

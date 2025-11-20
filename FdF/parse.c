@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:27:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/20 01:58:59 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:52:58 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	put_sizes_fdf(t_data *dt, char *file)
 	if (dt->map_lines == NULL)
 	{
 		frees_t_data(dt);
-		error_ex("Mapa vacio:\n", 1);
+		error_ex("Mapa vacio o error de memoria en la lectura\n", 1);
 	}
 	dt->map_size_h = ft_lstsize(dt->map_lines);
 	strs = ft_split(dt->map_lines->content, ' ');

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blas <blas@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bsiguenc <bsiguenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:10:52 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/11/20 01:56:13 by blas             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:52:49 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	open_file(char *str)
 	if (fd == -1)
 	{
 		perror("Error:");
-		error_ex("Error en la apertura del fichero\n", 1);
+		return (-1);
 	}
 	return (fd);
 }
@@ -36,15 +36,22 @@ t_list	*read_file(char *str)
 
 	fd = open_file(str);
 	if (fd < 0)
-		error_ex("Error en la apertura del archivo", 1);
+		return (NULL);
 	node = NULL;
-	while ((line = get_next_line(fd)) != NULL)
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
 		temp = ft_lstnew(line);
-		if (node == NULL)
-			node = temp;
-		else
-			ft_lstadd_back(&node, temp);
+		if (temp == NULL)
+		{
+			free(line);
+			ft_lstclear(&node, free);
+			close(fd);
+			return (NULL);
+		}
+		ft_lstadd_back(&node, temp);
 	}
 	close(fd);
 	return (node);
